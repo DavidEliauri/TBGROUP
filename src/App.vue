@@ -1,7 +1,7 @@
-
 <template>
-  <RouterView />
+  <Navigation class="navigation"/>
+  <RouterView/>
 </template>
-
-<style scoped>
-</style>
+<script setup>
+import Navigation from '@/components/Navigation.vue'
+</script>
