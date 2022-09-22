@@ -36,7 +36,7 @@ const openMenuAnimation = () => {
     width: '100%',
     paddingTop: 30,
     marginTop: 0,
-    backgroundColor: '#2DAB49'
+    backgroundColor: 'var(--BRIGHT_GREEN_100)'
   })
   GSAP.to('.navigation__menu__links', {
     height: 'auto', opacity: 1, paddingBottom: 32
