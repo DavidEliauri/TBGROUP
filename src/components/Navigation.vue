@@ -1,27 +1,102 @@
 <template>
-  <header class="navigation">
-    <router-link class='navigation__menu' to="#">Меню</router-link>
-    <button class="navigation__button caption_1 uppercase">Связяться с нами</button>
+  <header class="navigation__wrapper">
+    <div class="navigation">
+      <div class="navigation__menu" :class="{'open': show_menu}">
+        <button class='navigation__menu__button navigation__menu__link link' @click="toggleMenu">Меню {{ +show_menu }}
+        </button>
+        <nav class="navigation__menu__links">
+          <router-link class="navigation__menu__link link" to="#">Главная</router-link>
+          <router-link class="navigation__menu__link link" to="#">Программы</router-link>
+          <router-link class="navigation__menu__link link" to="#">Клиенты</router-link>
+          <router-link class="navigation__menu__link link" to="#">Тематики</router-link>
+          <router-link class="navigation__menu__link link" to="#">Мероприятия</router-link>
+          <router-link class="navigation__menu__link link" to="#">Блог</router-link>
+          <router-link class="navigation__menu__link link" to="#">Команда</router-link>
+        </nav>
+      </div>
+      <button class="navigation__button caption_1 uppercase">Связяться с нами</button>
+    </div>
   </header>
 </template>
+<script setup>
+import {ref, watch} from 'vue';
+import GSAP from 'gsap';
+
+const show_menu = ref(false);
+const toggleMenu = () => show_menu.value = !show_menu.value;
+
+
+watch(show_menu, is_open_now => {
+  if (is_open_now) openMenuAnimation();
+  else closeMenuAnimation();
+});
+
+const openMenuAnimation = () => {
+  GSAP.to('.navigation__menu', {
+    width: '100%',
+    paddingTop: 30,
+    marginTop: 0,
+    backgroundColor: '#2DAB49'
+  })
+  GSAP.to('.navigation__menu__links', {
+    height: 'auto', opacity: 1, paddingBottom: 32
+  });
+
+}
+const closeMenuAnimation = () => {
+  GSAP.to('.navigation__menu', {width: 'auto', paddingTop: 0, marginTop: 30, backgroundColor: "#FFFFFF00"})
+  GSAP.to('.navigation__menu__links', {
+    height: 0, opacity: 0, paddingBottom: 0
+  });
+}
+
+</script>
 <style lang="scss">
+@import "@/assets/scss/links.scss";
+
 .navigation {
   position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
   width: 100%;
-  padding: 0 100px;
-  height: 88px;
   border: 1px solid black;
 
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 19px 100px 0;
+    border: 1px solid black;
+  }
+
   &__menu {
-    margin: 0 auto;
-    position: absolute;
-    left: 50%;
-    bottom: 9px;
-    transform: translateX(-50%);
+    width: max-content;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: content-box;
+    margin-top: 30px;
+    overflow: hidden;
+    border-radius: 2px;
+
+    &__links {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      grid-gap: 16px;
+      height: 0;
+      box-sizing: content-box;
+    }
   }
 
   &__button {
@@ -36,6 +111,9 @@
     gap: 10px;
     letter-spacing: 0.1em;
     border-radius: 2px;
+    position: absolute;
+    right: 20px;
+    top: 21px;
   }
 }
 </style>
