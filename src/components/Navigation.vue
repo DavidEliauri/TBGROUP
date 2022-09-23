@@ -2,8 +2,7 @@
   <header class="navigation__wrapper">
     <div class="navigation">
       <div class="navigation__menu">
-        <button class='navigation__menu__button  link' @click="toggleMenu">Меню {{ +show_menu }}
-        </button>
+        <button class='navigation__menu__button  link' @click="toggleMenu">Меню</button>
         <nav class="navigation__menu__links">
           <router-link class="navigation__menu__link link" to="#">Главная</router-link>
           <router-link class="navigation__menu__link link" to="#">Программы</router-link>
@@ -28,14 +27,20 @@ import COLORS from '@/assets/scss/variables_export.js';
 const show_menu = ref(false);
 const toggleMenu = () => show_menu.value = !show_menu.value;
 
+import {useGeneralStore} from '@/stores/general.js';
+
+const $general_store = useGeneralStore();
+
 
 watch(show_menu, is_open_now => {
   if (is_open_now) {
     openMenuAnimation();
     openButtonAnimation();
+    $general_store.$patch({is_menu_open: true})
   } else {
     closeMenuAnimation();
     closeButtonAnimation();
+    $general_store.$patch({is_menu_open: false})
   }
 });
 
