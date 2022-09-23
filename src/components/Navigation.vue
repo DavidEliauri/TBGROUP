@@ -1,8 +1,8 @@
 <template>
   <header class="navigation__wrapper">
     <div class="navigation">
-      <div class="navigation__menu" :class="{'open': show_menu}">
-        <button class='navigation__menu__button navigation__menu__link link' @click="toggleMenu">Меню {{ +show_menu }}
+      <div class="navigation__menu">
+        <button class='navigation__menu__button  link' @click="toggleMenu">Меню {{ +show_menu }}
         </button>
         <nav class="navigation__menu__links">
           <router-link class="navigation__menu__link link" to="#">Главная</router-link>
@@ -20,36 +20,88 @@
 </template>
 <script setup>
 import {ref, watch} from 'vue';
-import GSAP from 'gsap';
+import gsap from 'gsap';
+
+const TRANSITION_TIME = 1.3;
+import COLORS from '@/assets/scss/variables_export.js';
 
 const show_menu = ref(false);
 const toggleMenu = () => show_menu.value = !show_menu.value;
 
 
 watch(show_menu, is_open_now => {
-  if (is_open_now) openMenuAnimation();
-  else closeMenuAnimation();
+  if (is_open_now) {
+    openMenuAnimation();
+    openButtonAnimation();
+  } else {
+    closeMenuAnimation();
+    closeButtonAnimation();
+  }
 });
 
+///////////////////////////////////////
 const openMenuAnimation = () => {
-  GSAP.to('.navigation__menu', {
+  gsap.to('.navigation__menu', {
     width: '100%',
     paddingTop: 30,
     marginTop: 0,
-    backgroundColor: 'var(--BRIGHT_GREEN_100)'
+    background: '#2DAB49',
+    duration: TRANSITION_TIME,
+    ease: 'power3',
   })
-  GSAP.to('.navigation__menu__links', {
-    height: 'auto', opacity: 1, paddingBottom: 32
+  gsap.to('.navigation__menu__button', {
+    color: COLORS.IVORY_60,
+    ease: 'power3',
+    textDecorationColor: `${COLORS.BRIGHT_GREEN_100}00`,
+    duration: TRANSITION_TIME,
+  })
+  gsap.to('.navigation__menu__links', {
+    height: 'auto', opacity: 1, paddingBottom: 32, duration: TRANSITION_TIME, ease: 'power3',
   });
 
 }
 const closeMenuAnimation = () => {
-  GSAP.to('.navigation__menu', {width: 'auto', paddingTop: 0, marginTop: 30, backgroundColor: "#FFFFFF00"})
-  GSAP.to('.navigation__menu__links', {
-    height: 0, opacity: 0, paddingBottom: 0
+  gsap.to('.navigation__menu', {
+    width: 'auto',
+    paddingTop: 0,
+    marginTop: 30,
+    background: `${COLORS.BRIGHT_GREEN_100}00`,
+    duration: TRANSITION_TIME,
+    ease: 'power3',
+  })
+  gsap.to('.navigation__menu__button', {
+    color: COLORS.BRIGHT_GREEN_100,
+    ease: 'power3',
+    textDecorationColor: COLORS.BRIGHT_GREEN_100,
+    duration: TRANSITION_TIME,
+  })
+  gsap.to('.navigation__menu__links', {
+    height: 0,
+    opacity: 0,
+    textDecorationColor: 'rgba(0,0,0,0)',
+    paddingBottom: 0,
+    duration: TRANSITION_TIME,
+    ease: 'power3',
   });
 }
-
+///////////////////////////////////////
+const openButtonAnimation = () => {
+  gsap.to('.navigation__button', {
+    backgroundColor: COLORS.IVORY_100,
+    color: COLORS.BRIGHT_GREEN_100,
+    duration: TRANSITION_TIME,
+    ease: 'power3',
+  });
+}
+const closeButtonAnimation = () => {
+  gsap.to('.navigation__button', {
+    backgroundColor: COLORS.BRIGHT_GREEN_100,
+    color: COLORS.IVORY_100,
+    duration: TRANSITION_TIME,
+    ease: 'power3',
+  });
+}
+///////////////////////////////////////
 </script>
 <style lang="scss">
 @import "@/assets/scss/links.scss";
@@ -86,6 +138,15 @@ const closeMenuAnimation = () => {
     margin-top: 30px;
     overflow: hidden;
     border-radius: 2px;
+
+    &__button {
+      color: $BRIGHT_GREEN_100;
+    }
+
+    &__link {
+      color: $IVORY_60;
+    }
+
 
     &__links {
       margin-top: 12px;
