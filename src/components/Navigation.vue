@@ -112,14 +112,6 @@ const closeButtonAnimation = () => {
 @import "@/assets/scss/links.scss";
 
 .navigation {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
-  height: 100%;
-  width: 100%;
-  border: 1px solid black;
 
   &__wrapper {
     position: relative;
@@ -129,8 +121,15 @@ const closeButtonAnimation = () => {
     width: 100%;
     height: auto;
     padding: 19px 100px 0;
-    border: 1px solid black;
   }
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
 
   &__menu {
     width: max-content;
