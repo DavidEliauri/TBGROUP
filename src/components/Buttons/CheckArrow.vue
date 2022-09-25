@@ -24,7 +24,9 @@ const disabled = () => console.log("disabled");
 
   opacity: .75;
   fill: $BLACK_100;
-
+  *{
+    transition: $TRANSITION;
+  }
   &.rotate &__icon {
     transform: rotate(180deg);
   }

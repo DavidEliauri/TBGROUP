@@ -3,9 +3,8 @@
     <div class="filters">
       <div class="filters__main">
         <button class="filters__toggle-button caption_1" @click="toggle">Фильтры
-
+          <CheckArrowButton class="filters__toggle-button__icon" :class="{rotate: is_filters_open}"/>
         </button>
-
       </div>
       <div class="filters__content">
         <div class="filters__content__section">
@@ -29,6 +28,7 @@
 </template>
 <script setup>
 import SecondaryButton from "@/components/Buttons/Secondary.vue";
+import CheckArrowButton from "@/components/Buttons/CheckArrow.vue";
 import Tag from "@/components/Buttons/Tag.vue";
 import {ref, watch} from 'vue';
 import {gsap} from 'gsap';
@@ -37,15 +37,11 @@ import COLORS from '@/assets/scss/variables_export.js';
 const is_filters_open = ref(false);
 
 const toggle = () => is_filters_open.value = !is_filters_open.value;
-const accept = () => {
-  is_filters_open.value = false;
-}
-
+const accept = () => is_filters_open.value = false;
 
 watch(is_filters_open, value => {
-  if (value) {
-    openFiltersAnimation();
-  } else closeFiltersAnimation();
+  if (value) openFiltersAnimation();
+  else closeFiltersAnimation();
 });
 
 const openFiltersAnimation = () => {
@@ -104,14 +100,15 @@ const closeFiltersAnimation = () => {
   &__toggle-button {
     border: none;
     background-color: rgba(0, 0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &__icon {
       margin-left: 13px;
       transition: $TRANSITION * 2;
 
-      &_rotated {
-        transform: rotate(180deg);
-      }
+
     }
   }
 
