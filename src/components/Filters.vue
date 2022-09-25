@@ -3,11 +3,7 @@
     <div class="filters">
       <div class="filters__main">
         <button class="filters__toggle-button caption_1" @click="toggle">Фильтры
-          <svg class="filters__toggle-button__icon" :class="{'filters__toggle-button__icon_rotated': !is_filters_open}"
-               width="16"
-               height="9">
-            <use xlink:href="@/assets/sprites.svg#arrow-down"></use>
-          </svg>
+
         </button>
 
       </div>

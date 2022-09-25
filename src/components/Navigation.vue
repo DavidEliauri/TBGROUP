@@ -149,6 +149,11 @@ const closeButtonAnimation = () => {
 
     &__link {
       color: $IVORY_60;
+      transition: $TRANSITION;
+
+      &:hover {
+        color: $IVORY_100;
+      }
     }
 
 
