@@ -3,7 +3,7 @@
     <div class="filters">
       <div class="filters__main">
         <button class="filters__toggle-button caption_1" @click="toggle">Фильтры
-          <CheckArrowButton class="filters__toggle-button__icon" :class="{rotate: is_filters_open}"/>
+          <CheckArrowButton class="filters__toggle-button__icon" :class="{rotate: !is_filters_open}"/>
         </button>
       </div>
       <div class="filters__content">
@@ -74,7 +74,6 @@ const closeFiltersAnimation = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 100px;
     overflow: hidden;
   }
 

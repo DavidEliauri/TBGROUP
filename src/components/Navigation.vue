@@ -120,7 +120,7 @@ const closeButtonAnimation = () => {
     align-items: center;
     width: 100%;
     height: auto;
-    padding: 19px 100px 0;
+    padding: 19px 0 0;
   }
 
   position: relative;

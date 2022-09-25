@@ -1,25 +1,27 @@
 <template>
   <main class="page home-page">
-    <div class="home-page__row">
-      <h1>
-        TRAINING
-      </h1>
+    <div class="home-page__logo">
+      <div class="home-page__row">
+        <h1>
+          TRAINING
+        </h1>
 
-      <svg class="cross" width="140" height="139">
-        <use
-            xlink:href="@/assets/sprites.svg#cross"></use>
-      </svg>
+        <svg class="cross" width="140" height="139">
+          <use
+              xlink:href="@/assets/sprites.svg#cross"></use>
+        </svg>
+      </div>
+      <h1 class="home-page__row">DEVELOPMENT</h1>
+      <div class="home-page__row">
+        <h1 class="home-page__row">GROUP</h1>
+        <p class="home-page__additional-text body_1">Корпоративные <br>
+          образовательные
+          <br>
+          программы</p>
+      </div>
+    </div>
 
-    </div>
-    <h1 class="home-page__row">DEVELOPMENT</h1>
-    <div class="home-page__row">
-      <h1 class="home-page__row">GROUP</h1>
-      <p class="home-page__additional-text body_1">Корпоративные <br>
-        образовательные
-        <br>
-        программы</p>
-    </div>
-    <Card class="home-page__card"/>
+<!--    <Card class="home-page__card"/>-->
   </main>
 </template>
 <script setup>
@@ -29,7 +31,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {onMounted} from "vue";
 
 gsap.registerPlugin(ScrollTrigger);
-
+document.addEventListener('scroll', () => console.log('scroll event'));
 onMounted(() => {
   console.log(document.querySelectorAll('.home-page__row'));
   gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3})

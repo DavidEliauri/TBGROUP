@@ -27,7 +27,6 @@ const props = defineProps({
 
 </script>
 <style lang="scss">
-
 .card {
   width: 462px;
   padding: 24px;
@@ -37,6 +36,8 @@ const props = defineProps({
   align-items: stretch;
   grid-gap: 10px;
   border: 1px solid black;
+  border-radius: 2px;
+  background-color: $IVORY_80;
 
   &__side {
     flex-grow: 1;

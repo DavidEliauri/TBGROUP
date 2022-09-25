@@ -7,3 +7,4 @@
 import Navigation from '@/components/Navigation.vue'
 import Filters from "@/components/Filters.vue";
 </script>
+
