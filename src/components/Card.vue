@@ -1,19 +1,30 @@
 <template>
-    <article class="card">
-      <div class="card__image__wrapper card__side">
-        <img src="@/assets/images/dog.png" alt="Card image" class="card__image">
-      </div>
-      <div class="card__content card__side">
-        <p class="card__content__caption caption_1">Мероприятие</p>
-        <p class="card__content__text subheader_2">Метод морфологического ящика</p>
-        <ArrowButton/>
-        <CheckArrow/>
-      </div>
-    </article>
+  <article class="card">
+    <div class="card__image__wrapper card__side">
+      <img src="@/assets/images/dog.png" alt="Card image" class="card__image" v-if="card.image">
+    </div>
+    <div class="card__content card__side">
+      <p class="card__content__caption caption_1">{{ card.caption }}</p>
+      <p class="card__content__text subheader_2">{{ card.text }}</p>
+      <ArrowButton/>
+    </div>
+  </article>
 </template>
 <script setup>
 import ArrowButton from '@/components/Buttons/Arrow.vue';
-import CheckArrow from '@/components/CheckArrow.vue';
+
+const props = defineProps({
+  card: {
+    required: false,
+    default: {
+      image: true,
+      text: 'Метод морфологического ящика. Метод морфологического ящика. Метод морфологического ящика.',
+      caption: 'Мероприятие'
+    }
+  }
+});
+
+
 </script>
 <style lang="scss">
 
@@ -58,6 +69,7 @@ import CheckArrow from '@/components/CheckArrow.vue';
       margin: 50px 0 46px;
       flex-grow: 1;
       text-align: center;
+      word-break: break-word;
     }
   }
 }
