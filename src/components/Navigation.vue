@@ -4,7 +4,7 @@
       <div class="navigation__menu">
         <button class='navigation__menu__button  link' @click="toggleMenu">Меню</button>
         <nav class="navigation__menu__links">
-          <router-link class="navigation__menu__link link" to="#">Главная</router-link>
+          <router-link class="navigation__menu__link link" to="/">Главная</router-link>
           <router-link class="navigation__menu__link link" to="#">Программы</router-link>
           <router-link class="navigation__menu__link link" to="#">Клиенты</router-link>
           <router-link class="navigation__menu__link link" to="#">Тематики</router-link>

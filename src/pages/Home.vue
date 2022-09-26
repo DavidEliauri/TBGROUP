@@ -23,6 +23,7 @@
 
     <!--    <Card class="home-page__card"/>-->
   </main>
+
 </template>
 <script setup>
 import Card from '@/components/Card.vue';
@@ -45,6 +46,8 @@ onMounted(() => {
 });
 </script>
 <style lang="scss">
+
+
 h1 {
   letter-spacing: -7px;
   color: $BRIGHT_GREEN_100;

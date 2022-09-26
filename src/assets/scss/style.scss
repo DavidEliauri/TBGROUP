@@ -5,27 +5,16 @@
   box-sizing: border-box;
 }
 
+
+
 body {
   font-family: 'Stratos LC', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 135%;;
+  overflow-x: hidden;
   overflow-y: overlay;
-  padding: 0 100px;
-  max-width: 1440px;
-  margin: 0 auto;
-  @media screen and (max-width: 1440px) {
-    padding: 0 50px;
-  }
-  $notebook_start: 1440px;
-  $notebook: 1024px;
-  $tablet_start: 992px;
-  $tablet: 768px;
-  $tablet_end: 620px;
-  $phone_start: 550px;
-  $phone: 425px;
-  $phone_end: 375px;
 }
 
 .page {
@@ -38,4 +27,13 @@ body {
 
 button, a {
   cursor: pointer;
+}
+
+.line-clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
 }
