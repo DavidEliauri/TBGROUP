@@ -26,10 +26,60 @@
 </template>
 <script setup>
 import Badge from '@/components/Badge.vue';
-import {ref} from 'vue';
+import {ref, nextTick} from 'vue';
+import {gsap} from 'gsap';
 
 const active_index = ref(1);
-const selectTrainingIndex = training_index => active_index.value = training_index;
+const selectTrainingIndex = training_index => {
+  if (active_index.value === training_index) return;
+  animateOldTraining();
+  active_index.value = training_index;
+  nextTick(() => animateNewTraining());
+}
+
+const EASE_NAME = 'power4';
+const DURATION_TIME = 1;
+
+function animateOldTraining() {
+  gsap.to('.training.active', {minWidth: 441, width: 441, maxWidth: 441, ease: EASE_NAME, duration: DURATION_TIME})
+  gsap.to('.training.active .training__content__image__wrapper', {
+    width: 295,
+    maxHeight: 295,
+    ease: EASE_NAME,
+    duration: DURATION_TIME
+  });
+
+  gsap.to('training.active .training__header__title', {
+    width: 277, fontSize: 32, lineHeight: '105%', letterSpacing: '0.03em'
+  });
+  gsap.to('.training.active .training__content__main', {
+    display: 'none',
+    width: 0, ease: EASE_NAME, opacity: 0, duration: DURATION_TIME
+  });
+}
+
+function animateNewTraining() {
+  console.log("animate new")
+  gsap.to('.training.active', {width: 820, minWidth: 820, maxWidth: 820, ease: EASE_NAME, duration: DURATION_TIME})
+  gsap.to('training.active .training__header__title', {
+    width: 498, fontSize: 48, lineHeight: '100%'
+  });
+  gsap.to('.training.active .training__content__image__wrapper', {
+    width: 378,
+    maxHeight: 378,
+    ease: EASE_NAME,
+    duration: DURATION_TIME
+  });
+  gsap.to('.training.active .training__content__main', {
+    display: 'flex',
+    width: 'auto',
+    ease: EASE_NAME,
+    opacity: 1,
+    duration: DURATION_TIME
+  });
+}
+
+
 </script>
 <style lang="scss">
 .trainings-page {
@@ -45,9 +95,6 @@ const selectTrainingIndex = training_index => active_index.value = training_inde
 
 .training {
   color: $BRIGHT_GREEN_100;
-  min-width: 820px;
-  width: 820px;
-  max-width: 820px;
   height: 603px;
   border-right: 2px solid $BRIGHT_GREEN_100;
   padding: 0 20px;
@@ -55,29 +102,19 @@ const selectTrainingIndex = training_index => active_index.value = training_inde
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  transition: 10s;
 
-  * {
-    transition: 10s;
-  }
-
-  &:not(.active) {
-    min-width: 441px;
-    width: 441px;
-    max-width: 441px;
-  }
 
   &:not(.active) & {
     &__header__title {
-      width: 277px;
-      font-size: 32px;
-      line-height: 105%;
-      letter-spacing: 0.03em;
+
     }
 
     &__content {
       &__main {
-        display: none;
+      }
+
+      &__image__wrapper {
+
       }
     }
   }
@@ -100,7 +137,6 @@ const selectTrainingIndex = training_index => active_index.value = training_inde
     &__title {
       line-clamp: 4;
       -webkit-line-clamp: 4;
-      width: 498px;
 
     }
   }
