@@ -1,5 +1,6 @@
 @import './fonts.scss';
 @import './headings.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -14,16 +15,26 @@ body {
   padding: 0 100px;
   max-width: 1440px;
   margin: 0 auto;
+  @media screen and (max-width: 1440px) {
+    padding: 0 50px;
+  }
+  $notebook_start: 1440px;
+  $notebook: 1024px;
+  $tablet_start: 992px;
+  $tablet: 768px;
+  $tablet_end: 620px;
+  $phone_start: 550px;
+  $phone: 425px;
+  $phone_end: 375px;
 }
 
-.page{
+.page {
   border: 1px solid black;
 }
 
-.uppercase{
+.uppercase {
   text-transform: uppercase;
 }
-
 
 button, a {
   cursor: pointer;

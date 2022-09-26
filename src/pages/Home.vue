@@ -21,7 +21,7 @@
       </div>
     </div>
 
-<!--    <Card class="home-page__card"/>-->
+    <!--    <Card class="home-page__card"/>-->
   </main>
 </template>
 <script setup>
@@ -33,9 +33,8 @@ import {onMounted} from "vue";
 gsap.registerPlugin(ScrollTrigger);
 document.addEventListener('scroll', () => console.log('scroll event'));
 onMounted(() => {
-  console.log(document.querySelectorAll('.home-page__row'));
   gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3})
-  gsap.to('.cross', {transform: 'scale(1)', duration: 1, opacity: 1})
+  gsap.to('.cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
   gsap.to('.home-page__additional-text', {
     delay: 1.4,
     transform: 'translateX(0)',
@@ -56,7 +55,7 @@ h1 {
 .cross {
   margin-left: 40px;
   opacity: 0;
-  transform: scale(0);
+  transform: translateY(-70px);
 }
 
 .home-page {
