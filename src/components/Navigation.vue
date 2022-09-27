@@ -5,7 +5,7 @@
         <button class='navigation__menu__button  link' @click="toggleMenu">Меню</button>
         <nav class="navigation__menu__links">
           <router-link class="navigation__menu__link link" to="/">Главная</router-link>
-          <router-link class="navigation__menu__link link" to="#">Программы</router-link>
+          <router-link class="navigation__menu__link link" to="/trainings">Программы</router-link>
           <router-link class="navigation__menu__link link" to="#">Клиенты</router-link>
           <router-link class="navigation__menu__link link" to="#">Тематики</router-link>
           <router-link class="navigation__menu__link link" to="#">Мероприятия</router-link>
@@ -23,6 +23,9 @@ import gsap from 'gsap';
 
 const TRANSITION_TIME = 1.3;
 import COLORS from '@/assets/scss/variables_export.js';
+import {useRoute} from 'vue-router';
+
+const CURRENT_ROUTE = useRoute();
 
 const show_menu = ref(false);
 const toggleMenu = () => show_menu.value = !show_menu.value;
@@ -30,7 +33,6 @@ const toggleMenu = () => show_menu.value = !show_menu.value;
 import {useGeneralStore} from '@/stores/general.js';
 
 const $general_store = useGeneralStore();
-
 
 watch(show_menu, is_open_now => {
   if (is_open_now) {
@@ -43,6 +45,9 @@ watch(show_menu, is_open_now => {
     $general_store.$patch({is_menu_open: false})
   }
 });
+
+watch(() => CURRENT_ROUTE.path, () => show_menu.value = false);
+
 
 ///////////////////////////////////////
 const openMenuAnimation = () => {
