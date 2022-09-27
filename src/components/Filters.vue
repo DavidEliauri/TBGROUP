@@ -30,20 +30,25 @@
 import SecondaryButton from "@/components/Buttons/Secondary.vue";
 import CheckArrowButton from "@/components/Buttons/CheckArrow.vue";
 import Tag from "@/components/Buttons/Tag.vue";
-import {ref, watch} from 'vue';
+import {onBeforeUnmount, onMounted, ref, watch} from 'vue';
 import {gsap} from 'gsap';
 import COLORS from '@/assets/scss/variables_export.js';
 
 const is_filters_open = ref(false);
-
-const toggle = () => is_filters_open.value = !is_filters_open.value;
-const accept = () => is_filters_open.value = false;
+const is_filters_available = ref(false);
+const toggle = () => {
+  if (!is_filters_available.value) return;
+  is_filters_open.value = !is_filters_open.value;
+}
+const accept = () => {
+  if (!is_filters_available.value) return;
+  is_filters_open.value = false;
+}
 
 watch(is_filters_open, value => {
   if (value) openFiltersAnimation();
   else closeFiltersAnimation();
 });
-
 const openFiltersAnimation = () => {
   gsap.to('.filters__content', {
     paddingTop: '40px',
@@ -66,6 +71,19 @@ const closeFiltersAnimation = () => {
   gsap.to('.filters__content', {padding: '0', height: 0, duration: 1, borderTopWidth: 0, ease: 'power3'})
   gsap.to('.filters__accept', {padding: '0', height: 0, duration: 1, borderTopWidth: 0, ease: 'power3'})
 }
+
+onMounted(() => gsap.to('.filters__wrapper', {
+  height: 'auto', duration: 10, onComplete: () => is_filters_available.value = true, ease: 'power3'
+}))
+
+onBeforeUnmount(() => {
+  is_filters_available.value = false;
+  gsap.to('.filters__wrapper', {
+    height: 0, duration: 10
+  })
+})
+
+
 </script>
 <style lang="scss">
 .filters {
@@ -74,7 +92,7 @@ const closeFiltersAnimation = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    height: 0;
   }
 
   width: 100%;

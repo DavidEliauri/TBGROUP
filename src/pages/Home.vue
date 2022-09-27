@@ -32,7 +32,6 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {onMounted} from "vue";
 
 gsap.registerPlugin(ScrollTrigger);
-document.addEventListener('scroll', () => console.log('scroll event'));
 onMounted(() => {
   gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3})
   gsap.to('.cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})

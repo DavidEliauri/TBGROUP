@@ -34,10 +34,10 @@ const active_index = ref(1);
 const EASE_NAME = 'power4';
 const DURATION_TIME = 1;
 
-const scrollHandler = () => {
-  console.log(
-      Array.from(document.querySelectorAll('.training')).map((el, index) => ({client_rect: el.getBoundingClientRect()})))
-}
+// const scrollHandler = () => {
+//   console.log(
+//       Array.from(document.querySelectorAll('.training')).map((el, index) => ({client_rect: el.getBoundingClientRect()})))
+// }
 
 onMounted(() => {
   animateOldTraining('.training:not(.active)', 0);

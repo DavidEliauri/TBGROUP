@@ -2,7 +2,7 @@
   <header class="navigation__wrapper">
     <div class="navigation">
       <div class="navigation__menu">
-        <button class='navigation__menu__button  link' @click="toggleMenu">Меню</button>
+        <button class='navigation__menu__button link' @click="toggleMenu">Меню</button>
         <nav class="navigation__menu__links">
           <router-link class="navigation__menu__link link" to="/">Главная</router-link>
           <router-link class="navigation__menu__link link" to="/trainings">Программы</router-link>
