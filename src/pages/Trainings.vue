@@ -1,5 +1,5 @@
 <template>
-  <main class="page trainings-page">
+  <main ref='TRAININGS_PAGE' @scroll="scrollHandler" class="page trainings-page">
     <section v-for="training_index in 5" :key="`training-${training_index}`"
              :class="{active: training_index===active_index}" class="training">
       <div class="training__header">
@@ -26,44 +26,52 @@
 </template>
 <script setup>
 import Badge from '@/components/Badge.vue';
-import {ref, nextTick, onMounted, watch} from 'vue';
+import {ref, nextTick, onMounted} from 'vue';
 import {gsap} from 'gsap';
 
+const TRAININGS_PAGE = ref(null);
 const active_index = ref(1);
-
-onMounted(()=>console.log("mounted"));
-// watch(()=>)
-
-
-
-const selectTrainingIndex = training_index => {
-  if (active_index.value === training_index) return;
-  animateOldTraining();
-  active_index.value = training_index;
-  nextTick(() => animateNewTraining());
-}
-
 const EASE_NAME = 'power4';
 const DURATION_TIME = 1;
 
-function animateOldTraining() {
-  gsap.to('.training.active', {
+const scrollHandler = () => {
+  console.log(
+      Array.from(document.querySelectorAll('.training')).map((el, index) => ({client_rect: el.getBoundingClientRect()})))
+}
+
+onMounted(() => {
+  animateOldTraining('.training:not(.active)', 0);
+  animateNewTraining('.training.active', 0);
+});
+const selectTrainingIndex = training_index => {
+  if (active_index.value === training_index) return;
+  animateOldTraining();
+
+  // TRAININGS_PAGE.value.scrollTo({left:100,    behavior: "smooth"})
+
+  active_index.value = training_index;
+  nextTick(() => animateNewTraining());
+
+}
+
+function animateOldTraining(training_selector = '.training.active', local_duration_time = DURATION_TIME) {
+  gsap.to(training_selector, {
     width: 441,
     ease: EASE_NAME,
-    duration: DURATION_TIME
+    duration: local_duration_time
   })
-  gsap.to('.training.active .training__content__image__wrapper', {
+  gsap.to(`${training_selector} .training__content__image__wrapper`, {
     width: 295,
     maxHeight: 295,
     ease: EASE_NAME,
-    duration: DURATION_TIME
+    duration: local_duration_time
   });
   const title_old_timeline = gsap.timeline();
-  title_old_timeline.to('.training.active .training__header__title', {
+  title_old_timeline.to(`${training_selector} .training__header__title`, {
     opacity: 0,
-    duration: DURATION_TIME / 2,
+    duration: local_duration_time / 2,
   });
-  title_old_timeline.to('.training.active .training__header__title', {
+  title_old_timeline.to(`${training_selector} .training__header__title`, {
     width: 277,
     maxWidth: 277,
     fontSize: 32,
@@ -71,57 +79,54 @@ function animateOldTraining() {
     letterSpacing: '0.03em',
     duration: 0.0
   });
-  title_old_timeline.to('.training.active .training__header__title', {
+  title_old_timeline.to(`${training_selector} .training__header__title`, {
     opacity: 1,
-    duration: DURATION_TIME / 2,
+    duration: local_duration_time / 2,
   });
-  gsap.to('.training.active .training__content__main', {
+  gsap.to(`${training_selector} .training__content__main`, {
     display: 'none',
-    width: 0, ease: EASE_NAME, opacity: 0, duration: DURATION_TIME
+    width: 0, ease: EASE_NAME, opacity: 0, duration: local_duration_time
   });
 }
 
-function animateNewTraining() {
-  gsap.to('.training.active', {
+function animateNewTraining(training_selector = '.training.active', local_duration_time = DURATION_TIME) {
+  gsap.to(training_selector, {
     width: 820,
     ease: EASE_NAME,
-    duration: DURATION_TIME
+    duration: local_duration_time
   })
 
   const title_new_timeline = gsap.timeline();
-  title_new_timeline.to('.training.active .training__header__title', {
+  title_new_timeline.to(`${training_selector} .training__header__title`, {
     opacity: 0,
-    duration: DURATION_TIME / 2,
+    duration: local_duration_time / 2,
   });
-  title_new_timeline.to('.training.active .training__header__title', {
+  title_new_timeline.to(`${training_selector} .training__header__title`, {
     width: 498,
     maxWidth: 498,
     fontSize: 48,
     lineHeight: '100%',
     duration: 0
   });
-  title_new_timeline.to('.training.active .training__header__title', {
+  title_new_timeline.to(`${training_selector} .training__header__title`, {
     opacity: 1,
-    duration: DURATION_TIME / 2,
+    duration: local_duration_time / 2,
   });
 
-
-  gsap.to('.training.active .training__content__image__wrapper', {
+  gsap.to(`${training_selector} .training__content__image__wrapper`, {
     width: 378,
     maxHeight: 378,
     ease: EASE_NAME,
-    duration: DURATION_TIME
+    duration: local_duration_time
   });
-  gsap.to('.training.active .training__content__main', {
+  gsap.to(`${training_selector} .training__content__main`, {
     display: 'flex',
     width: 'auto',
     ease: EASE_NAME,
     opacity: 1,
-    duration: DURATION_TIME
+    duration: local_duration_time
   });
 }
-
-
 </script>
 <style lang="scss">
 .trainings-page {

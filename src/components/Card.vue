@@ -35,7 +35,7 @@ const props = defineProps({
   justify-content: space-between;
   align-items: stretch;
   grid-gap: 10px;
-  border: 1px solid black;
+  //border: 1px solid black;
   border-radius: 2px;
   background-color: $IVORY_80;
 
@@ -43,7 +43,7 @@ const props = defineProps({
     flex-grow: 1;
     flex-shrink: 0;
     height: 100%;
-    border: 1px solid black;
+    //border: 1px solid black;
     max-width: calc(50% - 5px);
     overflow: hidden;
   }
