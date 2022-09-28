@@ -1,7 +1,7 @@
 <template>
-  <main ref='TRAININGS_PAGE' @scroll="scrollHandler" class="page trainings-page">
-    <section v-for="training_index in 5" :key="`training-${training_index}`"
-             :class="{active: training_index===active_index}" class="training">
+  <main ref='TRAININGS_PAGE' @wheel.prevent="wheelHandler" class="page trainings-page">
+    <section v-for="training_index in 10" :key="`training-${training_index}`"
+      :class="{active: training_index===active_index}" class="training">
       <div class="training__header">
         <p class="training__header__pre body">кейс</p>
         <h4 class="training__header__title line-clamp">ИСПОЛЬЗОВАНИЕ МЕТОДА LEGO SERIOUS PLAY</h4>
@@ -26,19 +26,27 @@
 </template>
 <script setup>
 import Badge from '@/components/Badge.vue';
-import {ref, nextTick, onMounted} from 'vue';
-import {gsap} from 'gsap';
+import { ref, nextTick, onMounted } from 'vue';
+import { gsap } from 'gsap';
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const TRAININGS_PAGE = ref(null);
 const active_index = ref(1);
 const EASE_NAME = 'power4';
 const DURATION_TIME = 1;
+let scroll_disabled = false;
 
-// const scrollHandler = () => {
-//   console.log(
-//       Array.from(document.querySelectorAll('.training')).map((el, index) => ({client_rect: el.getBoundingClientRect()})))
-// }
-
+const wheelHandler = (event) => {
+  if (scroll_disabled) return;
+  let x = (event.deltaY || event.deltaX) > 0 ? 150 : -150
+  gsap.to('.trainings-page', { scrollTo: { x: TRAININGS_PAGE.value.scrollLeft + x }, ease: 'power2' });
+  // const middle_of_page = TRAININGS_PAGE.value.getBoundingClientRect().width / 2;
+  // const array_of_elements = Array.from(document.querySelectorAll('.training')).map(el => el.getBoundingClientRect()).map(el => Math.abs(el.x - middle_of_page));
+  // selectTrainingIndex(array_of_elements.indexOf(Math.min(...array_of_elements)));
+  // TODO: Сделать выбор активного слайда при колесике в зависимости от направления. Типа в зависимости от направления область выбора расширяется и перемещается в нужную сторону.
+}
 onMounted(() => {
   animateOldTraining('.training:not(.active)', 0);
   animateNewTraining('.training.active', 0);
@@ -46,12 +54,8 @@ onMounted(() => {
 const selectTrainingIndex = training_index => {
   if (active_index.value === training_index) return;
   animateOldTraining();
-
-  // TRAININGS_PAGE.value.scrollTo({left:100,    behavior: "smooth"})
-
   active_index.value = training_index;
   nextTick(() => animateNewTraining());
-
 }
 
 function animateOldTraining(training_selector = '.training.active', local_duration_time = DURATION_TIME) {
@@ -90,6 +94,11 @@ function animateOldTraining(training_selector = '.training.active', local_durati
 }
 
 function animateNewTraining(training_selector = '.training.active', local_duration_time = DURATION_TIME) {
+  const training = document.querySelector(training_selector);
+  const coordinates_of_scroll = +training.offsetLeft - (TRAININGS_PAGE.value.getBoundingClientRect().width / 2)
+  gsap.to(".trainings-page", { scrollTo: { x: coordinates_of_scroll }, onStart: () => scroll_disabled = true, onComplete: () => scroll_disabled = false })
+
+
   gsap.to(training_selector, {
     width: 820,
     ease: EASE_NAME,
@@ -125,7 +134,7 @@ function animateNewTraining(training_selector = '.training.active', local_durati
     ease: EASE_NAME,
     opacity: 1,
     duration: local_duration_time
-  });
+  })
 }
 </script>
 <style lang="scss">
@@ -138,6 +147,14 @@ function animateNewTraining(training_selector = '.training.active', local_durati
   height: 100%;
   width: 100%;
   max-width: 100%;
+  scroll-behavior: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .training {
