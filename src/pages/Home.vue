@@ -7,8 +7,7 @@
         </h1>
 
         <svg class="cross" width="140" height="139">
-          <use
-              xlink:href="@/assets/sprites.svg#cross"></use>
+          <use xlink:href="@/assets/sprites.svg#cross"></use>
         </svg>
       </div>
       <h1 class="home-page__row">DEVELOPMENT</h1>
@@ -17,36 +16,36 @@
         <p class="home-page__additional-text body_1">Корпоративные <br>
           образовательные
           <br>
-          программы</p>
+          программы
+        </p>
       </div>
     </div>
-
     <!--    <Card class="home-page__card"/>-->
   </main>
-
 </template>
 <script setup>
 import Card from '@/components/Card.vue';
-import {gsap} from 'gsap';
-import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {onMounted} from "vue";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
 
 gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
-  gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3})
-  gsap.to('.cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
+  gsap.to('h1', { delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3 })
+  gsap.to('.cross', { delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4' })
   gsap.to('.home-page__additional-text', {
     delay: 1.4,
     transform: 'translateX(0)',
     duration: 2,
     opacity: 1,
     ease: 'power3'
-  })
+  });
 });
+
+
+
 </script>
 <style lang="scss">
-
-
 h1 {
   letter-spacing: -7px;
   color: $BRIGHT_GREEN_100;

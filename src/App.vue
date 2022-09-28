@@ -21,9 +21,7 @@ const is_filters_showed = computed(() => route.meta?.filters)
 
 </script>
 <style lang="scss">
-.page {
-  margin-top: 50px;
-}
+
 
 .opacity {
   &-enter-from, &-leave-to{
