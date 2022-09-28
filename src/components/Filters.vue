@@ -32,7 +32,6 @@ import CheckArrowButton from "@/components/Buttons/CheckArrow.vue";
 import Tag from "@/components/Buttons/Tag.vue";
 import {onBeforeUnmount, onMounted, ref, watch} from 'vue';
 import {gsap} from 'gsap';
-import COLORS from '@/assets/scss/variables_export.js';
 
 const is_filters_open = ref(false);
 const is_filters_available = ref(false);
@@ -73,13 +72,13 @@ const closeFiltersAnimation = () => {
 }
 
 onMounted(() => gsap.to('.filters__wrapper', {
-  height: 'auto', duration: 10, onComplete: () => is_filters_available.value = true, ease: 'power3'
+  height: 'auto', duration: 1, onComplete: () => is_filters_available.value = true, ease: 'power3'
 }))
 
 onBeforeUnmount(() => {
   is_filters_available.value = false;
   gsap.to('.filters__wrapper', {
-    height: 0, duration: 10
+    height: 0, duration: 1
   })
 })
 
