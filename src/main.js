@@ -5,19 +5,11 @@ import router from './router/router.js'
 import {createPinia} from 'pinia'
 import "@/assets/scss/style.scss";
 
-// FONT-AWESOME //////////
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import {fas} from '@fortawesome/free-solid-svg-icons'
-
-library.add(fas)
-//////////////////////////
-
 createApp(App)
     // .use(axios)
     .use(createPinia())
+    // .use(MasonryWall)
     .use(router)
-    .component('font-awesome-icon', FontAwesomeIcon)
     .mount('#app')
 
 

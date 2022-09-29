@@ -18,6 +18,12 @@ const routes = [
         name: 'Swiper page',
         meta: {filters: false},
         component: () => import("@/pages/Swiper.vue")
+    },
+    {
+        path: '/Blog',
+        name: 'Blog page',
+        meta: {filters: true},
+        component: () => import("@/pages/Blog.vue")
     }
 ]
 const router = createRouter({

@@ -9,7 +9,7 @@
           <router-link class="navigation__menu__link link" to="#">Клиенты</router-link>
           <router-link class="navigation__menu__link link" to="#">Тематики</router-link>
           <router-link class="navigation__menu__link link" to="#">Мероприятия</router-link>
-          <router-link class="navigation__menu__link link" to="#">Блог</router-link>
+          <router-link class="navigation__menu__link link" to="/blog">Блог</router-link>
           <router-link class="navigation__menu__link link" to="#">Команда</router-link>
         </nav>
       </div>
