@@ -1,34 +1,38 @@
 <template>
-  <main ref='TRAININGS_PAGE' @wheel.prevent="wheelHandler" class="page trainings-page">
-    <section v-for="training_index in 10" :key="`training-${training_index}`"
-      :class="{active: training_index===active_index}" class="training">
-      <div class="training__header">
-        <p class="training__header__pre body">кейс</p>
-        <h4 class="training__header__title line-clamp">ИСПОЛЬЗОВАНИЕ МЕТОДА LEGO SERIOUS PLAY</h4>
-      </div>
+  <main ref='TRAININGS_PAGE' class="page trainings-page">
+    <div class="trainings-page__trainings" @wheel.prevent="wheelHandler">
+      <section v-for="training_index in 10" :key="`training-${training_index}`"
+               :class="{active: training_index===active_index}" class="training">
+        <div class="training__header">
+          <p class="training__header__pre body">кейс</p>
+          <h4 class="training__header__title line-clamp">ИСПОЛЬЗОВАНИЕ МЕТОДА LEGO SERIOUS PLAY</h4>
+        </div>
 
-      <div class="training__content">
-        <div class="training__content__main">
-          <p class="training__content__main__text body">Ежегодно обучение в формате mini-MBA по теме “Управление
-            сервисом”
-            проходят 300 самых талантливых руководителей Сбербанка.</p>
-          <div class="training__content__main__badges">
-            <Badge class="training__content__main__badges__badge">Сбербанк</Badge>
-            <Badge class="training__content__main__badges__badge">Сбербанк</Badge>
+        <div class="training__content">
+          <div class="training__content__main">
+            <p class="training__content__main__text body">Ежегодно обучение в формате mini-MBA по теме “Управление
+              сервисом”
+              проходят 300 самых талантливых руководителей Сбербанка.</p>
+            <div class="training__content__main__badges">
+              <Badge class="training__content__main__badges__badge">Сбербанк</Badge>
+              <Badge class="training__content__main__badges__badge">Сбербанк</Badge>
+            </div>
+          </div>
+          <div @mouseup="selectTrainingIndex(training_index)" class="training__content__image__wrapper">
+            <img src="@/assets/images/TwoWomans.png" alt="Training main image" class="training__content__image">
           </div>
         </div>
-        <div @click="selectTrainingIndex(training_index)" class="training__content__image__wrapper">
-          <img src="@/assets/images/TwoWomans.png" alt="Training main image" class="training__content__image">
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 </template>
 <script setup>
 import Badge from '@/components/Badge.vue';
-import { ref, nextTick, onMounted } from 'vue';
-import { gsap } from 'gsap';
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import {ref, nextTick, onMounted} from 'vue';
+import {gsap} from 'gsap';
+import {ScrollToPlugin} from "gsap/ScrollToPlugin";
+import ScrollBooster from 'scrollbooster';
+
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -37,11 +41,10 @@ const active_index = ref(1);
 const EASE_NAME = 'power4';
 const DURATION_TIME = 1;
 let scroll_disabled = false;
-
 const wheelHandler = (event) => {
   if (scroll_disabled) return;
   let x = (event.deltaY || event.deltaX) > 0 ? 150 : -150
-  gsap.to('.trainings-page', { scrollTo: { x: TRAININGS_PAGE.value.scrollLeft + x }, ease: 'power2' });
+  gsap.to('.trainings-page', {scrollTo: {x: TRAININGS_PAGE.value.scrollLeft + x}, ease: 'power2'});
   // const middle_of_page = TRAININGS_PAGE.value.getBoundingClientRect().width / 2;
   // const array_of_elements = Array.from(document.querySelectorAll('.training')).map(el => el.getBoundingClientRect()).map(el => Math.abs(el.x - middle_of_page));
   // selectTrainingIndex(array_of_elements.indexOf(Math.min(...array_of_elements)));
@@ -50,6 +53,14 @@ const wheelHandler = (event) => {
 onMounted(() => {
   animateOldTraining('.training:not(.active)', 0);
   animateNewTraining('.training.active', 0);
+
+  new ScrollBooster({
+    viewport: document.querySelector('.trainings-page'),
+    content: document.querySelector('.trainings-page__trainings'),
+    scrollMode: 'native',
+  shouldScroll: ()=>true,
+    direction:'horizontal'
+  })
 });
 const selectTrainingIndex = training_index => {
   if (active_index.value === training_index) return;
@@ -96,7 +107,11 @@ function animateOldTraining(training_selector = '.training.active', local_durati
 function animateNewTraining(training_selector = '.training.active', local_duration_time = DURATION_TIME) {
   const training = document.querySelector(training_selector);
   const coordinates_of_scroll = +training.offsetLeft - (TRAININGS_PAGE.value.getBoundingClientRect().width / 2)
-  gsap.to(".trainings-page", { scrollTo: { x: coordinates_of_scroll }, onStart: () => scroll_disabled = true, onComplete: () => scroll_disabled = false })
+  gsap.to(".trainings-page__trainings", {
+    scrollTo: {x: coordinates_of_scroll},
+    onStart: () => scroll_disabled = true,
+    onComplete: () => scroll_disabled = false
+  })
 
 
   gsap.to(training_selector, {
@@ -139,15 +154,19 @@ function animateNewTraining(training_selector = '.training.active', local_durati
 </script>
 <style lang="scss">
 .trainings-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+
   overflow-x: auto;
   height: 100%;
   width: 100%;
   max-width: 100%;
-  scroll-behavior: auto;
+
+  &__trainings {
+    scroll-behavior: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 
   &::-webkit-scrollbar {
     display: none;

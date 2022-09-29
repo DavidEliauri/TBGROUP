@@ -59,7 +59,7 @@ let old_scroll_top_position = 0;
 let scroll_disabled = false;
 let can_scroll = true;
 const scrollHandler = async () => {
-  if(!can_scroll) return;
+  if (!can_scroll) return;
   const new_scroll_top_position = SECTIONS_ELEMENT.value.scrollTop;
   const direction = new_scroll_top_position > old_scroll_top_position;
   console.log(direction ? 'bottom' : 'top');
