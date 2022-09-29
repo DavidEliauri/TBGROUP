@@ -1,12 +1,13 @@
 <template>
-  <article class="card">
-    <div class="card__image__wrapper card__side">
+  <article class="card" :class="[{'card_with-image':card.image}, 'card_'+card.color||'ivory']">
+    <div v-if="card.image" class="card__image__wrapper card__side">
       <img src="@/assets/images/dog.png" alt="Card image" class="card__image" v-if="card.image">
     </div>
     <div class="card__content card__side">
       <p class="card__content__caption caption_1">{{ card.caption }}</p>
-      <p class="card__content__text subheader_2">{{ card.text }}</p>
-      <ArrowButton/>
+      <p class="card__content__text" :class="card.image?'subheader_2':'subheader_1'">{{ card.text }}</p>
+      <ArrowButton class="card__content__arrow-button"
+                   :class="{white: card.color==='black'||card.color==='green'}"/>
     </div>
   </article>
 </template>
@@ -15,12 +16,7 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
 
 const props = defineProps({
   card: {
-    required: false,
-    default: {
-      image: true,
-      text: 'Метод морфологического ящика. Метод морфологического ящика. Метод морфологического ящика.',
-      caption: 'Мероприятие'
-    }
+    required: true
   }
 });
 
@@ -29,23 +25,53 @@ const props = defineProps({
 <style lang="scss">
 .card {
   width: 462px;
-  padding: 24px;
+  padding: 32px 24px;
+
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
   grid-gap: 10px;
-  //border: 1px solid black;
   border-radius: 2px;
   background-color: $IVORY_80;
+
+  &_with-image {
+    padding: 24px;
+  }
+
+  &_green, &_black {
+    color: $IVORY_100;
+  }
+
+
+  &_green {
+    background-color: $BRIGHT_GREEN_100;
+  }
+
+  &_black {
+    background-color: $BLACK_100;
+  }
+
+  &_with-image & {
+    &__side {
+      max-width: calc(50% - 5px);
+    }
+
+    &__content__text {
+      margin: 50px 0 46px;
+
+    }
+  }
 
   &__side {
     flex-grow: 1;
     flex-shrink: 0;
     height: 100%;
-    //border: 1px solid black;
-    max-width: calc(50% - 5px);
+    max-width: 100%;
     overflow: hidden;
+
+
   }
 
   &__image {
@@ -67,10 +93,13 @@ const props = defineProps({
     }
 
     &__text {
-      margin: 50px 0 46px;
+      margin: 32px 0 12px;
+
       flex-grow: 1;
       text-align: center;
       word-break: break-word;
+
+
     }
   }
 }
