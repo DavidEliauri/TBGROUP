@@ -20,10 +20,16 @@ const routes = [
         component: () => import("@/pages/Swiper.vue")
     },
     {
-        path: '/Blog',
+        path: '/blog',
         name: 'Blog page',
         meta: {filters: true},
         component: () => import("@/pages/Blog.vue")
+    },
+    {
+        path: '/consult',
+        name: 'Consult page',
+        meta: {filters: false},
+        component: () => import("@/pages/Consult.vue")
     }
 ]
 const router = createRouter({

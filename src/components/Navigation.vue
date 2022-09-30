@@ -11,6 +11,7 @@
           <router-link class="navigation__menu__link link" to="#">Мероприятия</router-link>
           <router-link class="navigation__menu__link link" to="/blog">Блог</router-link>
           <router-link class="navigation__menu__link link" to="#">Команда</router-link>
+          <router-link class="navigation__menu__link link" to="/consult">Консультация</router-link>
         </nav>
       </div>
       <button class="navigation__button caption_1 uppercase">Связяться с нами</button>
