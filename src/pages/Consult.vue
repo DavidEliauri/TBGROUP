@@ -15,7 +15,6 @@
       <textarea class="consult-page__form__input consult-page__form__textarea body" placeholder="Сообщение"/>
       <SecondaryButton type="submit" class="consult-page__form__submit">Отправить</SecondaryButton>
     </form>
-    {{ success_modal_properties.show }}
     <!--    --------------------------------------------------------------------   -->
     <!--    ---------------------Модалка успешного сообщения-----------------------------   -->
     <!--    --------------------------------------------------------------------   -->
@@ -76,6 +75,7 @@ const send = () => {
     flex-shrink: 0;
     flex-grow: 1;
     grid-gap: 20px;
+    overflow: hidden;
 
     &__input {
       border: 1.5px solid $BRIGHT_GREEN_60;
@@ -115,6 +115,7 @@ const send = () => {
       height: 374px;
       max-height: 374px;
       width: 100%;
+      transition: height 0s;
     }
 
 
@@ -132,6 +133,9 @@ const send = () => {
     }
   }
 
+  //////////////////////////////////////////
+  ////////////Модалка успешного сообщения//////////
+  //////////////////////////////////////////
   &__success-message {
     display: flex;
     flex-direction: column;
