@@ -4,7 +4,8 @@
       <span v-if="!$props.long" class="post__pre body">{{ $props.caption }}</span>
       <div class="post__content">
         <span v-if="$props.long" class="post__pre_long caption_1">{{ $props.caption }}</span>
-        <h5 class="post__title" :class="{heading_6:$props.image&&!$props.long, subheader_1: $props.long}">{{ $props.title }}</h5>
+        <h5 class="post__title" :class="{heading_6:$props.image&&!$props.long, subheader_1: $props.long}">
+          {{ $props.title }}</h5>
         <div v-if="$props.image" class="post__image__wrapper">
           <img src="@/assets/images/TwoWomans.png" alt="Post image" class="post__image"/>
         </div>
@@ -45,20 +46,15 @@ defineProps({
     }
   }
 
-
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-
+  width: 100%;
 
   &_with-image & {
     &__content {
       grid-gap: 64px;
-    }
-    &__image__wrapper{
-      width:max-content;
-      height: auto;
     }
   }
 
@@ -71,12 +67,18 @@ defineProps({
     &__title {
       text-align: center;
     }
+
+    &__image__wrapper {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+    }
   }
 
   &__pre {
     flex-shrink: 0;
     flex-grow: 0;
-    margin-right: 48px;
+    margin-right: 47px;
     width: 37px;
     text-transform: lowercase;
 
@@ -94,6 +96,10 @@ defineProps({
 
   }
 
+  &__title {
+    letter-spacing: -1px;
+  }
+
   &__image {
     &__wrapper {
       width: 275px;
@@ -105,7 +111,5 @@ defineProps({
     object-fit: contain;
     display: block;
   }
-
-
 }
 </style>
