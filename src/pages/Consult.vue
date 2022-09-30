@@ -3,7 +3,7 @@
     <h4 class="consult-page__title">
       Напишите нам, если вам нужна консультация
     </h4>
-    <form @submit="send" class="consult-page__form">
+    <form @submit.prevent="send" class="consult-page__form">
       <div class="consult-page__form__row">
         <input class="consult-page__form__input body" type="text" placeholder="Ваше имя"/>
         <input class="consult-page__form__input body" type="text" placeholder="Компания"/>
@@ -13,16 +13,41 @@
         <input class="consult-page__form__input body" type="email" placeholder="Email"/>
       </div>
       <textarea class="consult-page__form__input consult-page__form__textarea body" placeholder="Сообщение"/>
-      <SecondaryButton class="consult-page__form__submit">Отправить</SecondaryButton>
+      <SecondaryButton type="submit" class="consult-page__form__submit">Отправить</SecondaryButton>
     </form>
+    {{ success_modal_properties.show }}
+    <!--    --------------------------------------------------------------------   -->
+    <!--    ---------------------Модалка успешного сообщения-----------------------------   -->
+    <!--    --------------------------------------------------------------------   -->
+    <transition name="opacity">
+      <ModalsWrapper v-if="success_modal_properties.show">
+        <div class="consult-page__success-message modal__content">
+        <span class="consult-page__success-message__icon__wrapper">
+        <svg width="27" height="19" class="consult-page__success-message__icon">
+          <use xlink:href="@/assets/sprites.svg#galka"></use>
+        </svg>
+        </span>
+          <p class="consult-page__success-message__text body_1">!Спасибо! Мы получили ваше сообщение. В ближайшее время
+            мы
+            свяжемся с вами по указанным контактам!</p>
+        </div>
+      </ModalsWrapper>
+    </transition>
   </main>
-  <div class="message-accept-modal">
-    <dialog class="message-accept-modal__content"></dialog>
-  </div>
 </template>
 
 <script setup>
 import SecondaryButton from '@/components/Buttons/Secondary.vue';
+import ModalsWrapper from '@/components/Modals/Wrapper.vue';
+import {reactive} from 'vue';
+
+const success_modal_properties = reactive({show: false, timer: null});
+const send = () => {
+  success_modal_properties.show = true;
+  clearTimeout(success_modal_properties.timer);
+  success_modal_properties.timer = setTimeout(() => success_modal_properties.show = false, 3000);
+}
+
 </script>
 
 <style lang='scss'>
@@ -106,5 +131,46 @@ import SecondaryButton from '@/components/Buttons/Secondary.vue';
       align-self: flex-end;
     }
   }
+
+  &__success-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 24px;
+    background-color: white;
+    width: 100%;
+    max-width: 980px;
+    padding: 58px 20px 64px;
+    border-radius: 2px;
+
+    &__icon {
+      fill: $IVORY_100;
+
+      &__wrapper {
+        width: 64px;
+        height: 64px;
+        background-color: $BRIGHT_GREEN_100;
+        border-radius: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 }
+
+
+.opacity {
+  &-enter-from, &-leave-to {
+    opacity: 0;
+  }
+
+
+  &-enter-active,
+  &-leave-active {
+    transition: .3s;
+  }
+}
+
 </style>
