@@ -33,7 +33,7 @@
         </label>
       </div>
       <textarea class="consult-page__form__input consult-page__form__textarea body" placeholder="Сообщение"/>
-      <SecondaryButton type="submit" class="consult-page__form__submit">Отправить</SecondaryButton>
+      <SecondaryButton :disabled="loading" type="submit" class="consult-page__form__submit">Отправить</SecondaryButton>
     </form>
     <!--    --------------------------------------------------------------------   -->
     <!--    ---------------------Модалка успешного сообщения-----------------------------   -->
@@ -62,11 +62,16 @@ import {nextTick, reactive} from 'vue';
 import {gsap} from 'gsap';
 
 const success_modal_properties = reactive({show: false, timer: null});
+let loading = false;
 const send = () => {
   if (!validation()) return;
+  loading = true;
   success_modal_properties.show = true;
   clearTimeout(success_modal_properties.timer);
-  success_modal_properties.timer = setTimeout(() => success_modal_properties.show = false, 3000);
+  success_modal_properties.timer = setTimeout(() => {
+    loading = false;
+    success_modal_properties.show = false
+  }, 3000);
 }
 
 const form = reactive({
@@ -98,29 +103,27 @@ const mistake_animation = key => gsap.fromTo(`#consult-${key}-mistake`, {height:
 const validation = () => {
   let is_success = true;
 
-  if (form.email.value) {
-    if (!String(form.email.value).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-      is_success = false;
-      form.email.mistake = 'Введеный адрес электронной почты невалиден';
-    }
+  if (form.email.value && !String(form.email.value).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+    is_success = false;
+    form.email.mistake = 'Введеный адрес электронной почты невалиден';
+}
+
+for (let [key, {value}] of Object.entries(form)) {
+  form[key].mistake = null;
+  if (!value) {
+    is_success = false;
+    form[key].mistake = 'Поле обязательно для заполнения';
   }
 
-  for (let [key, {value}] of Object.entries(form)) {
-    form[key].mistake = null;
-    if (!value) {
-      is_success = false;
-      form[key].mistake = 'Поле обязательно для заполнения';
+  nextTick(() => {
+    if (form[key].mistake) {
+      const animation = mistake_animation(key);
+      animation.play();
+      setTimeout(() => animation.reverse(), 4000)
     }
-
-    nextTick(() => {
-      if (form[key].mistake) {
-        const animation = mistake_animation(key);
-        animation.play();
-        setTimeout(() => animation.reverse(), 4000)
-      }
-    });
-  }
-  return is_success;
+  });
+}
+return is_success;
 }
 
 
