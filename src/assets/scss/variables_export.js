@@ -11,6 +11,7 @@ export default {
     BRIGHT_GREEN_GRADIENT : 'linear-gradient(180deg, rgba(45, 171, 73, 0) 0%, #2DAB49 100%)',
     BRIGHT_GREEN_100 : '#2DAB49',
     BRIGHT_GREEN_75 : 'rgba(45, 171, 73, 0.75)',
-    BRIGHT_GREEN_60 : 'rgba(45, 171, 73, 0.6)'
+    BRIGHT_GREEN_60 : 'rgba(45, 171, 73, 0.6)',
+    RED: '#da1313'
 }
 
