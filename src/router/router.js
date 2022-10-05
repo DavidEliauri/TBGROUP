@@ -30,6 +30,12 @@ const routes = [
         name: 'Consult page',
         meta: {filters: false},
         component: () => import("@/pages/Consult.vue")
+    },
+    {
+        path: '/formats',
+        name: 'Formats page',
+        meta: {filters: false},
+        component: () => import("@/pages/Formats.vue")
     }
 ]
 const router = createRouter({

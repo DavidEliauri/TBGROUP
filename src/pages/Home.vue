@@ -2,7 +2,7 @@
   <main class="page home-page">
     <div class="home-page__logo">
       <div class="home-page__row">
-        <h1>
+        <h1 class="heading_1">
           TRAINING
         </h1>
 
@@ -10,9 +10,9 @@
           <use xlink:href="@/assets/sprites.svg#cross"></use>
         </svg>
       </div>
-      <h1 class="home-page__row">DEVELOPMENT</h1>
+      <h1 class="heading_1 home-page__row">DEVELOPMENT</h1>
       <div class="home-page__row">
-        <h1 class="home-page__row">GROUP</h1>
+        <h1 class="heading_1 home-page__row">GROUP</h1>
         <p class="home-page__additional-text body_1">Корпоративные <br>
           образовательные
           <br>
