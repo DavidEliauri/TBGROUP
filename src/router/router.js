@@ -4,7 +4,6 @@ const routes = [
     {
         path: '/',
         name: 'Home page',
-        meta: {filters: false},
         component: () => import("@/pages/Home.vue")
     },
     {
@@ -16,7 +15,6 @@ const routes = [
     {
         path: '/swiper',
         name: 'Swiper page',
-        meta: {filters: false},
         component: () => import("@/pages/Swiper.vue")
     },
     {
@@ -28,14 +26,16 @@ const routes = [
     {
         path: '/consult',
         name: 'Consult page',
-        meta: {filters: false},
         component: () => import("@/pages/Consult.vue")
     },
     {
         path: '/formats',
         name: 'Formats page',
-        meta: {filters: false},
         component: () => import("@/pages/Formats.vue")
+    }, {
+        path: '/themes',
+        name: 'Themes page',
+        component: () => import("@/pages/Themes.vue")
     }
 ]
 const router = createRouter({

@@ -7,7 +7,7 @@
           <router-link class="navigation__menu__link link" to="/">Главная</router-link>
           <router-link class="navigation__menu__link link" to="/trainings">Программы</router-link>
           <router-link class="navigation__menu__link link" to="#">Клиенты</router-link>
-          <router-link class="navigation__menu__link link" to="#">Тематики</router-link>
+          <router-link class="navigation__menu__link link" to="/themes">Тематики</router-link>
           <router-link class="navigation__menu__link link" to="#">Мероприятия</router-link>
           <router-link class="navigation__menu__link link" to="/blog">Блог</router-link>
           <router-link class="navigation__menu__link link" to="#">Команда</router-link>
@@ -128,6 +128,7 @@ const closeButtonAnimation = () => {
     width: 100%;
     height: auto;
     padding: 19px 0 0;
+    z-index: $navigation_z;
   }
 
   position: relative;
