@@ -36,6 +36,11 @@ const routes = [
         path: '/themes',
         name: 'Themes page',
         component: () => import("@/pages/Themes.vue")
+    },
+    {
+        path: '/cases-swiper',
+        name: 'Cases swiper page',
+        component: () => import("@/pages/CasesSwiper.vue")
     }
 ]
 const router = createRouter({
