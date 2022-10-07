@@ -5,7 +5,6 @@
         <h1 class="heading_1">
           TRAINING
         </h1>
-
         <svg class="cross" width="140" height="139">
           <use xlink:href="@/assets/sprites.svg#cross"></use>
         </svg>
@@ -20,19 +19,19 @@
         </p>
       </div>
     </div>
-    <!--    <Card class="home-page__card"/>-->
+    <OverlaySections class="overlay-sections"/>
   </main>
 </template>
 <script setup>
-import Card from '@/components/Card.vue';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { onMounted } from "vue";
+import OverlaySections from '@/components/OverlaySections.vue';
+import {gsap} from 'gsap';
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {onMounted} from "vue";
 
 gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
-  gsap.to('h1', { delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3 })
-  gsap.to('.cross', { delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4' })
+  gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3})
+  gsap.to('.cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
   gsap.to('.home-page__additional-text', {
     delay: 1.4,
     transform: 'translateX(0)',
@@ -41,7 +40,6 @@ onMounted(() => {
     ease: 'power3'
   });
 });
-
 
 
 </script>
@@ -60,6 +58,9 @@ h1 {
 }
 
 .home-page {
+  margin: 0 auto;
+  max-width: $maxwidth;
+
   &__row {
     display: flex;
     flex-direction: row;
@@ -81,5 +82,10 @@ h1 {
     margin-top: 21.5px;
     align-self: baseline;
   }
+}
+
+.overlay-sections {
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
