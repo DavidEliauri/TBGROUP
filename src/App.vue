@@ -12,13 +12,9 @@ import Navigation from '@/components/Navigation.vue'
 import Filters from "@/components/Filters.vue";
 import { useRoute } from "vue-router";
 import { computed, onMounted, ref } from "vue";
-
 const filters_component = ref(null);
-
-
 const route = useRoute();
 const is_filters_showed = computed(() => route.meta?.filters)
-
 </script>
 <style lang="scss">
 .opacity {
