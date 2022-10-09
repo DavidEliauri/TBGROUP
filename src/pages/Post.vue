@@ -49,7 +49,7 @@
     <img src="@/assets/images/popup-image.png" alt="Post image" class="post-page__image">
     <div class="post-page__content">
       <div class="post-page__content__sidebar">
-        <PostArticle class="post-page__content__sidebar__article" v-for="article in 3"/>
+<!--        <PostArticle class="post-page__content__sidebar__article" v-for="article in 3"/>-->
       </div>
       <div class="post-page__content__info">
         <div class="post-page__content__info__html">
@@ -110,12 +110,33 @@
         </div>
       </div>
     </div>
+    <div class="post-page__digest">
+      <h3 class="post-page__digest__title heading_4">Получите весь дайджест</h3>
+      <form @submit.prevent="digestSubmit" class="post-page__digest__form">
+        <div class="post-page__digest__form__row">
+          <input class="standard-input post-page__digest__form__input" type="text" placeholder="ФИО" name="name"
+                 id="digest-name">
+          <input class="standard-input post-page__digest__form__input" type="text" placeholder="Компания" name="company"
+                 id="digest-company">
+        </div>
+        <div class="post-page__digest__form__row">
+          <input class="standard-input post-page__digest__form__input" type="text" placeholder='Номер телефона'
+                 name="phone" id="digest-phone">
+          <input class="standard-input post-page__digest__form__input" type="text" placeholder="E-mail" name="email"
+                 id="digest-email">
+        </div>
+        <SecondaryButton class="post-page__digest__form__submit">Получить</SecondaryButton>
+      </form>
+    </div>
   </main>
 </template>
 
 <script setup>
 import Tag from '@/components/Buttons/Tag.vue';
 import PostArticle from '@/components/PostArticle.vue';
+import SecondaryButton from '@/components/Buttons/Secondary.vue';
+
+const digestSubmit = () => console.log("Submit digest form");
 </script>
 
 <style lang='scss'>
@@ -232,9 +253,11 @@ import PostArticle from '@/components/PostArticle.vue';
       align-items: stretch;
       justify-content: flex-start;
       grid-gap: 45px;
+      flex-shrink: 0;
     }
 
     &__info {
+      flex-grow: 0;
       &__title {
         margin-bottom: 32px;
       }
@@ -297,6 +320,45 @@ import PostArticle from '@/components/PostArticle.vue';
       font-size: 16px;
       line-height: 135%;
       color: $BLACK_30;
+    }
+  }
+
+  &__digest {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 280px 0px 180px;
+
+    &__title {
+      width: 399px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      color: $BRIGHT_GREEN_100;
+    }
+
+    &__form {
+      width: 820px;
+      flex-shrink: 0;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      grid-gap: 20px;
+
+      &__row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 0 auto;
+      }
+
+      &__submit {
+        align-self: flex-end;
+        margin-top: 20px;
+      }
     }
   }
 }

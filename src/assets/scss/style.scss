@@ -56,3 +56,40 @@ button, a {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.standard-input {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid $BRIGHT_GREEN_60;
+  color: $BRIGHT_GREEN_60;
+  height: 48px;
+  border-radius: 2px;
+  padding: 14px 24px 12px;
+  transition: $TRANSITION;
+  outline: none;
+
+  &::placeholder {
+    color: $BRIGHT_GREEN_60;
+  }
+
+  &:disabled {
+    &::placeholder {
+      color: $BRIGHT_GREEN_30;
+    }
+
+    color: $BRIGHT_GREEN_30;
+    border-color: $BRIGHT_GREEN_30;
+  }
+
+  &:not(&:disabled):hover {
+    border-color: $BRIGHT_GREEN_75;
+    color: $BRIGHT_GREEN_75;
+  }
+
+  &:not(&:disabled):focus {
+    border: 1.5px solid $BRIGHT_GREEN_100;
+    color: $BRIGHT_GREEN_100;
+  }
+}
+

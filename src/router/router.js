@@ -45,6 +45,7 @@ const routes = [
     {
         path: '/post',
         name: 'Post page',
+        meta: {footer: true},
         component: () => import("@/pages/Post.vue")
     }
 ]
