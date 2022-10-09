@@ -1,14 +1,8 @@
 <template>
   <main class="page post-page">
     <header class="post-page__header">
-      <router-link to="/$" class="post-page__header__back-button">
-        <span class="post-page__header__back-button__button">
-        <svg
-            class="post-page__header__back-button__button__icon"
-            width="15" height="15">
-            <use xlink:href="@/assets/sprites.svg#back"></use>
-          </svg>
-        </span>
+      <router-link to="/blog" class="post-page__header__back-button">
+        <ArrowButton class="post-page__header__back-button__button left"/>
         <p class="post-page__header__back-button__text">Все статьи</p>
       </router-link>
       <div class="post-page__header__main">
@@ -49,7 +43,7 @@
     <img src="@/assets/images/popup-image.png" alt="Post image" class="post-page__image">
     <div class="post-page__content">
       <div class="post-page__content__sidebar">
-<!--        <PostArticle class="post-page__content__sidebar__article" v-for="article in 3"/>-->
+        <PostArticle class="post-page__content__sidebar__article" v-for="article in 3"/>
       </div>
       <div class="post-page__content__info">
         <div class="post-page__content__info__html">
@@ -135,6 +129,7 @@
 import Tag from '@/components/Buttons/Tag.vue';
 import PostArticle from '@/components/PostArticle.vue';
 import SecondaryButton from '@/components/Buttons/Secondary.vue';
+import ArrowButton from '@/components/Buttons/Arrow.vue';
 
 const digestSubmit = () => console.log("Submit digest form");
 </script>
@@ -258,6 +253,7 @@ const digestSubmit = () => console.log("Submit digest form");
 
     &__info {
       flex-grow: 0;
+
       &__title {
         margin-bottom: 32px;
       }

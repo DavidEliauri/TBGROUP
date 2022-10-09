@@ -47,8 +47,15 @@ const routes = [
         name: 'Post page',
         meta: {footer: true},
         component: () => import("@/pages/Post.vue")
+    },
+    {
+        path: '/worker',
+        name: 'Worker page',
+        meta: {footer: true},
+        component: () => import("@/pages/Worker.vue")
     }
-]
+];
+
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes
