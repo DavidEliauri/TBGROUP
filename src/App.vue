@@ -17,14 +17,6 @@ const route = useRoute();
 const is_filters_showed = computed(() => route.meta?.filters)
 </script>
 <style lang="scss">
-.opacity {
-  &-enter-from, &-leave-to{
-    opacity:0;
-  }
-  &-enter-active,
-  &-leave-active {
-    transition: .5s;
-  }
-}
+
 </style>
 
