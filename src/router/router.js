@@ -41,6 +41,11 @@ const routes = [
         path: '/cases-swiper',
         name: 'Cases swiper page',
         component: () => import("@/pages/CasesSwiper.vue")
+    },
+    {
+        path: '/post',
+        name: 'Post page',
+        component: () => import("@/pages/Post.vue")
     }
 ]
 const router = createRouter({
