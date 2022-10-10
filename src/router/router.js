@@ -1,58 +1,64 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
-const routes = [
+export const routes = [
     {
         path: '/',
-        name: 'Home page',
+        name: 'Главная',
         component: () => import("@/pages/Home.vue")
     },
     {
         path: '/trainings',
-        name: 'Trainings page',
+        name: 'Тренинги',
         meta: {filters: true},
         component: () => import("@/pages/Trainings.vue")
     },
     {
         path: '/swiper',
-        name: 'Swiper page',
+        name: 'Свайпер',
         component: () => import("@/pages/Swiper.vue")
     },
     {
         path: '/blog',
-        name: 'Blog page',
+        name: 'Блог',
         meta: {filters: true},
         component: () => import("@/pages/Blog.vue")
     },
     {
         path: '/consult',
-        name: 'Consult page',
+        name: 'Консультация',
         component: () => import("@/pages/Consult.vue")
     },
     {
         path: '/formats',
-        name: 'Formats page',
+        name: 'Форматы',
         component: () => import("@/pages/Formats.vue")
     }, {
         path: '/themes',
-        name: 'Themes page',
+        name: 'Темы',
         component: () => import("@/pages/Themes.vue")
     },
     {
         path: '/cases-swiper',
-        name: 'Cases swiper page',
+        name: 'Кейс-свайпер',
         component: () => import("@/pages/CasesSwiper.vue")
     },
     {
         path: '/post',
-        name: 'Post page',
+        name: 'Пост',
         meta: {footer: true},
         component: () => import("@/pages/Post.vue")
     },
     {
         path: '/worker',
-        name: 'Worker page',
+        name: 'Сотрудник',
         meta: {footer: true},
         component: () => import("@/pages/Worker.vue")
+    },
+    {
+        path: '/modal-program',
+        name: 'Модалка програмы',
+        meta: {footer: false},
+        component: () => import("@/pages/ModalProgram.vue")
     }
 ];
 

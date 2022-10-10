@@ -1,7 +1,7 @@
 <template>
   <main class="page worker-page">
     <router-link to="#" class="worker-page__back-button">
-      <ArrowButton class="worker-page__back-button__button left"/>
+      <ArrowButton class="worker-page__back-button__button left green"/>
       <p class="worker-page__back-button__text">Назад</p>
     </router-link>
     <div class="worker-page__sides">
@@ -42,10 +42,29 @@
 </template>
 
 <script setup>
+import ArrowButton from '@/components/Buttons/Arrow.vue';
 </script>
 
 <style lang='scss'>
 .worker-page {
+  max-width: $maxwidth;
+  grid-gap: 44px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  &__back-button{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    grid-gap: 8px;
+    font-family: 'Stratos LC Regular',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    color: $BRIGHT_GREEN_100;
+    text-decoration: none;
+  }
   &__sides {
     width: 100%;
     border: 1px solid black;
@@ -55,7 +74,6 @@
     justify-content: flex-start;
     grid-gap: 85px;
   }
-
   &__about {
     display: flex;
     flex-direction: column;

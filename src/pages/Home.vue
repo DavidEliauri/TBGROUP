@@ -44,12 +44,6 @@ onMounted(() => {
 
 </script>
 <style lang="scss">
-h1 {
-  letter-spacing: -7px;
-  color: $BRIGHT_GREEN_100;
-  opacity: 0;
-  transform: translateY(50px);
-}
 
 .cross {
   margin-left: 40px;
@@ -60,6 +54,12 @@ h1 {
 .home-page {
   margin: 0 auto;
   max-width: $maxwidth;
+  h1 {
+    letter-spacing: -7px;
+    color: $BRIGHT_GREEN_100;
+    opacity: 0;
+    transform: translateY(50px);
+  }
 
   &__row {
     display: flex;

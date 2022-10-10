@@ -4,17 +4,10 @@
       <div class="navigation__menu">
         <button class='navigation__menu__button link' @click="toggleMenu">Меню</button>
         <nav class="navigation__menu__links">
-          <router-link class="navigation__menu__link link" to="/">Главная</router-link>
-          <router-link class="navigation__menu__link link" to="/trainings">Программы</router-link>
-          <router-link class="navigation__menu__link link" to="#">Клиенты</router-link>
-          <router-link class="navigation__menu__link link" to="/themes">Тематики</router-link>
-          <router-link class="navigation__menu__link link" to="#">Мероприятия</router-link>
-          <router-link class="navigation__menu__link link" to="/blog">Блог</router-link>
-          <router-link class="navigation__menu__link link" to="#">Команда</router-link>
-          <router-link class="navigation__menu__link link" to="/consult">Консультация</router-link>
-          <router-link class="navigation__menu__link link" to="/formats">Форматы</router-link>
-          <router-link class="navigation__menu__link link" to="/post">Пост</router-link>
-          <router-link class="navigation__menu__link link" to="/worker">Работник</router-link>
+          <router-link v-for="(route, index) in NAVIGATION_ROUTES" :key="`navigation-link-${index}`"
+                       class="navigation__menu__link link" :to="route.path">
+            {{ route.name }}
+          </router-link>
         </nav>
       </div>
       <button class="navigation__button caption_1 uppercase">Связяться с нами</button>
@@ -22,17 +15,30 @@
   </header>
 </template>
 <script setup>
-import {ref, watch} from 'vue';
+import {computed, ref, watch} from 'vue';
 import gsap from 'gsap';
 
 const TRANSITION_TIME = 1.3;
 import COLORS from '@/assets/scss/variables_export.js';
 import {useRoute} from 'vue-router';
+import {routes} from '@/router/router.js';
+
+const props = defineProps({
+  main: {
+    required:false,
+    default: false
+  }
+})
 
 const CURRENT_ROUTE = useRoute();
 
 const show_menu = ref(false);
-const toggleMenu = () => show_menu.value = !show_menu.value;
+
+
+
+const toggleMenu = () => {
+  show_menu.value = !show_menu.value;
+}
 
 import {useGeneralStore} from '@/stores/general.js';
 
@@ -52,6 +58,7 @@ watch(show_menu, is_open_now => {
 
 watch(() => CURRENT_ROUTE.path, () => show_menu.value = false);
 
+const NAVIGATION_ROUTES = computed(() => routes.map(el => ({name: el.name, path: el.path})))
 
 ///////////////////////////////////////
 const openMenuAnimation = () => {
@@ -72,7 +79,6 @@ const openMenuAnimation = () => {
   gsap.to('.navigation__menu__links', {
     height: 'auto', opacity: 1, paddingBottom: 32, duration: TRANSITION_TIME, ease: 'power3',
   });
-
 }
 const closeMenuAnimation = () => {
   gsap.to('.navigation__menu', {
@@ -121,7 +127,6 @@ const closeButtonAnimation = () => {
 @import "@/assets/scss/links.scss";
 
 .navigation {
-
   &__wrapper {
     position: relative;
     display: flex;

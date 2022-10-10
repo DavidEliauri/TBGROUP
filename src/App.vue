@@ -2,11 +2,11 @@
   <Navigation class="navigation"/>
   <Filters ref="filters_component" class="filters" v-if="is_filters_showed"/>
   <router-view v-slot="{ Component, route }">
-    <transition :name="route.meta.transition || 'opacity'" mode="out-in">
+    <transition :name="route.meta.transition || 'opacity-transition'" mode="out-in">
       <component class="page" :is="Component"/>
     </transition>
   </router-view>
-  <transition name="opacity">
+  <transition name="opacity-transition">
     <Footer v-if="route.meta.footer" class="footer"/>
   </transition>
 </template>
