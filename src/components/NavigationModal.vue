@@ -8,6 +8,7 @@
 <script setup>
 import CloseButton from '@/components/Buttons/Close.vue';
 import SmallLogo from "@/components/SmallLogo.vue";
+import {closeAnyModal} from "@/logics/modals.js";
 
 defineProps({
   logo_color: {
@@ -19,10 +20,6 @@ defineProps({
     default: null
   }
 })
-import {useModalsStore} from "@/stores/modals.js";
-
-const closeAnyModal = () => useModalsStore().$patch({current_modal_object: null});
-
 </script>
 
 <style lang='scss'>

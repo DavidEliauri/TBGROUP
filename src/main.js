@@ -1,17 +1,15 @@
-import {createApp} from 'vue'
 import 'reset-css'
+import {createPinia} from 'pinia'
+import {createApp} from 'vue'
 import App from './App.vue'
 import router from './router/router.js'
-import {createPinia} from 'pinia'
 import "@/assets/scss/style.scss";
 
 createApp(App)
-    // .use(axios)
     .use(createPinia())
-    // .use(MasonryWall)
+    // .use(axios)
     .use(router)
-    .mount('#app')
-
+    .mount('#app');
 
 // AXIOS ////////////////////////////////////////////
 // import axios from 'axios';

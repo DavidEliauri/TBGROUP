@@ -32,7 +32,8 @@ export const routes = [
         path: '/formats',
         name: 'Форматы',
         component: () => import("@/pages/Formats.vue")
-    }, {
+    },
+    {
         path: '/themes',
         name: 'Темы',
         component: () => import("@/pages/Themes.vue")
@@ -67,4 +68,4 @@ const router = createRouter({
     routes
 });
 
-export default router
+export default router;

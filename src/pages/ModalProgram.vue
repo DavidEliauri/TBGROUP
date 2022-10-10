@@ -5,11 +5,7 @@
 </template>
 
 <script setup>
-import {useModalsStore} from "@/stores/modals.js";
-
-const $MODALS_STORE = useModalsStore();
-
-const openModal = modal_name => $MODALS_STORE.$patch({current_modal_object: {name: modal_name}})
+import {openModal} from "@/logics/modals.js";
 </script>
 
 <style lang='scss'>

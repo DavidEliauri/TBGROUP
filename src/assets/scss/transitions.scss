@@ -9,3 +9,14 @@
     transition: .3s;
   }
 }
+
+.modals-transition {
+  &-enter-from, &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active,
+  &-leave-active {
+    transition: 1s;
+  }
+}

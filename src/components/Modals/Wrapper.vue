@@ -5,11 +5,7 @@
 </template>
 
 <script setup>
-import {useModalsStore} from "@/stores/modals.js";
-
-const closeAnyModal = () => useModalsStore().$patch({current_modal_object: null});
-
-
+import {closeAnyModal} from "@/logics/modals.js";
 </script>
 
 <style lang='scss'>

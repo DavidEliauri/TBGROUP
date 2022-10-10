@@ -1,21 +1,8 @@
 <template>
   <div class="theme-modal__wrapper modal__content">
     <div class="theme-modal">
-      <header class="theme-modal__header">
-        <router-link class="theme-modal__header__logo" to="/">
-          <svg class="theme-modal__header__logo__icon"
-               width="53" height="19">
-            <use xlink:href="@/assets/sprites.svg#logo"></use>
-          </svg>
-        </router-link>
-        <button class="theme-modal__header__close-button" type="button" @click="close">
-          <svg
-              class="theme-modal__header__close-button__icon"
-              width="26" height="26">
-            <use xlink:href="@/assets/sprites.svg#close-modal"></use>
-          </svg>
-        </button>
-      </header>
+      <NavigationModal class="theme-modal__header"/>
+
       <h2 class="theme-modal__title heading_2">НЕЙРОФИ-ЗИОЛОГИЯ КРЕАТИВНОСТИ</h2>
       <p class="theme-modal__epilogue lead_1">
         Чтобы решить творческую задачу, все системы мозга должны работать когерентно – то есть слаженно и согласованно.
@@ -50,10 +37,8 @@
 </template>
 
 <script setup>
-import PostArticle from "@/components/PostArticle.vue";
-
-const emit = defineEmits(['close'])
-const close = () => emit('close');
+import PostArticle from '@/components/PostArticle.vue';
+import NavigationModal from '@/components/NavigationModal.vue';
 </script>
 
 <style lang="scss">

@@ -9,7 +9,7 @@
   <transition name="opacity-transition">
     <Footer v-if="route.meta.footer" class="footer"/>
   </transition>
-  <transition name="opacity-transition">
+  <transition name="modals-transition">
     <ModalWrapper class="modal__wrapper" v-if="CURRENT_MODAL">
       <component class="modal__content" :is="CURRENT_MODAL"/>
     </ModalWrapper>
