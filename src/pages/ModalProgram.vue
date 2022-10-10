@@ -1,8 +1,10 @@
 <template>
+  <main class="modal-program-page page">
   <button type="button" @click="show_program_modal = true">Открыть модалку программы</button>
   <ModalWrapper v-if="show_program_modal">
     <ProgramModal class="modal__content"/>
   </ModalWrapper>
+  </main>
 </template>
 
 <script setup>

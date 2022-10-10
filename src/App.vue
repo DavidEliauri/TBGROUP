@@ -15,7 +15,7 @@ import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue';
 import Filters from "@/components/Filters.vue";
 import {useRoute} from "vue-router";
-import {computed, onMounted, ref} from "vue";
+import {computed, ref} from "vue";
 
 const filters_component = ref(null);
 const route = useRoute();

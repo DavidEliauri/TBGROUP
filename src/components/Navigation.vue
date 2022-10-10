@@ -2,7 +2,7 @@
   <header class="navigation__wrapper">
     <div class="navigation">
       <div class="navigation__menu">
-        <button class='navigation__menu__button link' @click="toggleMenu">Меню</button>
+        <button class='navigation__menu__button link' @click="toggleEmit">Меню</button>
         <nav class="navigation__menu__links">
           <router-link v-for="(route, index) in NAVIGATION_ROUTES" :key="`navigation-link-${index}`"
                        class="navigation__menu__link link" :to="route.path">
@@ -10,7 +10,7 @@
           </router-link>
         </nav>
       </div>
-      <button class="navigation__button caption_1 uppercase">Связяться с нами</button>
+      <PrimaryButton class="navigation__button">Связаться с нами</PrimaryButton>
     </div>
   </header>
 </template>
@@ -22,42 +22,28 @@ const TRANSITION_TIME = 1.3;
 import COLORS from '@/assets/scss/variables_export.js';
 import {useRoute} from 'vue-router';
 import {routes} from '@/router/router.js';
+import PrimaryButton from "@/components/Buttons/Primary.vue";
 
-const props = defineProps({
-  main: {
-    required:false,
-    default: false
-  }
-})
+const is_navigation_menu_open = ref(false);
+const open = () => is_navigation_menu_open.value = true
+const close = () => is_navigation_menu_open.value = false;
 
-const CURRENT_ROUTE = useRoute();
-
-const show_menu = ref(false);
-
-
-
-const toggleMenu = () => {
-  show_menu.value = !show_menu.value;
+const toggleEmit = () => {
+  if (is_navigation_menu_open.value) close(); else open();
 }
-
-import {useGeneralStore} from '@/stores/general.js';
-
-const $general_store = useGeneralStore();
-
-watch(show_menu, is_open_now => {
-  if (is_open_now) {
-    openMenuAnimation();
-    openButtonAnimation();
-    $general_store.$patch({is_menu_open: true})
-  } else {
-    closeMenuAnimation();
-    closeButtonAnimation();
-    $general_store.$patch({is_menu_open: false})
-  }
-});
-
-watch(() => CURRENT_ROUTE.path, () => show_menu.value = false);
-
+watch(is_navigation_menu_open,
+    is_open_now => {
+      if (is_open_now) {
+        openMenuAnimation();
+        openButtonAnimation();
+      } else {
+        closeMenuAnimation();
+        closeButtonAnimation();
+      }
+    }
+);
+const CURRENT_ROUTE = useRoute();
+watch(() => CURRENT_ROUTE.path, () => close());
 const NAVIGATION_ROUTES = computed(() => routes.map(el => ({name: el.name, path: el.path})))
 
 ///////////////////////////////////////
@@ -185,17 +171,7 @@ const closeButtonAnimation = () => {
   }
 
   &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $IVORY_100;
-    background-color: $BRIGHT_GREEN_100;
-    border: none;
-    padding: 0 20px;
-    height: 48px;
-    gap: 10px;
-    letter-spacing: 0.1em;
-    border-radius: 2px;
+
     position: absolute;
     right: 20px;
     top: 21px;

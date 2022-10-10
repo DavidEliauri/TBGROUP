@@ -31,7 +31,6 @@ onBeforeUnmount(() => gsap.fromTo('.modal__content', {transform: 'scale(1)', opa
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, .3);
-  z-index: 50;
   display: flex;
   flex-direction: column;
   justify-content: center;
