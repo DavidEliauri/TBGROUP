@@ -10,13 +10,11 @@
       <img src="@/assets/images/popup-image.png" alt="Theme popup image" class="theme-modal__image">
       <div class="theme-modal__content">
         <div class="theme-modal__content__sidebar">
-          <PostArticle v-for="item in 3" class="theme-modal__content__sidebar__article"/>
+          <PostArticle v-for="(item, index) in 3" class="theme-modal__content__sidebar__article"/>
         </div>
         <div class="theme-modal__content__info">
           <h3 class="theme-modal__content__info__title lead_1">В таком состоянии мы обретаем «супер-силу» и можем
-            продуктивно
-            решать
-            стоящие перед нами вызовы.</h3>
+            продуктивно решать стоящие перед нами вызовы.</h3>
           <p class="theme-modal__content__info__text body">
             Когда мы достигаем состояния инсайта в процессе работы над задачей, наш мозг буквально озаряет вспышка, а
             все области мозга работают ритмично. <br>
