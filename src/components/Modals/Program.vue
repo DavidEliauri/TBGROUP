@@ -83,7 +83,6 @@ const formSubmit = () => console.log('Form submit function');
 $z_navigation_modal: 10;
 $program_modal_inner_padding: 73px;
 .program-modal {
-  height: 100%;
   margin: 28px !important;
   width: 1440px;
   max-width: calc(100% - 28px * 2);
@@ -94,10 +93,8 @@ $program_modal_inner_padding: 73px;
   align-items: center;
   grid-gap: 100px;
   border-radius: 2px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overflow-y: overlay;
   padding-bottom: 120px;
+  position: relative;
 
   &__navigation-modal {
     position: absolute;
@@ -111,9 +108,6 @@ $program_modal_inner_padding: 73px;
   &__header {
     position: relative;
     width: 100%;
-    background-color: red;
-
-
     &__image {
       &__wrapper {
         min-width: 100%;
@@ -121,19 +115,14 @@ $program_modal_inner_padding: 73px;
         max-width: 100%;
         height: auto;
         left: 50%;
-        background-color: green;
         display: flex;
         align-items: flex-start;
         justify-content: center;
       }
-
-      //display: block;
-      //min-width: 100%;
       width: 100%;
       max-width: 100%;
       height: auto;
       object-fit: cover;
-
     }
 
     &__info {
@@ -145,7 +134,9 @@ $program_modal_inner_padding: 73px;
       justify-content: flex-start;
       grid-gap: 44px;
       color: $IVORY_100;
-
+      &__type{
+        height:max-content;
+      }
       &__content {
         display: flex;
         flex-direction: column;
@@ -153,6 +144,7 @@ $program_modal_inner_padding: 73px;
         grid-gap: 22px;
 
         &__title {
+          margin: 0;
           width: 476px;
         }
       }

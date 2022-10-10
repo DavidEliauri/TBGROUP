@@ -1,18 +1,15 @@
 <template>
   <main class="modal-program-page page">
-  <button type="button" @click="show_program_modal = true">Открыть модалку программы</button>
-  <ModalWrapper v-if="show_program_modal">
-    <ProgramModal class="modal__content"/>
-  </ModalWrapper>
+    <button type="button" @click="openModal('program')">Открыть модалку программы</button>
   </main>
 </template>
 
 <script setup>
-import {ref} from 'vue';
-import ModalWrapper from '@/components/Modals/Wrapper.vue';
-import ProgramModal from '@/components/Modals/Program.vue';
+import {useModalsStore} from "@/stores/modals.js";
 
-const show_program_modal = ref(true);
+const $MODALS_STORE = useModalsStore();
+
+const openModal = modal_name => $MODALS_STORE.$patch({current_modal_object: {name: modal_name}})
 </script>
 
 <style lang='scss'>

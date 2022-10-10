@@ -1,7 +1,7 @@
 <template>
   <header class="modal-navigation">
     <SmallLogo :class="`modal-navigation__logo ${logo_color}`"/>
-    <CloseButton :class="`modal-navigation__close-button ${close_color}`" @click="close"/>
+    <CloseButton :class="`modal-navigation__close-button ${close_color}`" @click="closeAnyModal"/>
   </header>
 </template>
 
@@ -19,7 +19,10 @@ defineProps({
     default: null
   }
 })
-defineEmits(['close'])
+import {useModalsStore} from "@/stores/modals.js";
+
+const closeAnyModal = () => useModalsStore().$patch({current_modal_object: null});
+
 </script>
 
 <style lang='scss'>
