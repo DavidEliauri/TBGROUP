@@ -6,13 +6,15 @@
     <form @submit.prevent="send" class="consult-page__form">
       <div class="consult-page__form__row">
         <label for="consult-name" class="consult-page__form__field">
-          <input v-model="form.name.value" class="consult-page__form__input standard-input body" id='consult-name' type="text"
+          <input v-model="form.name.value" class="consult-page__form__input standard-input body" id='consult-name'
+                 type="text"
                  placeholder="Ваше имя"/>
           <span v-if="form.name.mistake" class="consult-page__form__mistake body_2"
                 id='consult-name-mistake'>{{ form.name.mistake }}</span>
         </label>
         <label for="consult-company" class="consult-page__form__field">
-          <input v-model="form.company.value" class="consult-page__form__input standard-input body" id='consult-company' type="text"
+          <input v-model="form.company.value" class="consult-page__form__input standard-input body" id='consult-company'
+                 type="text"
                  placeholder="Компания"/>
           <span v-if="form.company.mistake" class="consult-page__form__mistake body_2"
                 id='consult-company-mistake'>{{ form.company.mistake }}</span>
@@ -20,57 +22,45 @@
       </div>
       <div class="consult-page__form__row">
         <label for="consult-phone" class="consult-page__form__field">
-          <input v-model="form.phone.value" class="consult-page__form__input standard-input body" id='consult-phone' type="text"
+          <input v-model="form.phone.value" class="consult-page__form__input standard-input body" id='consult-phone'
+                 type="text"
                  placeholder="????????"/>
           <span v-if="form.phone.mistake" class="consult-page__form__mistake body_2"
                 id='consult-phone-mistake'>{{ form.phone.mistake }}</span>
         </label>
         <label for="consult-email" class="consult-page__form__field">
-          <input v-model="form.email.value" class="consult-page__form__input standard-input body" id='consult-email' type="text"
+          <input v-model="form.email.value" class="consult-page__form__input standard-input body" id='consult-email'
+                 type="text"
                  placeholder="Email"/>
           <span v-if="form.email.mistake" class="consult-page__form__mistake body_2"
                 id='consult-email-mistake'>{{ form.email.mistake }}</span>
         </label>
       </div>
-      <textarea class="consult-page__form__input standard-input consult-page__form__textarea body" placeholder="Сообщение"/>
+      <textarea class="consult-page__form__input standard-input consult-page__form__textarea body"
+                placeholder="Сообщение"/>
       <SecondaryButton :disabled="loading" type="submit" class="consult-page__form__submit">Отправить</SecondaryButton>
     </form>
-    <!--    --------------------------------------------------------------------   -->
-    <!--    ---------------------Модалка успешного сообщения-----------------------------   -->
-    <!--    --------------------------------------------------------------------   -->
-    <transition name="opacity">
-      <ModalsWrapper v-if="success_modal_properties.show">
-        <div class="consult-page__success-message modal__content">
-        <span class="consult-page__success-message__icon__wrapper">
-        <svg width="27" height="19" class="consult-page__success-message__icon">
-          <use xlink:href="@/assets/sprites.svg#galka"></use>
-        </svg>
-        </span>
-          <p class="consult-page__success-message__text body_1">!Спасибо! Мы получили ваше сообщение. В ближайшее время
-            мы
-            свяжемся с вами по указанным контактам!</p>
-        </div>
-      </ModalsWrapper>
-    </transition>
   </main>
 </template>
 
 <script setup>
 import SecondaryButton from '@/components/Buttons/Secondary.vue';
-import ModalsWrapper from '@/components/Modals/Wrapper.vue';
-import {nextTick, reactive} from 'vue';
+import {openModal, closeAnyModal} from "@/logics/modals.js";
+import {nextTick, reactive, ref} from 'vue';
 import {gsap} from 'gsap';
 
-const success_modal_properties = reactive({show: false, timer: null});
+const consult_modal_timer = ref(null);
+
 let loading = false;
 const send = () => {
   if (!validation()) return;
   loading = true;
-  success_modal_properties.show = true;
-  clearTimeout(success_modal_properties.timer);
-  success_modal_properties.timer = setTimeout(() => {
+  console.log(1);
+  openModal('consult');
+  clearTimeout(consult_modal_timer.value);
+  consult_modal_timer.value = setTimeout(() => {
     loading = false;
-    success_modal_properties.show = false
+    closeAnyModal();
   }, 3000);
 }
 
@@ -91,7 +81,8 @@ const form = reactive({
     value: null,
     mistake: null
   },
-})
+});
+
 const mistake_animation = key => gsap.fromTo(`#consult-${key}-mistake`, {height: 0, opacity: 0}, {
   height: 'auto',
   opacity: 1,
@@ -103,27 +94,32 @@ const mistake_animation = key => gsap.fromTo(`#consult-${key}-mistake`, {height:
 const validation = () => {
   let is_success = true;
 
-  if (form.email.value && !String(form.email.value).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
-    is_success = false;
-    form.email.mistake = 'Введеный адрес электронной почты невалиден';
-}
 
-for (let [key, {value}] of Object.entries(form)) {
-  form[key].mistake = null;
-  if (!value) {
-    is_success = false;
-    form[key].mistake = 'Поле обязательно для заполнения';
+  for (let [key, {value}] of Object.entries(form)) {
+    form[key].mistake = null;
+    if (!value) {
+      is_success = false;
+      form[key].mistake = 'Поле обязательно для заполнения';
+    }
+
+    if (key === 'email')
+      if (form.email.value && !String(form.email.value).toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        is_success = false;
+        form.email.mistake = 'Введеный адрес электронной почты невалиден';
+      }
+
+    nextTick(() => {
+      if (form[key].mistake) {
+        const animation = mistake_animation(key);
+        animation.play();
+        setTimeout(() => animation.reverse(), 4000)
+      }
+    });
   }
 
-  nextTick(() => {
-    if (form[key].mistake) {
-      const animation = mistake_animation(key);
-      animation.play();
-      setTimeout(() => animation.reverse(), 4000)
-    }
-  });
-}
-return is_success;
+
+  console.log("is_success,", is_success);
+  return is_success;
 }
 
 
@@ -228,36 +224,6 @@ return is_success;
 
     &__submit {
       align-self: flex-end;
-    }
-  }
-
-  //////////////////////////////////////////
-  ////////////Модалка успешного сообщения//////////
-  //////////////////////////////////////////
-  &__success-message {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    grid-gap: 24px;
-    background-color: white;
-    width: 100%;
-    max-width: 980px;
-    padding: 58px 20px 64px;
-    border-radius: 2px;
-
-    &__icon {
-      fill: $IVORY_100;
-
-      &__wrapper {
-        width: 64px;
-        height: 64px;
-        background-color: $BRIGHT_GREEN_100;
-        border-radius: 90px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
     }
   }
 }
