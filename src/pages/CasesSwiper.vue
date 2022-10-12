@@ -22,7 +22,7 @@
               руководителей Сбербанка.
             </p>
             <div class="card__content__info__nutshell__badges">
-              <Badge class="card__content__info__nutchell__badges__item">Сбербанк</Badge>
+              <Badge class="card__content__info__nutchell__badges__item" v-for="(badge, badge_index) in 2">Сбербанк</Badge>
             </div>
           </div>
           <img src="@/assets/images/TwoWomans.png" alt="Training image" class="card__content__info__image"/>
@@ -77,6 +77,7 @@ const slideChangeHandler = swiper => active_index.value = swiper.activeIndex;
   height: 603px;
   transition: 1s !important;
   padding-left: 100px;
+  overflow: visible;
   padding-right: calc(100% - (441px + 820px) / 2 + 100px);
   @media screen and (max-width: $tablet_start) {
     padding-left: 5vw;
@@ -131,7 +132,10 @@ const slideChangeHandler = swiper => active_index.value = swiper.activeIndex;
       grid-gap: 0;
 
       &__image {
-        width: 295px;
+        //@media screen and (max-width: $tablet_start) {
+        //  width:80%;
+        //}
+          width: 295px;
         height: auto;
         max-height: 310px;
         object-fit: contain;
