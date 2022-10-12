@@ -10,6 +10,10 @@
   font-weight: 1000;
   font-size: 224px;
   line-height: 100%;
+  @media screen and (max-width: 1430px) {
+    font-size: 220px;
+  }
+
 }
 
 .heading_2 {
@@ -96,7 +100,7 @@
 }
 
 .lead_1 {
-  font-family: 'Stratos LC Regular';
+  font-family: 'Stratos LC Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 32px;

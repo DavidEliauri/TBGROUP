@@ -35,6 +35,4 @@ watch(CURRENT_MODAL_NAME, (value) => {
   CURRENT_MODAL.value = defineAsyncComponent(() => import(`@/components/Modals/${CURRENT_MODAL_NAME.value[0].toUpperCase() + CURRENT_MODAL_NAME.value.slice(1)}.vue`));
 })
 </script>
-<style lang="scss">
-</style>
 

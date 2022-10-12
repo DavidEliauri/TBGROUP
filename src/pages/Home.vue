@@ -44,6 +44,15 @@ onMounted(() => {
 
 </script>
 <style lang="scss">
+#app {
+  padding: 0 100px;
+  @media screen and (max-width: $notebook_start) {
+    padding: 0 calc((100vw - $notebook) / 8.32 + 50px);
+  }
+  @media screen and (max-width: $notebook) {
+    padding: 0 50px;
+  }
+}
 
 .cross {
   margin-left: 40px;
@@ -54,6 +63,7 @@ onMounted(() => {
 .home-page {
   margin: 0 auto;
   max-width: $maxwidth;
+
   h1 {
     letter-spacing: -7px;
     color: $BRIGHT_GREEN_100;
