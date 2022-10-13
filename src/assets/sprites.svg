@@ -62,16 +62,13 @@
               stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
-
-    <symbol id="author" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="8" cy="5" r="4" stroke="#404040" stroke-width="2"/>
-        <mask id="path-2-inside-1_354_1714" fill="white">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M15.9387 15H0.0625C0.554598 11.0537 3.92099 8 8.00061 8C12.0802 8 15.4466 11.0537 15.9387 15Z"/>
-        </mask>
-        <path d="M0.0625 15L-1.92213 14.7525L-2.20239 17H0.0625V15ZM15.9387 15V17H18.2036L17.9233 14.7525L15.9387 15ZM0.0625 17H15.9387V13H0.0625V17ZM2.04713 15.2475C2.41595 12.2898 4.9424 10 8.00061 10V6C2.89957 6 -1.30675 9.81758 -1.92213 14.7525L2.04713 15.2475ZM8.00061 10C11.0588 10 13.5853 12.2898 13.9541 15.2475L17.9233 14.7525C17.308 9.81758 13.1016 6 8.00061 6V10Z"
-              fill="#404040" mask="url(#path-2-inside-1_354_1714)"/>
+    <symbol id="author" width="16" height="15" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8ZM8 10C10.7614 10 13 7.76142 13 5C13 2.23858 10.7614 0 8 0C5.23858 0 3 2.23858 3 5C3 7.76142 5.23858 10 8 10Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9387 15C15.8516 14.3014 15.6744 13.6307 15.4191 13C14.2323 10.0682 11.3574 8 8 8C4.64262 8 1.7689 10.0682 0.582123 13C0.326824 13.6307 0.149619 14.3014 0.0625 15H15.9387ZM2.80284 13H13.1984C12.1608 11.2069 10.2202 10 8 10C5.77977 10 3.84041 11.2069 2.80284 13Z" />
     </symbol>
+
+
+
 
     <symbol id="two-checks" viewBox="0 0 21 10" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 5.61538L4.38462 9L13 1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

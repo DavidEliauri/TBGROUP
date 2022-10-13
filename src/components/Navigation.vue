@@ -171,7 +171,6 @@ const closeButtonAnimation = () => {
   }
 
   &__button {
-
     position: absolute;
     right: 20px;
     top: 21px;

@@ -217,7 +217,9 @@ const digestSubmit = () => console.log("Submit digest form");
         align-items: center;
         justify-content: flex-start;
         grid-gap: 5px;
-
+        &:nth-child(1){
+          fill: $BLACK_100;
+        }
         &:nth-child(2), &:nth-child(3) {
           fill: transparent;
           stroke: $BLACK_75;
