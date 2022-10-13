@@ -1,5 +1,5 @@
 <template>
-  <header class="navigation__wrapper">
+  <header class="navigation__wrapper container-padding container-maxwidth">
     <div class="navigation">
       <div class="navigation__menu">
         <button class='navigation__menu__button link' @click="toggleEmit">Меню</button>
@@ -131,6 +131,9 @@ const closeButtonAnimation = () => {
   align-items: flex-end;
   height: 100%;
   width: 100%;
+  @media screen and (max-width: $tablet_end) {
+    justify-content: flex-start;
+  }
 
   &__menu {
     width: max-content;
@@ -143,6 +146,10 @@ const closeButtonAnimation = () => {
     margin-top: 30px;
     overflow: hidden;
     border-radius: 2px;
+    //@media screen and (max-width: $tablet_end) {
+    //  align-items: flex-start;
+    //  padding-left:20px;
+    //}
 
     &__button {
       color: $BRIGHT_GREEN_100;
@@ -159,6 +166,11 @@ const closeButtonAnimation = () => {
 
 
     &__links {
+      //@media screen and (max-width: $tablet_end) {
+      //  align-items: flex-start;
+      //
+      //}
+
       margin-top: 12px;
       display: flex;
       flex-direction: column;
@@ -174,6 +186,30 @@ const closeButtonAnimation = () => {
     position: absolute;
     right: 20px;
     top: 21px;
+  }
+}
+
+.link {
+  font-family: 'Stratos LC Bold', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  text-underline-offset: 7px;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  @media screen and (max-width: $notebook) {
+    font-size: 20px;
+    line-height: 110%;
+
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 18px;
   }
 }
 </style>

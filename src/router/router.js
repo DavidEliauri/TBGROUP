@@ -10,7 +10,7 @@ export const routes = [
         path: '/trainings',
         name: 'Тренинги',
         meta: {filters: true},
-        component: () => import("@/pages/Trainings.vue")
+        component: () => import("@/components/Screens/Trainings.vue")
     },
     {
         path: '/swiper',

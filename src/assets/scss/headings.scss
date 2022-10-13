@@ -10,10 +10,6 @@
   font-weight: 1000;
   font-size: 224px;
   line-height: 100%;
-  @media screen and (max-width: 1430px) {
-    font-size: 220px;
-  }
-
 }
 
 .heading_2 {
@@ -46,12 +42,26 @@
   line-height: 100%;
 }
 
+
 .caption_1 {
   font-family: 'Stratos LC Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
+}
+.caption_1_adaptive {
+  font-size: 16px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 14.5px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 14px;
+  }
 }
 
 .subheader_1 {
