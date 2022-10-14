@@ -1,103 +1,84 @@
 <template>
-  <main class="page blog-page">
-    <Post v-for="(post,index) in final_posts.map(el=>el[0])" :key="`post-1-${index}`" v-bind="post"/>
-    <Post v-for="(post,index) in final_posts.map(el=>el[1])" :key="`post-2-${index}`" v-bind="post"/>
-    <Post v-for="(post,index) in final_posts.map(el=>el[2])" :key="`post-3-${index}`" v-bind="post"/>
+  <div class="blog-screen">
+    <Post v-for="(post,index) in posts" :key="`post-1-${index}`" v-bind="post"/>
+<!--    <Post v-for="(post,index) in final_posts.map(el=>el[1])" :key="`post-2-${index}`" v-bind="post"/>-->
+<!--    <Post v-for="(post,index) in final_posts.map(el=>el[2])" :key="`post-3-${index}`" v-bind="post"/>-->
     <!--    <div class="blog-page__column">-->
     <!--    </div>-->
     <!--    <div class="blog-page__column">-->
     <!--    </div>-->
     <!--    <div class="blog-page__column">-->
     <!--    </div>-->
-  </main>
+  </div>
 </template>
 
 
 <script setup>
-import Post from '@/components/Post.vue';
+import Post from '@/components/Posts/Post.vue';
 import {onBeforeUnmount, onMounted} from "vue";
 
-let posts = [
+const posts = [
   {
     title: 'Коучинг как стиль управления2',
-    image: true,
-    long: true,
-    caption: 'мероприятие',
+    type: 'event',
     created_at: new Date(400),
   },
   {
     title: 'Метод морфологического ящика3',
-    image: true,
-    long: false,
-    caption: 'мероприятие',
+    type: 'event',
     created_at: new Date(4050),
   },
   {
     title: 'Метод морфологического ящика',
-    image: false,
-    long: true,
-    caption: 'кейс',
+    type: 'case',
     created_at: new Date(5200),
   },
   {
     title: 'Метод морфологического ящика',
-    image: false,
-    long: true,
-    caption: 'кейс',
+    type: 'case',
     created_at: new Date(5200),
   },
   {
     title: 'Метод морфологического ящика',
-    image: false,
-    long: true,
-    caption: 'кейс',
+    type: 'case',
     created_at: new Date(5200),
   },
   {
     title: 'Метод морфологического ящика',
-    image: false,
-    long: true,
-    caption: 'кейс',
+    type: 'case',
     created_at: new Date(5200),
   },
   {
     title: 'Метод морфологического ящика',
-    image: false,
-    long: true,
-    caption: 'кейс',
+    type: 'case',
     created_at: new Date(5200),
   },
   {
     title: 'Управление продажами и сервисом для Сбербанк',
-    image: true,
-    long: true,
-    caption: 'тема',
+    type: 'theme',
     created_at: new Date(2700),
   },
   {
     title: `Навыки ведения переговоров1`,
-    image: false,
-    long: false,
-    caption: 'тема',
+    type: 'theme',
     created_at: new Date(2500),
   },
   {
     title: 'Метод морфологического ящика',
-    image: false,
-    long: false,
-    caption: 'тема',
+    type: 'theme',
     created_at: new Date(1500),
   }
 ].sort((a, b) => b.created_at - a.created_at);
 
-
 const resizeHandler = () => {
-  // Место для обработки адаптивной версии, т.е., когда ширина становится меньше пересчитывать кол-во столбцов
+// Место для обработки адаптивной версии, т.е., когда ширина становится меньше пересчитывать кол-во столбцов
 }
+onMounted(() => window.addEventListener('resize', resizeHandler));
+onBeforeUnmount(() => window.removeEventListener('resize', resizeHandler));
 
-const events = posts.filter(({caption}) => caption === 'мероприятие');
-const themes = posts.filter(({caption}) => caption === 'тема');
-const cases = posts.filter(({caption}) => caption === 'кейс');
+const events = posts.filter(({type}) => type === 'event');
+const themes = posts.filter(({type}) => type === 'theme');
+const cases = posts.filter(({type}) => type === 'case');
 
 let final_posts = [];
 console.log('min, ', Math.min(events.length, themes.length, cases.length));
@@ -108,20 +89,19 @@ for (let i = 0; i <= Math.min(events.length, themes.length, cases.length); i++) 
   events.splice(i, 1);
 }
 
-const index_of_first = final_posts[0].findIndex(({caption}) => caption === 'тема');
+const index_of_first = final_posts[0].findIndex(({type}) => type === 'theme');
 [final_posts[0][0], final_posts[0][index_of_first]] = [final_posts[0][index_of_first], final_posts[0][0]];
 final_posts[0][0].color = 'black';
 
 
 console.table("the array is: ", final_posts);
 
-// final_posts[0] = [final_posts[0].indexOf(el => el.caption === 'тема'), final_posts[0]];
-onMounted(() => window.addEventListener('resize', resizeHandler));
-onBeforeUnmount(() => window.removeEventListener('resize', resizeHandler));
+// final_posts[0] = [final_posts[0].indexOf(el => el.type === 'theme'), final_posts[0]];
+
 </script>
 
 <style lang="scss">
-.blog-page {
+.blog-screen {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

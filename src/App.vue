@@ -23,6 +23,7 @@ import ModalWrapper from '@/components/Modals/Wrapper.vue';
 import {useModalsStore} from "@/stores/modals.js";
 import {useRoute} from "vue-router";
 import {computed, ref, watch, defineAsyncComponent, shallowRef} from "vue";
+import {uppercaseFirstSymbol} from "@/logics/files.js";
 
 const $MODALS_STORE = useModalsStore();
 const filters_component = ref(null);
@@ -32,7 +33,7 @@ const CURRENT_MODAL_NAME = computed(() => $MODALS_STORE.current_modal_object?.na
 const CURRENT_MODAL = shallowRef(null);
 watch(CURRENT_MODAL_NAME, (value) => {
   if (!value) return CURRENT_MODAL.value = null;
-  CURRENT_MODAL.value = defineAsyncComponent(() => import(`@/components/Modals/${CURRENT_MODAL_NAME.value[0].toUpperCase() + CURRENT_MODAL_NAME.value.slice(1)}.vue`));
+  CURRENT_MODAL.value = defineAsyncComponent(() => import(`@/components/Modals/${uppercaseFirstSymbol(CURRENT_MODAL_NAME.value)}.vue`));
 })
 </script>
 

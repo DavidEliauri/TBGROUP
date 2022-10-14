@@ -114,7 +114,6 @@ const closeButtonAnimation = () => {
 
 .navigation {
   &__wrapper {
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;

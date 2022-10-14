@@ -22,7 +22,7 @@ export const routes = [
         path: '/blog',
         name: 'Блог',
         meta: {filters: true},
-        component: () => import("@/pages/Blog.vue")
+        component: () => import("@/components/Screens/Blog.vue")
     },
     {
         path: '/consult',
