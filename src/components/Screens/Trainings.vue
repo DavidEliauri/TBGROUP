@@ -1,18 +1,17 @@
 <template>
-  <!--  <button type="button" @click="update">Update</button>-->
   <swiper
       :slidesPerView="'auto'"
       @swiper="swiperInitHandler"
       @slideChange="slideChangeHandler"
       :mousewheel="true"
       :modules="[Mousewheel]"
-      @beforeSlideChangeStart="beforeSlideChangeHandler"
       class="mySwiper"
   >
     <swiper-slide v-for="(training_item, training_index) in 10" :key="`training-item-${training_index}`" class="card">
       <p class="card__type body">кейс</p>
       <div class="card__content">
-        <h2 class="card__content__title" :class="active_index===training_index?'heading_4':'heading_5'">ИСПОЛЬЗОВАНИЕ МЕТОДА LEGO
+        <h2 class="card__content__title" :class="active_index===training_index?'heading_4':'heading_5'">ИСПОЛЬЗОВАНИЕ
+          МЕТОДА LEGO
           SERIOUS
           PLAY</h2>
         <div class="card__content__info">
@@ -22,7 +21,8 @@
               руководителей Сбербанка.
             </p>
             <div class="card__content__info__nutshell__badges">
-              <Badge class="card__content__info__nutshell__badges__item" v-for="(badge, badge_index) in 2">Сбербанк</Badge>
+              <Badge class="card__content__info__nutshell__badges__item" v-for="(badge, badge_index) in 2">Сбербанк
+              </Badge>
             </div>
           </div>
           <img src="@/assets/images/TwoWomans.png" alt="Training image" class="card__content__info__image"/>
@@ -34,7 +34,7 @@
 <script setup>
 import {Swiper, SwiperSlide} from "swiper/vue";
 import {Mousewheel} from 'swiper'
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import Badge from '@/components/Badge.vue';
 import "swiper/css";
 
@@ -42,6 +42,17 @@ const SWIPER_INSTANCE = ref(null);
 const active_index = ref(0);
 const swiperInitHandler = swiper => SWIPER_INSTANCE.value = swiper
 const slideChangeHandler = swiper => active_index.value = swiper.activeIndex;
+
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    console.log("resized");
+    SWIPER_INSTANCE.value.update();
+    // SWIPER_INSTANCE.value.destroy(true, true);
+    // console.log(SWIPER_INSTANCE.value);
+    // SWIPER_INSTANCE.value.init(document.querySelector('.mySwiper'));
+  });
+});
+
 </script>
 
 <style lang="scss">

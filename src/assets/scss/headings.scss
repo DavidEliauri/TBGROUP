@@ -50,7 +50,7 @@
   font-size: 16px;
   line-height: 100%;
 }
-.caption_1_adaptive {
+.adaptive_16px {
   font-size: 16px;
 
   @media screen and (max-width: $notebook) {
@@ -94,7 +94,7 @@
 
 .body {
   @include body_mixin;
-  font-size: 16px;
+  @extend .adaptive_16px;
 }
 
 .body_2 {

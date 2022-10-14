@@ -1,5 +1,5 @@
 <template>
-  <button class="primary-button caption_1 caption_1_adaptive uppercase">
+  <button class="primary-button caption_1 adaptive_16px uppercase">
     <slot></slot>
   </button>
 </template>
@@ -19,8 +19,7 @@
   gap: 10px;
   letter-spacing: 0.1em;
   border-radius: 2px;
-  @media screen and (max-width: $notebook_start) {
-  }
+
 
   @media screen and (max-width: $notebook) {
     padding: 0 17px;

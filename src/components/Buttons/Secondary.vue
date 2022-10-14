@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="secondary-button">
+  <button type="button" class="secondary-button body">
     <slot/>
   </button>
 </template>
@@ -12,13 +12,18 @@
   border-color: $BRIGHT_GREEN_75;
   background-color: rgba(0, 0, 0, 0);
   border-radius: 2px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 135%;
-  text-align: center;
   transition: $TRANSITION;
+  @media screen and (max-width: $notebook){
+    padding: 15px 27px 15px;
 
+  }
+  @media screen and (max-width: $tablet_start){
+    padding: 15px 25px 15px;
+  }
+  @media screen and (max-width: $tablet){
+    padding: 14px 22px 14px;
+
+  }
   &:not(:disabled):hover {
     color: $BRIGHT_GREEN_100;
     border-color: $BRIGHT_GREEN_100;

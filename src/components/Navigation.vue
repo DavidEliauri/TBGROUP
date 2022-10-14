@@ -147,10 +147,9 @@ const closeButtonAnimation = () => {
     margin-top: 30px;
     overflow: hidden;
     border-radius: 2px;
-    //@media screen and (max-width: $tablet_end) {
-    //  align-items: flex-start;
-    //  padding-left:20px;
-    //}
+    @media screen and (max-width: $tablet_end) {
+      align-items: flex-start;
+    }
 
     &__button {
       color: $BRIGHT_GREEN_100;
@@ -167,11 +166,9 @@ const closeButtonAnimation = () => {
 
 
     &__links {
-      //@media screen and (max-width: $tablet_end) {
-      //  align-items: flex-start;
-      //
-      //}
-
+      @media screen and (max-width: $tablet_end) {
+        align-items: flex-start;
+      }
       margin-top: 12px;
       display: flex;
       flex-direction: column;
@@ -186,7 +183,7 @@ const closeButtonAnimation = () => {
   &__button {
     position: absolute;
     right: 0;
-    top:24px;
+    top:20px;
   }
 }
 

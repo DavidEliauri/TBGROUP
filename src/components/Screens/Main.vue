@@ -40,12 +40,8 @@ onMounted(() => {
     ease: 'power3'
   });
 });
-
-
 </script>
 <style lang="scss">
-
-
 .cross {
   margin-left: 40px;
   opacity: 0;

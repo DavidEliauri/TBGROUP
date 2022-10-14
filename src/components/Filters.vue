@@ -2,7 +2,7 @@
   <div class="filters__wrapper">
     <div class="filters">
       <div class="filters__main">
-        <button class="filters__toggle-button caption_1" @click="toggle">Фильтры
+        <button class="filters__toggle-button caption_1 adaptive_16px" @click="toggle">Фильтры
           <CheckArrowButton class="filters__toggle-button__icon" :class="{rotate: !is_filters_open}"/>
         </button>
       </div>
@@ -111,6 +111,15 @@ onBeforeUnmount(() => {
     justify-content: flex-start;
     align-items: center;
     border: none;
+    @media screen and (max-width: $notebook){
+      height: 80px;
+    }
+    @media screen and (max-width: $tablet_start){
+      height: 75px;
+    }
+    @media screen and (max-width: $tablet){
+      height: 70px;
+    }
   }
 
   &__toggle-button {
@@ -123,8 +132,6 @@ onBeforeUnmount(() => {
     &__icon {
       margin-left: 13px;
       transition: $TRANSITION * 2;
-
-
     }
   }
 
@@ -138,7 +145,15 @@ onBeforeUnmount(() => {
     box-sizing: content-box;
     overflow: hidden;
     height: 0;
-
+    @media screen and (max-width: $notebook){
+      grid-gap: 35px;
+    }
+    @media screen and (max-width: $tablet_start){
+      height: 27px;
+    }
+    @media screen and (max-width: $tablet){
+      height: 20px;
+    }
     &__section {
       display: flex;
       flex-direction: column;

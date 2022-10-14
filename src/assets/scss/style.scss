@@ -12,11 +12,10 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 135%;
-  background-color: green;
   overflow-x: hidden;
   overflow-y: auto;
   overflow-y: overlay;
-  transition: background-color $TRANSITION;
+  min-width: 320px;
 }
 
 #app {

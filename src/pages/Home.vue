@@ -1,12 +1,14 @@
 <template>
   <main class="page home-page wrapper-maxwidth wrapper-padding">
-    <TrainingsScreen class="trainings-screen screen"/>
+<!--    <TrainingsScreen class="trainings-screen screen"/>-->
 <!--    <MainScreen class="screen"/>-->
+    <Filters class="Filters"/>
   </main>
 </template>
 <script setup>
 import MainScreen from '@/components/Screens/Main.vue';
 import TrainingsScreen from '@/components/Screens/Trainings.vue';
+import Filters from '@/components/Filters.vue';
 </script>
 
 <style lang="scss">
