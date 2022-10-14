@@ -32,7 +32,7 @@
 
 .heading_5 {
   @include heading_mixin;
-  font-size: 32px;
+  @extend .adaptive_32px;
   line-height: 100%;
 }
 
@@ -47,9 +47,77 @@
   font-family: 'Stratos LC Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  @extend .adaptive_16px;
   line-height: 100%;
 }
+
+.subheader_1 {
+  font-family: 'Stratos LC Bold', sans-serif;
+  @extend .adaptive_32px;
+  line-height: 110%;
+  text-align: center;
+}
+
+.subheader_2 {
+  font-family: 'Stratos LC Bold', sans-serif;
+  @extend .adaptive_16px;
+  line-height: 105%;
+}
+
+.lead {
+  font-family: 'Stratos LC Regular', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  @extend .adaptive_32px;
+  line-height: 135%;
+}
+
+
+@mixin body_mixin {
+  font-family: 'Stratos LC Regular', sans-serif;
+  line-height: 135%;
+}
+
+.body {
+  @include body_mixin;
+  @extend .adaptive_16px;
+}
+
+.body_2 {
+  @include body_mixin;
+  @extend .adaptive_14px;
+}
+
+
+.body_3 {
+  @include body_mixin;
+  font-weight: 400;
+  @extend .adaptive_14px;
+}
+
+.lead_1 {
+  font-family: 'Stratos LC Regular', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  @extend .adaptive_32px;
+  line-height: 135%;
+}
+
+
+.adaptive_14px {
+  font-size: 14px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 13.5px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 12px;
+  }
+}
+
 .adaptive_16px {
   font-size: 16px;
 
@@ -64,55 +132,16 @@
   }
 }
 
-.subheader_1 {
-  font-family: 'Stratos LC Bold', sans-serif;
+.adaptive_32px {
   font-size: 32px;
-  line-height: 110%;
-  text-align: center;
-}
 
-.subheader_2 {
-  font-family: 'Stratos LC Bold', sans-serif;
-  font-size: 16px;
-  line-height: 105%;
-}
-
-.lead {
-  font-family: 'Stratos LC Regular', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 135%;
-}
-
-
-@mixin body_mixin {
-  font-family: 'Stratos LC Regular', sans-serif;
-  line-height: 135%;
-}
-
-
-.body {
-  @include body_mixin;
-  @extend .adaptive_16px;
-}
-
-.body_2 {
-  @include body_mixin;
-  font-size: 14px;
-}
-
-
-.body_3 {
-  @include body_mixin;
-  font-weight: 400;
-  font-size: 14px;
-}
-
-.lead_1 {
-  font-family: 'Stratos LC Regular', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 135%;
+  @media screen and (max-width: $notebook) {
+    font-size: 30px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 29px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 28px;
+  }
 }

@@ -15,3 +15,13 @@ const props = defineProps({
 const TYPED_POST = shallowRef(null);
 TYPED_POST.value = defineAsyncComponent(() => import(`./${uppercaseFirstSymbol(props.type)}.vue`));
 </script>
+
+<style lang="scss">
+.post{
+  padding: 20px;
+  border-radius: 2px;
+  &__wrapper{
+    text-decoration: none;
+  }
+}
+</style>
