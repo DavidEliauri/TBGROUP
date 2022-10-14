@@ -4,6 +4,7 @@ export const routes = [
     {
         path: '/',
         name: 'Главная',
+        meta: {filters: false},
         component: () => import("@/pages/Home.vue")
     },
     {
@@ -38,11 +39,7 @@ export const routes = [
         name: 'Темы',
         component: () => import("@/pages/Themes.vue")
     },
-    {
-        path: '/cases-swiper',
-        name: 'Кейс-свайпер',
-        component: () => import("@/pages/CasesSwiper.vue")
-    },
+
     {
         path: '/post',
         name: 'Пост',

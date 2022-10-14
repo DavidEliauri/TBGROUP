@@ -36,3 +36,5 @@ watch(CURRENT_MODAL_NAME, (value) => {
 })
 </script>
 
+<style lang="scss">
+</style>

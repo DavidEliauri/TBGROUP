@@ -12,10 +12,11 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 135%;
+  background-color: green;
   overflow-x: hidden;
+  overflow-y: auto;
   overflow-y: overlay;
   transition: background-color $TRANSITION;
-  min-width: 1440px;
 }
 
 #app {
@@ -23,6 +24,9 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overflow-y: overlay;
 }
 
 .page {
@@ -30,6 +34,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: rgba(0, 0, 0, .4);
 }
 
 .uppercase {
@@ -103,7 +108,7 @@ button, a {
   }
 }
 
-.container-padding {
+.wrapper-padding {
   padding: 0 100px;
   @media screen and (max-width: $notebook_start) {
     padding: 0 calc((100vw - $notebook) / 8.32 + 50px);
@@ -114,6 +119,11 @@ button, a {
   @media screen and (max-width: $tablet) {
     padding: 0 20px;
   }
+}
+
+.wrapper-maxwidth {
+  width:100%;
+  max-width: $notebook_start;
 }
 
 .container-maxwidth {

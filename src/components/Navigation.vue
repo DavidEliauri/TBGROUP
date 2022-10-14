@@ -1,6 +1,6 @@
 <template>
-  <header class="navigation__wrapper container-padding container-maxwidth">
-    <div class="navigation">
+  <header class="navigation__wrapper wrapper-padding wrapper-maxwidth">
+    <div class="navigation container-maxwidth">
       <div class="navigation__menu">
         <button class='navigation__menu__button link' @click="toggleEmit">Меню</button>
         <nav class="navigation__menu__links">
@@ -114,13 +114,13 @@ const closeButtonAnimation = () => {
 
 .navigation {
   &__wrapper {
-    position: relative;
+    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: auto;
-    padding: 19px 0 0;
+    padding-top:19px !important;
     z-index: $navigation_z;
   }
 
@@ -131,6 +131,7 @@ const closeButtonAnimation = () => {
   align-items: flex-end;
   height: 100%;
   width: 100%;
+  background-color: rgba(black,.5);
   @media screen and (max-width: $tablet_end) {
     justify-content: flex-start;
   }
@@ -184,8 +185,8 @@ const closeButtonAnimation = () => {
 
   &__button {
     position: absolute;
-    right: 20px;
-    top: 21px;
+    right: 0;
+    top:24px;
   }
 }
 

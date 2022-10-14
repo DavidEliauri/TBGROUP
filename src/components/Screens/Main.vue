@@ -53,9 +53,6 @@ onMounted(() => {
 }
 
 .home-page {
-  margin: 0 auto;
-  max-width: $maxwidth;
-
   h1 {
     letter-spacing: -7px;
     color: $BRIGHT_GREEN_100;
