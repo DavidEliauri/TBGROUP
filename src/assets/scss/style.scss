@@ -110,10 +110,10 @@ button, a {
 .wrapper-padding {
   padding: 0 100px;
   @media screen and (max-width: $notebook_start) {
-    padding: 0 calc((100vw - $notebook) / 8.32 + 50px);
+    padding: 0 auto-calculate($notebook_start, $notebook, 100px, 50px);
   }
   @media screen and (max-width: $notebook) {
-    padding: 0 calc((100vw - $tablet) / 8.32 + 20px);
+    padding: 0 auto-calculate($notebook, $tablet, 50px, 20px);
   }
   @media screen and (max-width: $tablet) {
     padding: 0 20px;
@@ -121,7 +121,7 @@ button, a {
 }
 
 .wrapper-maxwidth {
-  width:100%;
+  width: 100%;
   max-width: $notebook_start;
 }
 

@@ -62,7 +62,7 @@ onMounted(() => {
   height: 603px;
   transition: 1s !important;
   overflow: visible;
-  padding-right: calc(100% - (441px + 820px) / 2 + 100px);
+  padding-right:  calc(100% - (441px + 820px) / 2 + 100px);
   @media screen and (max-width: $tablet_start) {
     padding-right: calc(100% - (20vw + 50vw) / 2 + 5vw);
   }

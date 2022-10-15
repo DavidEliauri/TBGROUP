@@ -125,10 +125,10 @@
     font-size: 15px;
   }
   @media screen and (max-width: $tablet_start) {
-    font-size: 14.5px;
+    font-size: 14px;
   }
   @media screen and (max-width: $tablet) {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -140,10 +140,10 @@
     font-size: 22px;
   }
   @media screen and (max-width: $tablet_start) {
-    font-size: 21.5px;
+    font-size: 20px;
   }
   @media screen and (max-width: $tablet) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -151,12 +151,12 @@
   font-size: 32px;
 
   @media screen and (max-width: $notebook) {
-    font-size: 30px;
-  }
-  @media screen and (max-width: $tablet_start) {
     font-size: 29px;
   }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 26px;
+  }
   @media screen and (max-width: $tablet) {
-    font-size: 28px;
+    font-size: 23px;
   }
 }

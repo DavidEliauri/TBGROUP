@@ -18,6 +18,7 @@ TYPED_POST.value = defineAsyncComponent(() => import(`./${uppercaseFirstSymbol(p
 
 <style lang="scss">
 .post {
+  width:100%;
   padding: 20px;
   border-radius: 2px;
 

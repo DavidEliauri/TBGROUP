@@ -58,12 +58,7 @@ export const routes = [
         meta: {footer: false},
         component: () => import("@/pages/ModalProgram.vue")
     },
-    {
-        path: '/full-text',
-        name: 'Full text',
-        meta: {footer: false},
-        component: () => import("@/pages/FullText.vue")
-    }
+
 ];
 
 const router = createRouter({

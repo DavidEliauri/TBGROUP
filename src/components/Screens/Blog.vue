@@ -1,21 +1,20 @@
 <template>
   <div class="blog-screen">
-    <Post v-for="(post,index) in posts" :key="`post-1-${index}`" v-bind="post"/>
-<!--    <Post v-for="(post,index) in final_posts.map(el=>el[1])" :key="`post-2-${index}`" v-bind="post"/>-->
-<!--    <Post v-for="(post,index) in final_posts.map(el=>el[2])" :key="`post-3-${index}`" v-bind="post"/>-->
-    <!--    <div class="blog-page__column">-->
-    <!--    </div>-->
-    <!--    <div class="blog-page__column">-->
-    <!--    </div>-->
-    <!--    <div class="blog-page__column">-->
-    <!--    </div>-->
+    <div class="blog-screen__column">
+      <Post class="blog-screen__column__item" v-for="(post,index) in posts" :key="`post-1-${index}`" v-bind="post"/>
+    </div>
+    <div class="blog-screen__column">
+      <Post class="blog-screen__column__item" v-for="(post,index) in posts" :key="`post-2-${index}`" v-bind="post"/>
+    </div>
+    <div class="blog-screen__column">
+      <Post class="blog-screen__column__item" v-for="(post,index) in posts" :key="`post-3-${index}`" v-bind="post"/>
+    </div>
   </div>
 </template>
 
 
 <script setup>
 import Post from '@/components/Posts/Post.vue';
-import {onBeforeUnmount, onMounted} from "vue";
 
 const posts = [
   {
@@ -69,47 +68,26 @@ const posts = [
     created_at: new Date(1500),
   }
 ].sort((a, b) => b.created_at - a.created_at);
-
-const resizeHandler = () => {
-// Место для обработки адаптивной версии, т.е., когда ширина становится меньше пересчитывать кол-во столбцов
-}
-onMounted(() => window.addEventListener('resize', resizeHandler));
-onBeforeUnmount(() => window.removeEventListener('resize', resizeHandler));
-
-const events = posts.filter(({type}) => type === 'event');
-const themes = posts.filter(({type}) => type === 'theme');
-const cases = posts.filter(({type}) => type === 'case');
-
-let final_posts = [];
-console.log('min, ', Math.min(events.length, themes.length, cases.length));
-for (let i = 0; i <= Math.min(events.length, themes.length, cases.length); i++) {
-  final_posts.push(([cases[i], themes[i], events[i]]).sort(() => Math.random() - .5))
-  cases.splice(i, 1);
-  themes.splice(i, 1);
-  events.splice(i, 1);
-}
-
-const index_of_first = final_posts[0].findIndex(({type}) => type === 'theme');
-[final_posts[0][0], final_posts[0][index_of_first]] = [final_posts[0][index_of_first], final_posts[0][0]];
-final_posts[0][0].color = 'black';
-
-
-console.table("the array is: ", final_posts);
-
-// final_posts[0] = [final_posts[0].indexOf(el => el.type === 'theme'), final_posts[0]];
-
 </script>
 
 <style lang="scss">
-.blog-screen {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
+.blog-screen-gap {
   grid-gap: 20px;
+  @media screen and (max-width: $notebook_start) {
+    grid-gap: auto-calculate($notebook_start, $notebook, 20px, 10px);
+  }
+  @media screen and (max-width: $notebook) {
+    grid-gap: 10px;
+  }
+}
+
+.blog-screen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
   background-color: rgba($IVORY, .95);
   max-width: 100%;
+  @extend .blog-screen-gap;
 
   &__column {
     display: flex;
@@ -117,15 +95,15 @@ console.table("the array is: ", final_posts);
     flex-wrap: nowrap;
     width: 100%;
     max-width: 400px;
-    grid-gap: 20px;
-    min-height: 100px;
+    @extend .blog-screen-gap;
+
     flex-shrink: 0;
     flex-grow: 0;
+    &__item{
+      flex-grow: 0;
+      max-width:100%;
+    }
   }
 }
 
-.post__wrapper {
-  width: 100%;
-  max-width: 400px;
-}
 </style>

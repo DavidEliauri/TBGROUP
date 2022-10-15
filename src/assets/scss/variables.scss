@@ -18,3 +18,8 @@ $phone_end: 375px;
 
 $navigation_z: 100;
 $modal_z: 200;
+
+@function auto-calculate($start_width, $end_width, $max_value, $min_value) {
+  @return calc((100vw - $end_width) / (($start_width - $end_width) / ($max_value - $min_value)) + ($max_value - $min_value));
+}
+
