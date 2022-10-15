@@ -62,7 +62,7 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
     font-weight: 400;
     font-size: 16px;
     line-height: 135%;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
     text-decoration: none;
   }
   &__sides {
@@ -79,7 +79,7 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
     grid-gap: 60px;
 
     &__image {
@@ -105,7 +105,7 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
         letter-spacing: 0.1em;
         text-decoration-line: underline;
         text-transform: uppercase;
-        color: $BRIGHT_GREEN_100
+        color: $GREEN
       }
 
       &__job-level {

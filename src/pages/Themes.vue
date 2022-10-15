@@ -95,7 +95,7 @@ const itemClickHandler = event => {
 
 <style lang='scss'>
 body {
-  background-color: $BRIGHT_GREEN_100;
+  background-color: $GREEN;
 }
 
 .themes-page {
@@ -104,7 +104,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  color: $IVORY_100;
+  color: $IVORY;
   margin: 81px auto 0;
   max-width: $maxwidth;
 
@@ -125,7 +125,7 @@ body {
     position: relative;
 
     &__before {
-      background: linear-gradient(0deg, rgba($BRIGHT_GREEN_100, 0) 0%, $BRIGHT_GREEN_100 100%);
+      background: linear-gradient(0deg, rgba($GREEN, 0) 0%, $GREEN 100%);
       position: sticky;
       top: 0;
       left: 0;
@@ -134,7 +134,7 @@ body {
     }
 
     &__after {
-      background: linear-gradient(180deg, rgba($BRIGHT_GREEN_100, 0) 0%, $BRIGHT_GREEN_100 100%);
+      background: linear-gradient(180deg, rgba($GREEN, 0) 0%, $GREEN 100%);
       position: sticky;
       bottom: 0;
       left: 0;
@@ -163,11 +163,11 @@ body {
       flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
-      border-top: 1px solid $IVORY_100;
+      border-top: 1px solid $IVORY;
       padding: 24px 0;
 
       &:last-child {
-        border-bottom: 1px solid $IVORY_100;
+        border-bottom: 1px solid $IVORY;
       }
 
       &__visible {
@@ -191,7 +191,7 @@ body {
           border-radius: 90px;
           background-color: transparent;
           color: inherit;
-          border: 2px solid $IVORY_100;
+          border: 2px solid $IVORY;
 
           &__icon {
             stroke: white;
@@ -210,7 +210,7 @@ body {
           line-height: 110%;
           border: none;
           padding: 3px 0;
-          border-bottom: 1px solid $IVORY_100;
+          border-bottom: 1px solid $IVORY;
         }
       }
 

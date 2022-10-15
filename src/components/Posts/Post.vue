@@ -17,10 +17,11 @@ TYPED_POST.value = defineAsyncComponent(() => import(`./${uppercaseFirstSymbol(p
 </script>
 
 <style lang="scss">
-.post{
+.post {
   padding: 20px;
   border-radius: 2px;
-  &__wrapper{
+
+  &__wrapper {
     text-decoration: none;
   }
 }

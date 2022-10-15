@@ -108,7 +108,7 @@ console.table("the array is: ", final_posts);
   align-items: flex-start;
   justify-content: center;
   grid-gap: 20px;
-  background-color: $IVORY_95;
+  background-color: rgba($IVORY, .95);
   max-width: 100%;
 
   &__column {

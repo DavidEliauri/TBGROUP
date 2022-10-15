@@ -13,14 +13,14 @@
 
 <style lang='scss'>
 .small-logo {
-  fill: $BLACK_100;
+  fill: $BLACK;
 
   &.green {
-    fill: $BRIGHT_GREEN_100;
+    fill: $GREEN;
   }
 
   &.white {
-    fill: $IVORY_100;
+    fill: $IVORY;
   }
 }
 </style>

@@ -59,7 +59,7 @@ const openMenuAnimation = () => {
   gsap.to('.navigation__menu__button', {
     color: COLORS.IVORY_60,
     ease: 'power3',
-    textDecorationColor: `${COLORS.BRIGHT_GREEN_100}00`,
+    textDecorationColor: `${COLORS.GREEN_100}00`,
     duration: TRANSITION_TIME,
   })
   gsap.to('.navigation__menu__links', {
@@ -71,14 +71,14 @@ const closeMenuAnimation = () => {
     width: 'auto',
     paddingTop: 0,
     marginTop: 30,
-    background: `${COLORS.BRIGHT_GREEN_100}00`,
+    background: `${COLORS.GREEN_100}00`,
     duration: TRANSITION_TIME,
     ease: 'power3',
   })
   gsap.to('.navigation__menu__button', {
-    color: COLORS.BRIGHT_GREEN_100,
+    color: COLORS.GREEN_100,
     ease: 'power3',
-    textDecorationColor: COLORS.BRIGHT_GREEN_100,
+    textDecorationColor: COLORS.GREEN_100,
     duration: TRANSITION_TIME,
   })
   gsap.to('.navigation__menu__links', {
@@ -94,14 +94,14 @@ const closeMenuAnimation = () => {
 const openButtonAnimation = () => {
   gsap.to('.navigation__button', {
     backgroundColor: COLORS.IVORY_100,
-    color: COLORS.BRIGHT_GREEN_100,
+    color: COLORS.GREEN_100,
     duration: TRANSITION_TIME,
     ease: 'power3',
   });
 }
 const closeButtonAnimation = () => {
   gsap.to('.navigation__button', {
-    backgroundColor: COLORS.BRIGHT_GREEN_100,
+    backgroundColor: COLORS.GREEN_100,
     color: COLORS.IVORY_100,
     duration: TRANSITION_TIME,
     ease: 'power3',
@@ -151,15 +151,15 @@ const closeButtonAnimation = () => {
     }
 
     &__button {
-      color: $BRIGHT_GREEN_100;
+      color: $GREEN;
     }
 
     &__link {
-      color: $IVORY_60;
+      color: rgba($IVORY, .60);
       transition: $TRANSITION;
 
       &:hover {
-        color: $IVORY_100;
+        color: $IVORY;
       }
     }
 

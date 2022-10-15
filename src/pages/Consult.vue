@@ -140,7 +140,7 @@ const validation = () => {
     width: 399px;
     flex-grow: 0;
     flex-shrink: 0;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
   }
 
   &__form {
@@ -169,8 +169,8 @@ const validation = () => {
       display: block;
       width: 100%;
       max-width: 400px;
-      border: 1px solid $BRIGHT_GREEN_60;
-      color: $BRIGHT_GREEN_60;
+      border: 1px solid rgba ($GREEN, .60);
+      color: rgba ($GREEN, .60);
       height: 48px;
       border-radius: 2px;
       padding: 14px 24px 12px;
@@ -178,26 +178,26 @@ const validation = () => {
       outline: none;
 
       &::placeholder {
-        color: $BRIGHT_GREEN_60;
+        color: rgba ($GREEN, .60);
       }
 
       &:disabled {
         &::placeholder {
-          color: $BRIGHT_GREEN_30;
+          color: rgba ($GREEN, .30);
         }
 
-        color: $BRIGHT_GREEN_30;
-        border-color: $BRIGHT_GREEN_30;
+        color: rgba ($GREEN, .30);
+        border-color: rgba ($GREEN, .30);
       }
 
       &:not(&:disabled):hover {
-        border-color: $BRIGHT_GREEN_75;
-        color: $BRIGHT_GREEN_75;
+        border-color: rgba ($GREEN, .75);
+        color: rgba ($GREEN, .75);
       }
 
       &:not(&:disabled):focus {
-        border: 1.5px solid $BRIGHT_GREEN_100;
-        color: $BRIGHT_GREEN_100;
+        border: 1.5px solid $GREEN;
+        color: $GREEN;
       }
     }
 

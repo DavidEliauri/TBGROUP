@@ -34,23 +34,23 @@ const props = defineProps({
   align-items: stretch;
   grid-gap: 10px;
   border-radius: 2px;
-  background-color: $IVORY_80;
+  background-color: rgba($IVORY, .80);
 
   &_with-image {
     padding: 24px;
   }
 
   &_green, &_black {
-    color: $IVORY_100;
+    color: $IVORY;
   }
 
 
   &_green {
-    background-color: $BRIGHT_GREEN_100;
+    background-color: $GREEN;
   }
 
   &_black {
-    background-color: $BLACK_100;
+    background-color: $BLACK;
   }
 
   &_with-image & {

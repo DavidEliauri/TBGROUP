@@ -229,7 +229,7 @@ const some_checkbox_value = ref(false);
     }
 
     tr:last-child {
-      color: $BLACK_60;
+      color: rgba($BLACK, .60);
     }
 
     td {
@@ -255,11 +255,11 @@ const some_checkbox_value = ref(false);
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      color: $BLACK_30;
+      color: rgba($BLACK, .30);
 
       &:first-child {
         label {
-          background-color: $BLACK_60;
+          background-color: rgba($BLACK, .60);
         }
       }
     }

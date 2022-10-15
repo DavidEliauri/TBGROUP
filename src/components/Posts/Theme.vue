@@ -20,8 +20,8 @@ defineProps({title: {required: true}, is_green: {required: false, default: false
 
 <style lang='scss'>
 .theme-post {
-  background-color: $BLACK_100;
-  color: $IVORY_100;
+  background-color: $BLACK;
+  color: $IVORY;
   display: flex;
   align-items: flex-start;
   justify-content: center;

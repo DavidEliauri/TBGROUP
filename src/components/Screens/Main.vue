@@ -51,7 +51,7 @@ onMounted(() => {
 .home-page {
   h1 {
     letter-spacing: -7px;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
     opacity: 0;
     transform: translateY(50px);
   }
@@ -73,7 +73,7 @@ onMounted(() => {
     transform: translateX(5vw);
     opacity: 0;
     margin-left: 30px;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
     margin-top: 21.5px;
     align-self: baseline;
   }

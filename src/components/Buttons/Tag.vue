@@ -16,8 +16,8 @@
 
   transition: $TRANSITION;
 
-  background-color: $IVORY_95;
-  color: $BLACK_60;
+  background-color: rgba($IVORY, .95);
+  color: rgba($BLACK, .60);
 
   @media screen and (max-width: $notebook) {
     padding: 12px 20px 12px;
@@ -34,37 +34,37 @@
   }
 
   &:not(&:disabled):hover {
-    background-color: $IVORY_80;
-    color: $BLACK_60;
+    background-color: rgba($IVORY, .80);
+    color: rgba($BLACK, .60);
   }
 
   &:not(&:disabled, &.active):active, &.active {
-    background-color: $BLACK_30;
-    color: $IVORY_100;
+    background-color: rgba($BLACK, .30);
+    color: $IVORY;
   }
 
   &.active:not(&:disabled):active {
-    background-color: $IVORY_95;
-    color: $BLACK_60;
+    background-color: rgba($IVORY, .95);
+    color: rgba($BLACK, .60);
   }
 
   &.alternative {
-    background-color: $IVORY_30;
-    color: $IVORY_100;
+    background-color: rgba($IVORY, .30);
+    color: $IVORY;
 
     &:not(&:disabled):hover {
-      background-color: $IVORY_50;
-      color: $IVORY_100;
+      background-color: rgba($IVORY, .50);
+      color: $IVORY;
     }
 
     &:not(&:disabled):active, &.active {
-      background-color: $BLACK_30;
-      color: $IVORY_100;
+      background-color: rgba($BLACK, .30);
+      color: $IVORY;
     }
 
     &.active:not(&:disabled):active {
-      background-color: $IVORY_30;
-      color: $IVORY_100;
+      background-color: rgba($IVORY, .30);
+      color: $IVORY;
     }
   }
 

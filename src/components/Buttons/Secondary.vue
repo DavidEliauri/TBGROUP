@@ -6,10 +6,10 @@
 <style lang="scss">
 .secondary-button {
   padding: 18px 32px 16px;
-  color: $BRIGHT_GREEN_75;
+  color: rgba ($GREEN, .75);
   border-width: 1.5px;
   border-style: solid;
-  border-color: $BRIGHT_GREEN_75;
+  border-color: rgba ($GREEN, .75);
   background-color: rgba(0, 0, 0, 0);
   border-radius: 2px;
   transition: $TRANSITION;
@@ -25,28 +25,28 @@
 
   }
   &:not(:disabled):hover {
-    color: $BRIGHT_GREEN_100;
-    border-color: $BRIGHT_GREEN_100;
+    color: $GREEN;
+    border-color: $GREEN;
   }
 
   &:disabled {
     cursor: default;
-    color: $BRIGHT_GREEN_30;
-    border-color: $BRIGHT_GREEN_30;
+    color: rgba ($GREEN, .30);
+    border-color: rgba ($GREEN, .30);
   }
 
   &.alternative {
-    color: $IVORY_60;
-    border-color: $IVORY_80;
+    color: rgba($IVORY, .60);
+    border-color: rgba($IVORY, .80);
 
     &:not(:disabled):hover {
-      color: $IVORY_100;
-      border-color: $IVORY_100;
+      color: $IVORY;
+      border-color: $IVORY;
     }
 
     &:disabled {
-      color: $IVORY_60;
-      border-color: $IVORY_60;
+      color: rgba($IVORY, .60);
+      border-color: rgba($IVORY, .60);
     }
   }
 }

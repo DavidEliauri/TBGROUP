@@ -21,14 +21,14 @@
   outline: none;
   opacity: .6;
   transition: $TRANSITION;
-  stroke: $BLACK_100;
+  stroke: $BLACK;
 
   &.green {
-    stroke: $BRIGHT_GREEN_100;
+    stroke: $GREEN;
   }
 
   &.white {
-    stroke: $IVORY_100;
+    stroke: $IVORY;
   }
 
   &:not(:disabled):hover, &:not(:disabled):active {

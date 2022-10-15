@@ -17,12 +17,12 @@
   padding: 13px 24px;
   width: max-content;
   border-radius: 25px;
-  background-color: $IVORY_95;
-  color: $BLACK_60;
+  background-color: rgba($IVORY, .95);
+  color: rgba($BLACK, .60);
 
   &.alternative {
-    background-color: $IVORY_80;
-    color: $BRIGHT_GREEN_100;
+    background-color: rgba($IVORY, .80);
+    color: $GREEN;
   }
 }
 </style>

@@ -28,14 +28,14 @@
   max-width: 980px;
   padding: 58px 20px 64px;
   border-radius: 2px;
-  color: $BRIGHT_GREEN_100;
+  color: $GREEN;
   &__icon {
-    fill: $IVORY_100;
+    fill: $IVORY;
 
     &__wrapper {
       width: 64px;
       height: 64px;
-      background-color: $BRIGHT_GREEN_100;
+      background-color: $GREEN;
       border-radius: 90px;
       display: flex;
       align-items: center;

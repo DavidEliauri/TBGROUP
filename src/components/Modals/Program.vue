@@ -86,7 +86,7 @@ $program_modal_inner_padding: 73px;
   margin: 28px !important;
   width: 1440px;
   max-width: calc(100% - 28px * 2);
-  background-color: $IVORY_100;
+  background-color: $IVORY;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -133,7 +133,7 @@ $program_modal_inner_padding: 73px;
       flex-direction: row;
       justify-content: flex-start;
       grid-gap: 44px;
-      color: $IVORY_100;
+      color: $IVORY;
       &__type{
         height:max-content;
       }
@@ -257,7 +257,7 @@ $program_modal_inner_padding: 73px;
       width: 399px;
       flex-shrink: 0;
       flex-grow: 0;
-      color: $BRIGHT_GREEN_100;
+      color: $GREEN;
     }
 
     &__form {

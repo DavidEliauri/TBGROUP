@@ -155,7 +155,7 @@ const digestSubmit = () => console.log("Submit digest form");
       align-items: center;
       grid-gap: 8px;
       text-decoration: none;
-      color: $BLACK_100;
+      color: $BLACK;
       flex-shrink: 0;
 
       &__button {
@@ -163,7 +163,7 @@ const digestSubmit = () => console.log("Submit digest form");
         width: 34px;
         height: 34px;
         border-radius: 90px;
-        border: 2px solid $BLACK_75;
+        border: 2px solid rgba($BLACK, .75);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -218,11 +218,11 @@ const digestSubmit = () => console.log("Submit digest form");
         justify-content: flex-start;
         grid-gap: 5px;
         &:nth-child(1){
-          fill: $BLACK_100;
+          fill: $BLACK;
         }
         &:nth-child(2), &:nth-child(3) {
           fill: transparent;
-          stroke: $BLACK_75;
+          stroke: rgba($BLACK, .75);
         }
       }
     }
@@ -294,20 +294,20 @@ const digestSubmit = () => console.log("Submit digest form");
 
       button {
         fill: none;
-        stroke: $IVORY_100;
+        stroke: $IVORY;
       }
     }
 
     &__button {
       width: 48px;
       height: 48px;
-      background-color: $BLACK_60;
+      background-color: rgba($BLACK, .60);
       border: none;
       outline: none;
       display: flex;
       align-items: center;
       justify-content: center;
-      fill: $IVORY_100;
+      fill: $IVORY;
       border-radius: 2px;
     }
 
@@ -317,7 +317,7 @@ const digestSubmit = () => console.log("Submit digest form");
       font-weight: 500;
       font-size: 16px;
       line-height: 135%;
-      color: $BLACK_30;
+      color: rgba($BLACK, .30);
     }
   }
 
@@ -332,7 +332,7 @@ const digestSubmit = () => console.log("Submit digest form");
       width: 399px;
       flex-shrink: 0;
       flex-grow: 0;
-      color: $BRIGHT_GREEN_100;
+      color: $GREEN;
     }
 
     &__form {

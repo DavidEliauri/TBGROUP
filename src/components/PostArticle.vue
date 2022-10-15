@@ -16,13 +16,13 @@
 .post-article {
   width: 100%;
   max-width: 100%;
-  background-color: $BLACK_100;
+  background-color: $BLACK;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   text-decoration: none;
-  color: $IVORY_100;
+  color: $IVORY;
   border-radius: 4px;
   padding: 18px 20px 14px 30px;
   grid-gap: 7px;
@@ -38,7 +38,7 @@
 
   &__image-name {
     margin-top: 21px;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
   }
 }
 

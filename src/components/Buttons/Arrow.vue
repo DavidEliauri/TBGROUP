@@ -21,8 +21,8 @@
   border-width: 2px;
   border-style: solid;
 
-  border-color: $BLACK_100;
-  fill: $BLACK_100;
+  border-color: $BLACK;
+  fill: $BLACK;
 
   opacity: .75;
 
@@ -39,13 +39,13 @@
   }
 
   &.green {
-    border-color: $BRIGHT_GREEN_100;
-    fill: $BRIGHT_GREEN_100;
+    border-color: $GREEN;
+    fill: $GREEN;
   }
 
   &.white {
-    border-color: $IVORY_100;
-    fill: $IVORY_100;
+    border-color: $IVORY;
+    fill: $IVORY;
   }
 }
 </style>

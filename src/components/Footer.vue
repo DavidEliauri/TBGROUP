@@ -50,7 +50,7 @@
   align-items: center;
 
   &__logo {
-    fill: $BRIGHT_GREEN_100;
+    fill: $GREEN;
   }
 
   &__socials {
@@ -60,12 +60,12 @@
     &__item {
       width: 44px;
       height: 44px;
-      background-color: $BRIGHT_GREEN_100;
+      background-color: $GREEN;
       border-radius: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
-      fill: $IVORY_100;
+      fill: $IVORY;
     }
   }
 
@@ -84,7 +84,7 @@
       letter-spacing: 0.02em;
       text-transform: uppercase;
       text-decoration: none;
-      color: $BRIGHT_GREEN_100;
+      color: $GREEN;
 
       &:hover {
         text-decoration: underline;

@@ -11,8 +11,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $IVORY_100;
-  background-color: $BRIGHT_GREEN_100;
+  color: $IVORY;
+  background-color: $GREEN;
   border: none;
   padding: 0 20px;
   height: 48px;

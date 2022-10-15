@@ -52,7 +52,7 @@ onMounted(() => {
 <style lang="scss">
 .first_text {
   font-family: 'Stratos LC Bold', sans-serif;
-  fill: $BRIGHT_GREEN_100;
+  fill: $GREEN;
 
   text {
     width: calc(100vw - ((100vw - $notebook) / 8.32 + 50px) * 2);
@@ -88,7 +88,7 @@ onMounted(() => {
 
   h1 {
     letter-spacing: -7px;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
     opacity: 0;
     transform: translateY(50px);
   }
@@ -110,7 +110,7 @@ onMounted(() => {
     transform: translateX(5vw);
     opacity: 0;
     margin-left: 30px;
-    color: $BRIGHT_GREEN_100;
+    color: $GREEN;
     margin-top: 21.5px;
     align-self: baseline;
   }

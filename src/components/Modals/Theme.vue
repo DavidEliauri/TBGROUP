@@ -46,7 +46,7 @@ import NavigationModal from '@/components/NavigationModal.vue';
     height: 100%;
     top: 0;
     left: 0;
-    background-color: $IVORY_100;
+    background-color: $IVORY;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@ import NavigationModal from '@/components/NavigationModal.vue';
     margin: 29px 0 72px;
 
     &__logo {
-      fill: $BRIGHT_GREEN_100;
+      fill: $GREEN;
     }
 
     &__close-button {

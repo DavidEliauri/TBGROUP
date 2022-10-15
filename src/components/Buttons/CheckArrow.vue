@@ -23,7 +23,7 @@ const disabled = () => console.log("disabled");
   padding: 0;
 
   opacity: .75;
-  fill: $BLACK_100;
+  fill: $BLACK;
   *{
     transition: $TRANSITION;
   }
@@ -40,11 +40,11 @@ const disabled = () => console.log("disabled");
   }
 
   &.green {
-    fill: $BRIGHT_GREEN_100;
+    fill: $GREEN;
   }
 
   &.white {
-    fill: $IVORY_100;
+    fill: $IVORY;
   }
 }
 </style>

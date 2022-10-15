@@ -78,9 +78,9 @@ onMounted(() => {
   align-items: flex-start;
   justify-content: space-between;
   grid-gap: 53px;
-  color: $BRIGHT_GREEN_100;
+  color: $GREEN;
   border: none;
-  border-right: 2px solid $BRIGHT_GREEN_100;
+  border-right: 2px solid $GREEN;
   height: 100%;
   padding: 0 20px;
   width: 441px;

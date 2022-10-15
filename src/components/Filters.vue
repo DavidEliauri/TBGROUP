@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
 
   > * {
     border-top-style: solid;
-    border-top-color: $IVORY_80;
+    border-top-color: rgba($IVORY, .80);
     border-width: 0;
   }
 

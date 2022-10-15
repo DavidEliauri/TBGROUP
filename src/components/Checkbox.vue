@@ -35,16 +35,16 @@ const changeFunction = value => emit('update:modelValue', value);
   width: 24px;
   height: 24px;
   border-radius: 90px;
-  background-color: $BLACK_30;
+  background-color: rgba($BLACK, .30);
   cursor: pointer;
   flex-shrink: 0;
 
   &__icon {
-    fill: $IVORY_100;
+    fill: $IVORY;
   }
 
   &.checked {
-    background-color: $BLACK_75;
+    background-color: rgba($BLACK, .75);
   }
   &.disabled{
     cursor:default;
