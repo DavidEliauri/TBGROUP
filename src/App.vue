@@ -1,6 +1,5 @@
 <template>
-  <Navigation class="navigation"/>
-  <Filters ref="filters_component" class="filters" v-if="is_filters_showed"/>
+<!--  <Navigation class="navigation"/>-->
   <router-view v-slot="{ Component, route }">
     <transition :name="route.meta.transition || 'opacity-transition'" mode="out-in">
       <component class="page" :is="Component"/>
