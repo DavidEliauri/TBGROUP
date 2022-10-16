@@ -7,7 +7,6 @@
   <swiper
       slidesPerView="1"
       :speed="1000"
-      @beforeInit="beforeInitHandler"
       @swiper="swiperInitHandler"
       @slideChange="slideChangeHandler"
       :mousewheel="true"
@@ -19,7 +18,8 @@
     <!--   820, 402 -->
     <swiper-slide v-for="(worker_item, worker_index) in 10" :key="`worker-item-${worker_index}`"
                   class="workers-slider__item">
-      Slide {{ worker_index + 1 }}
+      <h3 class="workers-slider__item__title" :class="active_index===worker_index?'heading_4':'heading_5'">Руслан
+        Габисов</h3>
     </swiper-slide>
   </swiper>
 </template>
@@ -28,6 +28,7 @@ import {Swiper, SwiperSlide} from "swiper/vue";
 import {Mousewheel} from 'swiper'
 import {nextTick, onMounted, ref} from "vue";
 import "swiper/css";
+import {gsap} from "gsap";
 
 const SWIPER_BREAKPOINTS = {
   768: {
@@ -35,17 +36,33 @@ const SWIPER_BREAKPOINTS = {
   }
 };
 
-
 const SWIPER_INSTANCE = ref(null);
 const active_index = ref(0);
 
-// const beforeInitHandler = swiper => {
-//   const first_slide = document.querySelector('.workers-slider__item:first-child');
-//   first_slide.classList.add('.swiper-slide-active')
-// }
-
 const swiperInitHandler = swiper => SWIPER_INSTANCE.value = swiper
-const slideChangeHandler = swiper => active_index.value = swiper.activeIndex;
+const slideChangeHandler = swiper => {
+  oldAnimation(active_index.value + 1);
+  active_index.value = swiper.activeIndex;
+  newAnimation(active_index.value + 1);
+}
+
+
+const oldAnimation = (index) => {
+
+}
+const newAnimation = (index) => {
+
+}
+
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
+/////////////////////////////////
 let resize_handler_timer = null;
 let show_swiper = ref(true);
 onMounted(() => window.addEventListener('resize', resizeHandler, {passive: true}));
@@ -89,6 +106,10 @@ const resizeHandler = () => {
     border-right: 2px solid $GREEN;
     width: 402px;
     transition: 1s;
+
+    &__title {
+      transition: $TRANSITION;
+    }
 
     &.swiper-slide-active {
       width: calc(402px * (820 / 402));
