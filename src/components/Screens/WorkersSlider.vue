@@ -16,7 +16,7 @@
       class="workers-slider"
       v-if="show_swiper"
   >
-    <!--   802, 420 -->
+    <!--   820, 402 -->
     <swiper-slide v-for="(worker_item, worker_index) in 10" :key="`worker-item-${worker_index}`"
                   class="workers-slider__item">
       Slide {{ worker_index + 1 }}
@@ -69,7 +69,7 @@ const resizeHandler = () => {
 .workers-slider {
   width: 100%;
   height: 521px;
-  padding-right: calc(100% - 420px);
+  padding-right: calc(100% - 402px);
   overflow: visible;
   background-color: rgba($RED, .1);
   @media screen and (max-width: $notebook) {
@@ -87,24 +87,24 @@ const resizeHandler = () => {
     padding: 0 20px;
     height: 100%;
     border-right: 2px solid $GREEN;
-    width: 420px;
+    width: 402px;
     transition: 1s;
 
     &.swiper-slide-active {
-      width: calc(420px * (802 / 420));
+      width: calc(402px * (820 / 402));
     }
 
     @media screen and (max-width: $notebook) {
       width: 350px;
       &.swiper-slide-active {
-        width: calc(350px * (802 / 420));
+        width: calc(350px * (820 / 402));
       }
 
     }
     @media screen and (max-width: $tablet) {
       width: 100%;
       &.swiper-slide-active {
-        width: calc(350px * (802 / 420));
+        width: calc(350px * (820 / 402));
       }
     }
     @media screen and (max-width: $tablet_start) {
