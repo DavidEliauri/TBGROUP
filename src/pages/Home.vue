@@ -5,9 +5,9 @@
     <!--    <Filters class="Filters wrapper-maxwidth"/>-->
     <!--    <BlogScreen class="screen blog-screen"/>-->
     <!--        <WorkersSlider class="workers-slider screen"/>-->
-    <Form @submit="formSubmit" :checks="form_checks" :is_with_checks="true">
+    <Form @submit="formSubmit" :checks="form_checks" :is_with_checks="false">
       <template #title>
-        <h3 class="form__title">Ваши контакты для связи</h3>
+        <h3 class="form__title">Напишите нам, если вам нужна консультация</h3>
       </template>
       <template #inputs>
         <div class="form__row">
@@ -52,15 +52,7 @@ import {reactive} from "vue";
 
 const formSubmit = () => console.log("Form submit function");
 
-const form_checks = reactive({
-      title: 'На какие мероприятия хотели бы зарегистрироваться?',
-      values: [
-        {id: 1, title: 'Мероприятие 1', value: false},
-        {id: 2, title: 'Мероприятие 2', value: false},
-        {id: 3, title: 'Мероприятие 3', value: false}
-      ]
-    }
-);
+
 </script>
 
 <style lang="scss">

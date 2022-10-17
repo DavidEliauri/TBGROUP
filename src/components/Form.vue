@@ -76,7 +76,6 @@ defineProps({
   }
 }
 
-
 .form {
   &__container {
     width: 100%;
