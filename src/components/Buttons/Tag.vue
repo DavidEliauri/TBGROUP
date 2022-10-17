@@ -20,13 +20,16 @@
   color: rgba($BLACK, .60);
 
   @media screen and (max-width: $notebook) {
-    padding: 12px 20px 12px;
+    padding: 12px 20px;
   }
   @media screen and (max-width: $tablet_start) {
-    padding: 12px 18px 12px;
+    padding: 12px 18px;
   }
   @media screen and (max-width: $tablet) {
-    padding: 12px 16px 12px;
+    padding: 12px 16px;
+  }
+  @media screen and (max-width: $tablet_end) {
+    padding: 8px 13px;
   }
 
   &:disabled {

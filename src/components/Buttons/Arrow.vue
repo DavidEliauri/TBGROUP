@@ -21,6 +21,13 @@
   border-width: 2px;
   border-style: solid;
 
+
+  @media screen and (max-width: $tablet) {
+    height: 30px;
+    width: 30px;
+  }
+
+
   border-color: $BLACK;
   fill: $BLACK;
 

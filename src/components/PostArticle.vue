@@ -1,5 +1,5 @@
 <template>
-  <article class="post-article__wrapper" v-for="item in 3">
+  <article class="post-article__wrapper">
     <router-link to="#" class="post-article">
       <p class="post-article__title">Источник: источник</p>
       <img src="@/assets/images/sidebar-image.png" alt="Theme modal sidebar image"

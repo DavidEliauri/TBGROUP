@@ -1,5 +1,5 @@
 <template>
-  <main class="page post-page">
+  <main class="page post-page wrapper-padding">
     <header class="post-page__header">
       <router-link to="/blog" class="post-page__header__back-button">
         <ArrowButton class="post-page__header__back-button__button left"/>
@@ -43,7 +43,7 @@
     <img src="@/assets/images/popup-image.png" alt="Post image" class="post-page__image">
     <div class="post-page__content">
       <div class="post-page__content__sidebar">
-        <PostArticle class="post-page__content__sidebar__article" v-for="article in 3"/>
+        <PostArticle class="post-page__content__sidebar__article" v-for="article in 1"/>
       </div>
       <div class="post-page__content__info">
         <div class="post-page__content__info__html">
@@ -154,9 +154,9 @@ const digestSubmit = () => console.log("Submit digest form");
 
 <style lang='scss'>
 @import '@/assets/scss/adaptive_fonts.scss';
+
 .post-page {
   width: 100%;
-  max-width: $maxwidth;
   margin: 140px auto 0;
   padding-bottom: 140px;
 
@@ -166,6 +166,10 @@ const digestSubmit = () => console.log("Submit digest form");
     justify-content: flex-start;
     align-items: flex-start;
     grid-gap: 86px;
+    @media screen and (max-width: $notebook) {
+      flex-direction: column;
+      grid-gap: 32px;
+    }
 
     &__back-button {
       display: flex;
@@ -179,8 +183,6 @@ const digestSubmit = () => console.log("Submit digest form");
 
       &__button {
         flex-shrink: 0;
-        width: 34px;
-        height: 34px;
         border-radius: 90px;
         border: 2px solid rgba($BLACK, .75);
         display: flex;
@@ -223,7 +225,11 @@ const digestSubmit = () => console.log("Submit digest form");
       line-height: 100%;
       text-transform: uppercase;
       margin: 60px 0 30px;
-    }
+      @media screen and (max-width: $notebook) {
+      margin: 40px 0;
+
+      }
+      }
 
     &__post-info {
       display: flex;

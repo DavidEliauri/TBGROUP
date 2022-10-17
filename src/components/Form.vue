@@ -83,7 +83,6 @@ defineProps({
     align-items: flex-start;
     @include grid-gap_mixin;
     color: $GREEN;
-    background-color: $IVORY;
   }
 
   flex-grow: 1;
@@ -162,7 +161,7 @@ defineProps({
   &__input {
     display: block;
     width: 100%;
-    background-color: $IVORY;
+    background: transparent;
     border: 1px solid rgba($GREEN, .60);
     color: rgba($GREEN, .60);
     border-radius: 2px;
