@@ -13,6 +13,7 @@
 </script>
 
 <style lang='scss'>
+@import "@/assets/scss/adaptive_fonts.scss";
 .post-article {
   width: 100%;
   max-width: 100%;

@@ -104,48 +104,56 @@
         </div>
       </div>
     </div>
-    <template #checks>
-      <p class="form__checks__title">{{ form_checks.title }}</p>
-      <div class="form__checks__content">
-        <label class="form__checkbox" :for="`form-checkbox-${check.id}`" v-for="check in form_checks.values">
-          <SecondaryCheckbox class="form__checkbox__input" :id="`form-checkbox-${check.id}`" v-model="check.value"
-                             :value="!check.value"/>
-          <span class="form__checkbox__name">{{ check.title }}</span>
-        </label>
-      </div>
-    </template>
 
-    <div class="post-page__digest">
-      <h3 class="post-page__digest__title heading_4">Получите весь дайджест</h3>
-      <form @submit.prevent="digestSubmit" class="post-page__digest__form">
-        <div class="post-page__digest__form__row">
-          <input class="standard-input post-page__digest__form__input" type="text" placeholder="ФИО" name="name"
+
+    <!--      <template #checks>-->
+    <!--        <p class="form__checks__title">{{ form_checks.title }}</p>-->
+    <!--        <div class="form__checks__content">-->
+    <!--          <label class="form__checkbox" :for="`form-checkbox-${check.id}`" v-for="check in form_checks.values">-->
+    <!--            <SecondaryCheckbox class="form__checkbox__input" :id="`form-checkbox-${check.id}`" v-model="check.value"-->
+    <!--                               :value="!check.value"/>-->
+    <!--            <span class="form__checkbox__name">{{ check.title }}</span>-->
+    <!--          </label>-->
+    <!--        </div>-->
+    <!--      </template>-->
+
+
+    <Form @submit="digestSubmit">
+      <template #title>
+        <h3 class="form__title">Получите весь дайджест</h3>
+      </template>
+      <template #inputs>
+        <div class="form__row">
+          <input class="form__input" type="text" placeholder="ФИО" name="name"
                  id="digest-name">
-          <input class="standard-input post-page__digest__form__input" type="text" placeholder="Компания" name="company"
+          <input class="form__input" type="text" placeholder="Компания" name="company"
                  id="digest-company">
         </div>
-        <div class="post-page__digest__form__row">
-          <input class="standard-input post-page__digest__form__input" type="text" placeholder='Номер телефона'
+        <div class="form__row">
+          <input class="form__input" type="text" placeholder='Номер телефона'
                  name="phone" id="digest-phone">
-          <input class="standard-input post-page__digest__form__input" type="text" placeholder="E-mail" name="email"
+          <input class="form__input" type="text" placeholder="E-mail" name="email"
                  id="digest-email">
         </div>
-        <SecondaryButton class="post-page__digest__form__submit">Получить</SecondaryButton>
-      </form>
-    </div>
+        <textarea class="form__input" placeholder=Сообщение
+                  name="phone" id="digest-phone"/>
+      </template>
+      <template #button-text>Отправить</template>
+    </Form>
   </main>
 </template>
 
 <script setup>
 import Tag from '@/components/Buttons/Tag.vue';
 import PostArticle from '@/components/PostArticle.vue';
-import SecondaryButton from '@/components/Buttons/Secondary.vue';
 import ArrowButton from '@/components/Buttons/Arrow.vue';
+import Form from '@/components/Form.vue';
 
 const digestSubmit = () => console.log("Submit digest form");
 </script>
 
 <style lang='scss'>
+@import '@/assets/scss/adaptive_fonts.scss';
 .post-page {
   width: 100%;
   max-width: $maxwidth;
@@ -181,7 +189,7 @@ const digestSubmit = () => console.log("Submit digest form");
       }
 
       &__text {
-        font-family: 'Stratos LC Medium',sans-serif;
+        font-family: 'Stratos LC Medium', sans-serif;
         font-style: normal;
         font-weight: 500;
         @extend .adaptive_16px;
@@ -230,9 +238,11 @@ const digestSubmit = () => console.log("Submit digest form");
         align-items: center;
         justify-content: flex-start;
         grid-gap: 5px;
-        &:nth-child(1){
+
+        &:nth-child(1) {
           fill: $BLACK;
         }
+
         &:nth-child(2), &:nth-child(3) {
           fill: transparent;
           stroke: rgba($BLACK, .75);
