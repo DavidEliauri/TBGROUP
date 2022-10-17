@@ -177,7 +177,8 @@ const some_checkbox_value = ref(false);
     font-family: 'Stratos LC Regular', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    @extend .adaptive_20px;
+
     line-height: 135%;
     max-width: 782px;
   }

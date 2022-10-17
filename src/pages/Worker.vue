@@ -60,7 +60,8 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
     font-family: 'Stratos LC Regular',sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    @extend .adaptive_16px;
+
     line-height: 135%;
     color: $GREEN;
     text-decoration: none;
@@ -100,7 +101,8 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
         font-family: 'Stratos LC Bold';
         font-style: normal;
         font-weight: 700;
-        font-size: 18px;
+        @extend .adaptive_18px;
+
         line-height: 100%;
         letter-spacing: 0.1em;
         text-decoration-line: underline;

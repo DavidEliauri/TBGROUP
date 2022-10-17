@@ -1,0 +1,137 @@
+@mixin adaptive_12px_mixin {
+  font-size: 12px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 11px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 10.5px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 10px;
+  }
+}
+
+
+@mixin adaptive_14px_mixin {
+  font-size: 14px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 13.5px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 12px;
+  }
+}
+
+@mixin adaptive_16px_mixin {
+  font-size: 16px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 13px;
+  }
+}
+
+@mixin adaptive_18px_mixin {
+  font-size: 18px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 17px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 15px;
+  }
+}
+
+@mixin adaptive_24px_mixin {
+  font-size: 24px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 22px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: $phone_start) {
+    font-size: 16.5px;
+  }
+}
+
+@mixin adaptive_20px_mixin {
+  font-size: 20px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 18px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 17.5px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 16.5px;
+  }
+  @media screen and (max-width: $phone_start) {
+    font-size: 15.5px;
+  }
+}
+
+@mixin adaptive_32px_mixin {
+  font-size: 32px;
+
+  @media screen and (max-width: $notebook) {
+    font-size: 29px;
+  }
+  @media screen and (max-width: $tablet_start) {
+    font-size: 26px;
+  }
+  @media screen and (max-width: $tablet) {
+    font-size: 23px;
+  }
+  @media screen and (max-width: $phone_start) {
+    font-size: 20px;
+  }
+}
+
+.adaptive_12px {
+  @include adaptive_12px_mixin;
+}
+
+.adaptive_14px {
+  @include adaptive_14px_mixin;
+}
+
+.adaptive_16px {
+  @include adaptive_16px_mixin;
+}
+
+.adaptive_18px {
+  @include adaptive_18px_mixin;
+}
+
+.adaptive_20px {
+  @include adaptive_18px_mixin;
+}
+
+.adaptive_24px {
+  @include adaptive_24px_mixin;
+}
+
+.adaptive_32px {
+  @include adaptive_32px_mixin;
+}
+
+

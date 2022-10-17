@@ -104,6 +104,17 @@
         </div>
       </div>
     </div>
+    <template #checks>
+      <p class="form__checks__title">{{ form_checks.title }}</p>
+      <div class="form__checks__content">
+        <label class="form__checkbox" :for="`form-checkbox-${check.id}`" v-for="check in form_checks.values">
+          <SecondaryCheckbox class="form__checkbox__input" :id="`form-checkbox-${check.id}`" v-model="check.value"
+                             :value="!check.value"/>
+          <span class="form__checkbox__name">{{ check.title }}</span>
+        </label>
+      </div>
+    </template>
+
     <div class="post-page__digest">
       <h3 class="post-page__digest__title heading_4">Получите весь дайджест</h3>
       <form @submit.prevent="digestSubmit" class="post-page__digest__form">
@@ -170,10 +181,11 @@ const digestSubmit = () => console.log("Submit digest form");
       }
 
       &__text {
-        font-family: 'Stratos LC Medium';
+        font-family: 'Stratos LC Medium',sans-serif;
         font-style: normal;
         font-weight: 500;
-        font-size: 16px;
+        @extend .adaptive_16px;
+
         line-height: 135%;
       }
     }
@@ -198,7 +210,8 @@ const digestSubmit = () => console.log("Submit digest form");
       font-family: 'Stratos LC Bold', sans-serif;
       font-style: normal;
       font-weight: 900;
-      font-size: 112px;
+      @extend .adaptive_112px;
+
       line-height: 100%;
       text-transform: uppercase;
       margin: 60px 0 30px;
@@ -315,7 +328,8 @@ const digestSubmit = () => console.log("Submit digest form");
       font-family: 'Stratos LC Medium';
       font-style: normal;
       font-weight: 500;
-      font-size: 16px;
+      @extend .adaptive_16px;
+
       line-height: 135%;
       color: rgba($BLACK, .30);
     }

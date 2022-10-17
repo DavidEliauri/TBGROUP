@@ -30,7 +30,8 @@ defineProps({
 </script>
 
 <style lang='scss'>
-@import "@/assets/scss/headings";
+@import "@/assets/scss/adaptive_fonts.scss";
+@import "@/assets/scss/headings.scss";
 
 @mixin grid-gap_mixin {
   grid-gap: 20px;
@@ -58,14 +59,11 @@ defineProps({
   }
 }
 
-
 @mixin form-columned_mixin {
   &__container {
     flex-direction: column;
     align-items: stretch;
   }
-
-
   max-width: 820px;
   &__title {
     @media screen and (max-width: $notebook) {
@@ -86,7 +84,6 @@ defineProps({
     @include grid-gap_mixin;
     color: $GREEN;
     background-color: $IVORY;
-
   }
 
   flex-grow: 1;
@@ -106,7 +103,6 @@ defineProps({
     flex-shrink: 0;
     flex-grow: 0;
     @extend .heading_4;
-
   }
 
   &__inputs {
@@ -116,19 +112,16 @@ defineProps({
     align-items: center;
     width: 100%;
     @include grid-gap_mixin;
-
   }
 
   &__row {
     display: flex;
     width: 100%;
     @include grid-gap_mixin;
-
   }
 
   &__checks {
     width: 100%;
-
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -147,8 +140,6 @@ defineProps({
       flex-wrap: wrap;
       @include checks-grid-gap_mixin;
     }
-
-
   }
 
   &__checkbox {
@@ -162,7 +153,7 @@ defineProps({
       font-family: 'Stratos LC Regular', sans-serif;
       font-style: normal;
       font-weight: 400;
-      font-size: 12px;
+      @extend .adaptive_12px;
       line-height: 110%;
       white-space: nowrap;
     }
@@ -195,7 +186,6 @@ defineProps({
       }
     }
 
-
     padding: 13px 24px 13px;
     @media screen and (max-width: $notebook_start) {
       height: 43px;
@@ -205,7 +195,6 @@ defineProps({
       height: 38px;
       padding: 7px 10px 7px;
     }
-
 
     &::placeholder {
       color: rgba($GREEN, .60);

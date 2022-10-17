@@ -206,7 +206,8 @@ body {
           font-family: 'Stratos LC Regular', sans-serif;
           font-style: normal;
           font-weight: 400;
-          font-size: 20px;
+          @extend .adaptive_20px;
+
           line-height: 110%;
           border: none;
           padding: 3px 0;

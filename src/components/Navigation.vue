@@ -110,6 +110,7 @@ const closeButtonAnimation = () => {
 ///////////////////////////////////////
 </script>
 <style lang="scss">
+@import '@/assets/scss/adaptive_fonts.scss';
 @import "@/assets/scss/links.scss";
 
 .navigation {
@@ -119,7 +120,7 @@ const closeButtonAnimation = () => {
     align-items: center;
     width: 100%;
     height: auto;
-    padding-top:19px !important;
+    padding-top: 19px !important;
     z-index: $navigation_z;
   }
 
@@ -130,7 +131,7 @@ const closeButtonAnimation = () => {
   align-items: flex-end;
   height: 100%;
   width: 100%;
-  background-color: rgba(black,.5);
+  background-color: rgba(black, .5);
   @media screen and (max-width: $tablet_end) {
     justify-content: flex-start;
   }
@@ -182,7 +183,7 @@ const closeButtonAnimation = () => {
   &__button {
     position: absolute;
     right: 0;
-    top:20px;
+    top: 20px;
   }
 }
 
@@ -190,7 +191,8 @@ const closeButtonAnimation = () => {
   font-family: 'Stratos LC Bold', sans-serif;
   font-style: normal;
   font-weight: 700;
-  font-size: 24px;
+  @extend .adaptive_24px;
+
   line-height: 125%;
   text-align: center;
   letter-spacing: 0.1em;
@@ -201,12 +203,11 @@ const closeButtonAnimation = () => {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   @media screen and (max-width: $notebook) {
-    font-size: 20px;
+    @include adaptive_20px_mixin;
     line-height: 110%;
-
   }
   @media screen and (max-width: $tablet) {
-    font-size: 18px;
+    @include adaptive_18px_mixin;
   }
 }
 </style>

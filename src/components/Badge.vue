@@ -11,7 +11,7 @@
   font-family: 'Stratos LC Regular', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  @extend .adaptive_16px;
   line-height: 110%;
   min-height: 44px;
   padding: 13px 24px;

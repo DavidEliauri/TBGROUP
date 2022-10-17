@@ -5,9 +5,7 @@
       <component class="page" :is="Component"/>
     </transition>
   </router-view>
-  <transition name="opacity-transition">
-    <Footer v-if="route.meta.footer" class="footer"/>
-  </transition>
+    <Footer class="footer "/>
   <transition name="modals-transition">
     <ModalWrapper class="modal__wrapper" v-if="CURRENT_MODAL">
       <component class="modal__content" :is="CURRENT_MODAL"/>

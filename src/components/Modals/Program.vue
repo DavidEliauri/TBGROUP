@@ -179,7 +179,8 @@ $program_modal_inner_padding: 73px;
         font-family: 'Stratos LC Bold', sans-serif;
         font-style: normal;
         font-weight: 700;
-        font-size: 18px;
+        @extend .adaptive_18px;
+
         line-height: 100%;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -213,7 +214,8 @@ $program_modal_inner_padding: 73px;
             font-family: 'Stratos LC Black Italic', sans-serif;
             font-style: normal;
             font-weight: 900;
-            font-size: 16px;
+            @extend .adaptive_16px;
+
             line-height: 100%;
             text-transform: uppercase;
             margin-bottom: 8px;
@@ -240,7 +242,8 @@ $program_modal_inner_padding: 73px;
           font-family: 'Stratos LC Bold', sans-serif;
           font-style: normal;
           font-weight: 700;
-          font-size: 18px;
+          @extend .adaptive_18px;
+
           line-height: 100%;
           letter-spacing: 0.1em;
           text-transform: uppercase;

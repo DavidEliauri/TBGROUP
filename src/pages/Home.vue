@@ -5,38 +5,28 @@
     <!--    <Filters class="Filters wrapper-maxwidth"/>-->
     <!--    <BlogScreen class="screen blog-screen"/>-->
     <!--        <WorkersSlider class="workers-slider screen"/>-->
-    <Form @submit="formSubmit" :checks="form_checks" :is_with_checks="false">
-      <template #title>
-        <h3 class="form__title">Напишите нам, если вам нужна консультация</h3>
-      </template>
-      <template #inputs>
-        <div class="form__row">
-          <input class="form__input" type="text" placeholder="ФИО" name="name"
-                 id="digest-name">
-          <input class="form__input" type="text" placeholder="Компания" name="company"
-                 id="digest-company">
-        </div>
-        <div class="form__row">
-          <input class="form__input" type="text" placeholder='Номер телефона'
-                 name="phone" id="digest-phone">
-          <input class="form__input" type="text" placeholder="E-mail" name="email"
-                 id="digest-email">
-        </div>
-        <textarea class="form__input" placeholder=Сообщение
-                  name="phone" id="digest-phone"/>
-      </template>
-      <template #checks>
-        <p class="form__checks__title">{{ form_checks.title }}</p>
-        <div class="form__checks__content">
-          <label class="form__checkbox" :for="`form-checkbox-${check.id}`" v-for="check in form_checks.values">
-            <SecondaryCheckbox class="form__checkbox__input" :id="`form-checkbox-${check.id}`" v-model="check.value"
-                               :value="!check.value"/>
-            <span class="form__checkbox__name">{{ check.title }}</span>
-          </label>
-        </div>
-      </template>
-      <template #button-text>Отправить</template>
-    </Form>
+<!--    <Form @submit="formSubmit" :checks="form_checks">-->
+<!--      <template #title>-->
+<!--        <h3 class="form__title">Напишите нам, если вам нужна консультация</h3>-->
+<!--      </template>-->
+<!--      <template #inputs>-->
+<!--        <div class="form__row">-->
+<!--          <input class="form__input" type="text" placeholder="ФИО" name="name"-->
+<!--                 id="digest-name">-->
+<!--          <input class="form__input" type="text" placeholder="Компания" name="company"-->
+<!--                 id="digest-company">-->
+<!--        </div>-->
+<!--        <div class="form__row">-->
+<!--          <input class="form__input" type="text" placeholder='Номер телефона'-->
+<!--                 name="phone" id="digest-phone">-->
+<!--          <input class="form__input" type="text" placeholder="E-mail" name="email"-->
+<!--                 id="digest-email">-->
+<!--        </div>-->
+<!--        <textarea class="form__input" placeholder=Сообщение-->
+<!--                  name="phone" id="digest-phone"/>-->
+<!--      </template>-->
+<!--      <template #button-text>Отправить</template>-->
+<!--    </Form>-->
   </main>
 </template>
 <script setup>
@@ -47,12 +37,9 @@
 // import WorkersSlider from '@/components/Screens/WorkersSlider.vue';
 import Form from '@/components/Form.vue';
 import SecondaryCheckbox from "@/components/Checkbox/Secondary.vue";
-import {reactive} from "vue";
 
 
 const formSubmit = () => console.log("Form submit function");
-
-
 </script>
 
 <style lang="scss">

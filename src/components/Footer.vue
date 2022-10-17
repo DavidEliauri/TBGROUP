@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer  wrapper-padding">
     <router-link class="footer__logo" to="/">
       <svg class="footer__logo__icon"
            width="53" height="19">
@@ -39,24 +39,35 @@
 </script>
 
 <style lang='scss'>
+@import '@/assets/scss/headings.scss';
 .footer {
-  margin: 0 auto;
   padding: 0;
   width: 100%;
-  max-width: $maxwidth;
   height: 166px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  @media screen and (max-width:$notebook) {
+    height: 110px;
+  }
+  @media screen and (max-width: $phone_start) {
+    height: 150px;
+
+    grid-gap: 10px;
+    flex-wrap: wrap;
+  }
   &__logo {
+    display: flex;
     fill: $GREEN;
   }
 
   &__socials {
     display: flex;
     grid-gap: 16px;
-
+    @media screen and (max-width: $notebook) {
+      grid-gap: 10px;
+    }
     &__item {
       width: 44px;
       height: 44px;
@@ -66,6 +77,27 @@
       align-items: center;
       justify-content: center;
       fill: $IVORY;
+      @media screen and (max-width: $notebook) {
+        width: 40px;
+        height: 40px;
+        &__icon{
+          transform: scale(0.8);
+        }
+      }
+      @media screen and (max-width: $tablet) {
+        width: 35px;
+        height: 35px;
+        &__icon{
+          transform: scale(0.7);
+        }
+      }
+      @media screen and (max-width: $phone_start) {
+        width: 32px;
+        height: 32px;
+        &__icon{
+          transform: scale(0.72);
+        }
+      }
     }
   }
 
@@ -75,11 +107,12 @@
     grid-gap: 6px;
 
     &__item {
-      font-family: 'Stratos LC Bold';
+      font-family: 'Stratos LC Bold',sans-serif;
       font-style: normal;
       font-weight: 700;
-      font-size: 16px;
-      line-height: 20px;
+      line-height: 110%;
+      white-space: nowrap;
+      @extend .adaptive_16px;
       text-align: right;
       letter-spacing: 0.02em;
       text-transform: uppercase;

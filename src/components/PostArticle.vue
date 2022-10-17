@@ -32,7 +32,8 @@
     font-family: 'Stratos LC Regular', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    @extend .adaptive_14px;
+
     line-height: 110%;
   }
 
