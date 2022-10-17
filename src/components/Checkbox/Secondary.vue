@@ -1,10 +1,11 @@
 <template>
-  <label :for="`checkbox-${ELEMENT_ID}`" class="checkbox unselectable" :class="{checked: modelValue, disabled: $attrs.hasOwnProperty('disabled')}">
+  <label :for="$props.id" class="checkbox unselectable"
+         :class="{checked: modelValue, disabled: $attrs.hasOwnProperty('disabled')}">
     <input v-bind="$attrs" @input="changeFunction($event.target.checked)" :checked="modelValue" type="checkbox"
-           :id="`checkbox-${ELEMENT_ID}`"
+           :id="$props.id"
            :value="value"
            style="display:none">
-    <svg class="checkbox__icon" width="12" height="9">
+    <svg class="checkbox__icon" width="9" height="7">
       <use xlink:href="@/assets/sprites.svg#checkbox-galka"></use>
     </svg>
   </label>
@@ -12,44 +13,46 @@
 <script setup>
 import {defineEmits} from "vue";
 
-const ELEMENT_ID = Math.random();
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue']);
 defineProps({
+  id: {
+    required: false,
+    default: () => `checkbox-${Math.random()}`
+  },
   modelValue: {
     required: false
   },
   value: {
     required: false
   }
-})
+});
 const changeFunction = value => emit('update:modelValue', value);
-
 </script>
-
 
 <style lang='scss'>
 .checkbox {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
+  border: 1px solid $GREEN;
   border-radius: 90px;
-  background-color: rgba($BLACK, .30);
   cursor: pointer;
   flex-shrink: 0;
+  transition: .1s;
 
   &__icon {
     fill: $IVORY;
   }
 
   &.checked {
-    background-color: rgba($BLACK, .75);
-  }
-  &.disabled{
-    cursor:default;
+    background-color: $GREEN;
   }
 
+  &.disabled {
+    cursor: default;
+  }
 
 
 }

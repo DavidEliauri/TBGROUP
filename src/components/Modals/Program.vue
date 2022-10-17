@@ -53,19 +53,21 @@
     <div class="program-modal__contacts">
       <h4 class="program-modal__contacts__title heading_4">контакты для связи</h4>
       <form @submit.prevent="formSubmit" class="program-modal__contacts__form">
-      <div class="program-modal__contacts__form__row">
-        <input class="standard-input program-modal__contacts__form__input" type="text" placeholder="ФИО" name="name"
-               id="digest-name">
-        <input class="standard-input program-modal__contacts__form__input" type="text" placeholder="Компания" name="company"
-               id="digest-company">
-      </div>
-      <div class="program-modal__contacts__form__row">
-        <input class="standard-input program-modal__contacts__form__input" type="text" placeholder='Номер телефона'
-               name="phone" id="digest-phone">
-        <input class="standard-input program-modal__contacts__form__input" type="text" placeholder="E-mail" name="email"
-               id="digest-email">
-      </div>
-      <SecondaryButton class="program-modal__contacts__form__submit">Получить</SecondaryButton>
+        <div class="program-modal__contacts__form__row">
+          <input class="standard-input program-modal__contacts__form__input" type="text" placeholder="ФИО" name="name"
+                 id="digest-name">
+          <input class="standard-input program-modal__contacts__form__input" type="text" placeholder="Компания"
+                 name="company"
+                 id="digest-company">
+        </div>
+        <div class="program-modal__contacts__form__row">
+          <input class="standard-input program-modal__contacts__form__input" type="text" placeholder='Номер телефона'
+                 name="phone" id="digest-phone">
+          <input class="standard-input program-modal__contacts__form__input" type="text" placeholder="E-mail"
+                 name="email"
+                 id="digest-email">
+        </div>
+        <SecondaryButton class="program-modal__contacts__form__submit">Получить</SecondaryButton>
       </form>
     </div>
   </div>
@@ -75,6 +77,7 @@
 import NavigationModal from '@/components/NavigationModal.vue';
 import PrimaryButton from '@/components/Buttons/Primary.vue';
 import SecondaryButton from '@/components/Buttons/Secondary.vue';
+
 const close = () => console.log("close function");
 const formSubmit = () => console.log('Form submit function');
 </script>
@@ -108,6 +111,7 @@ $program_modal_inner_padding: 73px;
   &__header {
     position: relative;
     width: 100%;
+
     &__image {
       &__wrapper {
         min-width: 100%;
@@ -119,6 +123,7 @@ $program_modal_inner_padding: 73px;
         align-items: flex-start;
         justify-content: center;
       }
+
       width: 100%;
       max-width: 100%;
       height: auto;
@@ -134,9 +139,11 @@ $program_modal_inner_padding: 73px;
       justify-content: flex-start;
       grid-gap: 44px;
       color: $IVORY;
-      &__type{
-        height:max-content;
+
+      &__type {
+        height: max-content;
       }
+
       &__content {
         display: flex;
         flex-direction: column;
@@ -211,8 +218,6 @@ $program_modal_inner_padding: 73px;
             text-transform: uppercase;
             margin-bottom: 8px;
           }
-
-          //&__job-level{}
         }
       }
     }

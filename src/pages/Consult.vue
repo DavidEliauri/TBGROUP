@@ -169,8 +169,8 @@ const validation = () => {
       display: block;
       width: 100%;
       max-width: 400px;
-      border: 1px solid rgba ($GREEN, .60);
-      color: rgba ($GREEN, .60);
+      border: 1px solid rgba($GREEN, .60);
+      color: rgba($GREEN, .60);
       height: 48px;
       border-radius: 2px;
       padding: 14px 24px 12px;
@@ -178,21 +178,21 @@ const validation = () => {
       outline: none;
 
       &::placeholder {
-        color: rgba ($GREEN, .60);
+        color: rgba($GREEN, .60);
       }
 
       &:disabled {
         &::placeholder {
-          color: rgba ($GREEN, .30);
+          color: rgba($GREEN, .30);
         }
 
-        color: rgba ($GREEN, .30);
-        border-color: rgba ($GREEN, .30);
+        color: rgba($GREEN, .30);
+        border-color: rgba($GREEN, .30);
       }
 
       &:not(&:disabled):hover {
-        border-color: rgba ($GREEN, .75);
-        color: rgba ($GREEN, .75);
+        border-color: rgba($GREEN, .75);
+        color: rgba($GREEN, .75);
       }
 
       &:not(&:disabled):focus {

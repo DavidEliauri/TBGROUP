@@ -6,10 +6,10 @@
 <style lang="scss">
 .secondary-button {
   padding: 18px 32px 16px;
-  color: rgba ($GREEN, .75);
+  color: rgba($GREEN, .75);
   border-width: 1.5px;
   border-style: solid;
-  border-color: rgba ($GREEN, .75);
+  border-color: rgba($GREEN, .75);
   background-color: rgba(0, 0, 0, 0);
   border-radius: 2px;
   transition: $TRANSITION;
@@ -31,8 +31,8 @@
 
   &:disabled {
     cursor: default;
-    color: rgba ($GREEN, .30);
-    border-color: rgba ($GREEN, .30);
+    color: rgba($GREEN, .30);
+    border-color: rgba($GREEN, .30);
   }
 
   &.alternative {

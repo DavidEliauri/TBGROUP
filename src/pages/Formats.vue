@@ -44,76 +44,76 @@
       <tr>
         <td><p class="body_3">Решение кейсов</p></td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
       </tr>
       <tr>
         <td><p class="body_3">Знания</p></td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
       </tr>
       <tr>
         <td><p class="body_3">Навыки</p></td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
       </tr>
       <tr>
         <td><p class="body_3">Расширение кругозора</p></td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
       </tr>
       <tr>
         <td><p class="body_3">Глубина применения инструментов</p></td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
         <td>
-          <Checkbox disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
+          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
         </td>
       </tr>
       <tr>
@@ -138,21 +138,21 @@
     <div class="formats-page__additional">
       <div class="formats-page__notes">
         <div class="formats-page__notes__row body_3">
-          <Checkbox disabled class="formats-page__notes__checkbox"/>
+          <CheckboxPrimary disabled class="formats-page__notes__checkbox"/>
           — Хорошо
         </div>
         <div class="formats-page__notes__row body_3">
-          <Checkbox disabled class="formats-page__notes__checkbox"/>
+          <CheckboxPrimary disabled class="formats-page__notes__checkbox"/>
           — Отлично
         </div>
       </div>
-      <SecondaryButton class="formats-page__button">Запросить пример программ</SecondaryButton>
+      <CheckboxPrimary class="formats-page__button">Запросить пример программ</CheckboxPrimary>
     </div>
   </main>
 </template>
 
 <script setup>
-import Checkbox from '@/components/Checkbox.vue';
+import CheckboxPrimary from '@/components/Checkbox/Primary.vue';
 import SecondaryButton from '@/components/Buttons/Secondary.vue';
 import {ref} from "vue";
 
