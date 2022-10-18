@@ -157,8 +157,14 @@ const digestSubmit = () => console.log("Submit digest form");
 
 .post-page {
   width: 100%;
-  margin: 140px auto 0;
+  margin-top: 140px;
   padding-bottom: 140px;
+  @media screen and (max-width: $notebook_start) {
+    margin-top: auto-calculate($notebook_start, $notebook, 140px, 70px);
+  }
+  @media screen and (max-width: $notebook) {
+    margin-top: 70px;
+  }
 
   &__header {
     display: flex;
@@ -226,10 +232,10 @@ const digestSubmit = () => console.log("Submit digest form");
       text-transform: uppercase;
       margin: 60px 0 30px;
       @media screen and (max-width: $notebook) {
-      margin: 40px 0;
+        margin: 40px 0;
 
       }
-      }
+    }
 
     &__post-info {
       display: flex;
@@ -237,17 +243,35 @@ const digestSubmit = () => console.log("Submit digest form");
       justify-content: flex-start;
       align-items: center;
       grid-gap: 29px;
+      @media screen and (max-width: $notebook_start) {
+        grid-gap: auto-calculate($notebook_start, $notebook, 29px, 14.5px);
+      }
+      @media screen and (max-width: $notebook) {
+        grid-gap: 10px;
+      }
+      @media screen and (max-width: $phone_start) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
       &__item {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
+        flex-wrap: nowrap;
         grid-gap: 5px;
+        white-space: nowrap;
 
-        &:nth-child(1) {
-          fill: $BLACK;
-        }
+        font-family: 'Stratos LC Medium', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        @extend .adaptive_16px;
+        line-height: 135%;
+
+      &:nth-child(1) {
+        fill: $BLACK;
+      }
 
         &:nth-child(2), &:nth-child(3) {
           fill: transparent;
@@ -263,6 +287,13 @@ const digestSubmit = () => console.log("Submit digest form");
     max-width: 100%;
     object-fit: contain;
     margin: 80px 0;
+    @media screen and (max-width: $notebook_start) {
+      margin: auto-calculate($notebook_start, $notebook, 80px, 40px) 0;
+    }
+    @media screen and (max-width: $notebook_start) {
+      margin: 40px 0;
+    }
+
   }
 
   &__content {
