@@ -94,6 +94,7 @@ const itemClickHandler = event => {
 </script>
 
 <style lang='scss'>
+@import '@/assets/scss/adaptive_fonts.scss';
 body {
   background-color: $GREEN;
 }

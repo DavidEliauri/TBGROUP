@@ -46,6 +46,7 @@ import ArrowButton from '@/components/Buttons/Arrow.vue';
 </script>
 
 <style lang='scss'>
+@import '@/assets/scss/adaptive_fonts.scss';
 .worker-page {
   max-width: $maxwidth;
   grid-gap: 44px;

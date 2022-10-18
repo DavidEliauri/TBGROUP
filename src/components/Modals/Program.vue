@@ -83,6 +83,8 @@ const formSubmit = () => console.log('Form submit function');
 </script>
 
 <style lang='scss'>
+@import "@/assets/scss/adaptive_fonts.scss";
+
 $z_navigation_modal: 10;
 $program_modal_inner_padding: 73px;
 .program-modal {

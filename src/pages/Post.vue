@@ -43,7 +43,7 @@
     <img src="@/assets/images/popup-image.png" alt="Post image" class="post-page__image">
     <div class="post-page__content">
       <div class="post-page__content__sidebar">
-        <PostArticle class="post-page__content__sidebar__article" v-for="article in 1"/>
+        <PostArticle class="post-page__content__sidebar__article" v-for="article in 4"/>
       </div>
       <div class="post-page__content__info">
         <div class="post-page__content__info__html">
@@ -98,9 +98,7 @@
               </svg>
             </button>
             <p class="post-page__share__text">Скопировать</p>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -269,9 +267,9 @@ const digestSubmit = () => console.log("Submit digest form");
         @extend .adaptive_16px;
         line-height: 135%;
 
-      &:nth-child(1) {
-        fill: $BLACK;
-      }
+        &:nth-child(1) {
+          fill: $BLACK;
+        }
 
         &:nth-child(2), &:nth-child(3) {
           fill: transparent;
@@ -293,7 +291,6 @@ const digestSubmit = () => console.log("Submit digest form");
     @media screen and (max-width: $notebook_start) {
       margin: 40px 0;
     }
-
   }
 
   &__content {
@@ -302,15 +299,42 @@ const digestSubmit = () => console.log("Submit digest form");
     justify-content: space-between;
     align-items: flex-start;
     grid-gap: 125px;
+    max-width: 100%;
+    @media screen and (max-width: $notebook_start) {
+      grid-gap: auto-calculate($notebook_start, $notebook, 125px, 62px);
+    }
+    @media screen and (max-width: $notebook) {
+      grid-gap: auto-calculate($notebook, $tablet, 50px, 20px);
+    }
+    @media screen and (max-width: $tablet) {
+      grid-gap: 60px;
+      flex-direction: column-reverse;
+    }
 
     &__sidebar {
-      width: 295px;
       display: flex;
       flex-direction: column;
       align-items: stretch;
       justify-content: flex-start;
-      grid-gap: 45px;
       flex-shrink: 0;
+      width: 295px;
+      grid-gap: 45px;
+
+      @media screen and (max-width: $notebook_start) {
+        grid-gap: auto-calculate($notebook_start, $notebook, 45px, 22.5px);
+        width: auto-calculate($notebook_start, $notebook, 295px, 110px);
+      }
+      @media screen and (max-width: $notebook) {
+        width: 200px;
+        grid-gap: auto-calculate($notebook, $tablet, 22.5px, 15px);
+      }
+      @media screen and (max-width: $tablet) {
+        width:100%;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      }
+
     }
 
     &__info {

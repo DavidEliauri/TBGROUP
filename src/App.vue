@@ -1,11 +1,11 @@
 <template>
-<!--  <Navigation class="navigation"/>-->
+  <Navigation class="navigation"/>
   <router-view v-slot="{ Component, route }">
     <transition :name="route.meta.transition || 'opacity-transition'" mode="out-in">
       <component class="page" :is="Component"/>
     </transition>
   </router-view>
-    <Footer class="footer "/>
+  <Footer class="footer "/>
   <transition name="modals-transition">
     <ModalWrapper class="modal__wrapper" v-if="CURRENT_MODAL">
       <component class="modal__content" :is="CURRENT_MODAL"/>

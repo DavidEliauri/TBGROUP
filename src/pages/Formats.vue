@@ -153,13 +153,13 @@
 
 <script setup>
 import CheckboxPrimary from '@/components/Checkbox/Primary.vue';
-import SecondaryButton from '@/components/Buttons/Secondary.vue';
 import {ref} from "vue";
 
 const some_checkbox_value = ref(false);
 </script>
 
 <style lang='scss'>
+@import '@/assets/scss/adaptive_fonts.scss';
 .formats-page {
   margin: 0 auto;
   padding: 5px;

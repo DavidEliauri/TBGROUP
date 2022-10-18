@@ -4,6 +4,7 @@
   </span>
 </template>
 <style lang="scss">
+@import '@/assets/scss/adaptive_fonts.scss';
 .badge {
   display: flex;
   justify-content: center;
