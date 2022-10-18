@@ -10,7 +10,6 @@
       class="posts-slider"
       v-if="show_swiper"
   >
-    <!--   820, 402 -->
     <swiper-slide v-for="(post_item, post_index) in 10" :key="`post-item-${post_index}`"
                   class="posts-slider__item">
       <router-link to="#" class="posts-slider__item__container">

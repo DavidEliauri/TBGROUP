@@ -43,7 +43,7 @@
     <img src="@/assets/images/popup-image.png" alt="Post image" class="post-page__image">
     <div class="post-page__content">
       <div class="post-page__content__sidebar">
-        <PostArticle class="post-page__content__sidebar__article" v-for="article in 4"/>
+<!--        <PostArticle class="post-page__content__sidebar__article" v-for="article in 4"/>-->
       </div>
       <div class="post-page__content__info">
         <div class="post-page__content__info__html">
