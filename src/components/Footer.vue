@@ -54,7 +54,7 @@
   @media screen and (max-width: $phone_start) {
     height: 150px;
 
-    grid-gap: 10px;
+    grid-gap: 27px;
     flex-wrap: wrap;
   }
   &__logo {

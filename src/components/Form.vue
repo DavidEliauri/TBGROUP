@@ -117,6 +117,9 @@ defineProps({
     display: flex;
     width: 100%;
     @include grid-gap_mixin;
+    @media screen and (max-width: $phone) {
+      flex-direction: column;
+    }
   }
 
   &__checks {

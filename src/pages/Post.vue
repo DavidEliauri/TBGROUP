@@ -8,7 +8,7 @@
       <div class="post-page__header__main">
 
         <div class="post-page__header__tags">
-          <Tag v-for="tag in 2" class="post-page__header__tags__tag">Креативность</Tag>
+          <Tag v-for="tag in 10" class="post-page__header__tags__tag">Креативность</Tag>
         </div>
         <h1 class="post-page__header__title post-page__title blog-post__header">НЕЙРОФИЗИОЛОГИЯ КРЕАТИВНОСТИ</h1>
         <div class="post-page__header__post-info">
@@ -102,21 +102,7 @@
         </div>
       </div>
     </div>
-
-
-    <!--      <template #checks>-->
-    <!--        <p class="form__checks__title">{{ form_checks.title }}</p>-->
-    <!--        <div class="form__checks__content">-->
-    <!--          <label class="form__checkbox" :for="`form-checkbox-${check.id}`" v-for="check in form_checks.values">-->
-    <!--            <SecondaryCheckbox class="form__checkbox__input" :id="`form-checkbox-${check.id}`" v-model="check.value"-->
-    <!--                               :value="!check.value"/>-->
-    <!--            <span class="form__checkbox__name">{{ check.title }}</span>-->
-    <!--          </label>-->
-    <!--        </div>-->
-    <!--      </template>-->
-
-
-    <Form @submit="digestSubmit">
+    <Form class="post-page__form" @submit="digestSubmit">
       <template #title>
         <h3 class="form__title">Получите весь дайджест</h3>
       </template>
@@ -138,6 +124,26 @@
       </template>
       <template #button-text>Отправить</template>
     </Form>
+
+
+    <PostsSlider class="post-page__posts-slider"/>
+
+
+
+
+
+    <!--      <template #checks>-->
+    <!--        <p class="form__checks__title">{{ form_checks.title }}</p>-->
+    <!--        <div class="form__checks__content">-->
+    <!--          <label class="form__checkbox" :for="`form-checkbox-${check.id}`" v-for="check in form_checks.values">-->
+    <!--            <SecondaryCheckbox class="form__checkbox__input" :id="`form-checkbox-${check.id}`" v-model="check.value"-->
+    <!--                               :value="!check.value"/>-->
+    <!--            <span class="form__checkbox__name">{{ check.title }}</span>-->
+    <!--          </label>-->
+    <!--        </div>-->
+    <!--      </template>-->
+
+
   </main>
 </template>
 
@@ -146,6 +152,7 @@ import Tag from '@/components/Buttons/Tag.vue';
 import PostArticle from '@/components/PostArticle.vue';
 import ArrowButton from '@/components/Buttons/Arrow.vue';
 import Form from '@/components/Form.vue';
+import PostsSlider from '@/components/Posts/Slider.vue';
 
 const digestSubmit = () => console.log("Submit digest form");
 </script>
@@ -215,8 +222,9 @@ const digestSubmit = () => console.log("Submit digest form");
     &__tags {
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+      flex-wrap: wrap;
       grid-gap: 8px;
     }
 
@@ -231,7 +239,6 @@ const digestSubmit = () => console.log("Submit digest form");
       margin: 60px 0 30px;
       @media screen and (max-width: $notebook) {
         margin: 40px 0;
-
       }
     }
 
@@ -329,7 +336,7 @@ const digestSubmit = () => console.log("Submit digest form");
         grid-gap: auto-calculate($notebook, $tablet, 22.5px, 15px);
       }
       @media screen and (max-width: $tablet) {
-        width:100%;
+        width: 100%;
         display: grid;
         grid-gap: 10px;
         grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
@@ -353,6 +360,22 @@ const digestSubmit = () => console.log("Submit digest form");
     justify-content: flex-start;
     margin-top: 75px;
     grid-gap: 100px;
+    @media screen and (max-width: $notebook_start) {
+      grid-gap: auto-calculate($notebook_start, $notebook, 100px, 50px);
+    }
+    @media screen and (max-width: $notebook) {
+      grid-gap: auto-calculate($notebook, $tablet, 50px, 25px);
+    }
+    @media screen and (max-width: $tablet) {
+      grid-gap: 25px;
+
+    }
+    @media screen and (max-width: $phone) {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+    }
+
 
     &__socials {
       display: flex;
@@ -360,12 +383,22 @@ const digestSubmit = () => console.log("Submit digest form");
       justify-content: flex-start;
       align-items: center;
 
+      @media screen and (max-width: $phone) {
+        flex-direction: row-reverse;
+      }
+
       button:first-of-type {
         margin-right: 8px;
+        @media screen and (max-width: $phone) {
+          margin: 0;
+        }
       }
 
       button:last-of-type {
         margin-right: 20px;
+        @media screen and (max-width: $phone) {
+          margin-left: 20px;
+        }
       }
     }
 
@@ -375,6 +408,9 @@ const digestSubmit = () => console.log("Submit digest form");
       align-items: center;
       justify-content: center;
       grid-gap: 20px;
+      @media screen and (max-width: $phone) {
+        flex-direction: row-reverse;
+      }
 
       button {
         fill: none;
@@ -393,10 +429,17 @@ const digestSubmit = () => console.log("Submit digest form");
       justify-content: center;
       fill: $IVORY;
       border-radius: 2px;
+      @media screen and (max-width: $tablet) {
+        width: 40px;
+        height: 40px;
+        &__icon {
+          transform: scale(0.8);
+        }
+      }
     }
 
     &__text {
-      font-family: 'Stratos LC Medium';
+      font-family: 'Stratos LC Medium', sans-serif;
       font-style: normal;
       font-weight: 500;
       @extend .adaptive_16px;
@@ -411,7 +454,7 @@ const digestSubmit = () => console.log("Submit digest form");
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 280px 0px 180px;
+    margin: 280px 0 180px;
 
     &__title {
       width: 399px;
@@ -442,6 +485,19 @@ const digestSubmit = () => console.log("Submit digest form");
         align-self: flex-end;
         margin-top: 20px;
       }
+    }
+  }
+
+  &__form {
+    margin: 280px 0 296px;
+    @media screen and (max-width: $notebook_start) {
+      margin: auto-calculate($notebook_start, $notebook, 280px, 140px) 0 auto-calculate($notebook_start, $notebook, 296px, 148px);
+    }
+    @media screen and (max-width: $notebook) {
+      margin: auto-calculate($notebook, $tablet, 140px, 70px) 0;
+    }
+    @media screen and (max-width: $tablet) {
+      margin: 50px 0;
     }
   }
 }
