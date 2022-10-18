@@ -2,63 +2,45 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 export const routes = [
     {
-        path: '/',
-        name: 'Главная',
-        meta: {filters: false},
+        path: '/', name: 'Главная',
         component: () => import("@/pages/Home.vue")
     },
     {
-        path: '/trainings',
-        name: 'Тренинги',
-        meta: {filters: true},
+        path: '/theme', name: 'Тема',
+        component: () => import("@/pages/Theme.vue")
+    },
+    {
+        path: '/trainings', name: 'Тренинги',
         component: () => import("@/components/Screens/Trainings.vue")
     },
     {
-        path: '/swiper',
-        name: 'Свайпер',
+        path: '/swiper', name: 'Свайпер',
         component: () => import("@/pages/Swiper.vue")
     },
     {
-        path: '/blog',
-        name: 'Блог',
-        meta: {filters: true},
+        path: '/blog', name: 'Блог',
         component: () => import("@/components/Screens/Blog.vue")
     },
     {
-        path: '/consult',
-        name: 'Консультация',
-        component: () => import("@/pages/Consult.vue")
-    },
-    {
-        path: '/formats',
-        name: 'Форматы',
+        path: '/formats', name: 'Форматы',
         component: () => import("@/pages/Formats.vue")
     },
     {
-        path: '/themes',
-        name: 'Темы',
+        path: '/themes', name: 'Темы',
         component: () => import("@/pages/Themes.vue")
     },
-
     {
-        path: '/post',
-        name: 'Пост',
-        meta: {footer: true},
+        path: '/post', name: 'Пост',
         component: () => import("@/pages/Post.vue")
     },
     {
-        path: '/worker',
-        name: 'Сотрудник',
-        meta: {footer: true},
+        path: '/worker', name: 'Сотрудник',
         component: () => import("@/pages/Worker.vue")
     },
     {
-        path: '/modal-program',
-        name: 'Модалка програмы',
-        meta: {footer: false},
+        path: '/modal-program', name: 'Модалка програмы',
         component: () => import("@/pages/ModalProgram.vue")
-    },
-
+    }
 ];
 
 const router = createRouter({
