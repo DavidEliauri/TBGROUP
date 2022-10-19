@@ -26,10 +26,6 @@ export const routes = [
         component: () => import("@/pages/Formats.vue")
     },
     {
-        path: '/themes', name: 'Темы',
-        component: () => import("@/pages/Themes.vue")
-    },
-    {
         path: '/post', name: 'Пост',
         component: () => import("@/pages/Post.vue")
     },

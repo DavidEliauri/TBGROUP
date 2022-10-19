@@ -23,8 +23,7 @@
 
 @mixin heading_3_mixin {
   @include heading_mixin;
-
-  font-size: 72px;
+  @include adaptive_72px_mixin;
   line-height: 100%;
 }
 
