@@ -1,11 +1,11 @@
 <template>
-  <label :for="$props.id" class="checkbox unselectable"
+  <label :for="$props.id" class="secondary-checkbox checkbox unselectable"
          :class="{checked: modelValue, disabled: $attrs.hasOwnProperty('disabled')}">
     <input v-bind="$attrs" @input="changeFunction($event.target.checked)" :checked="modelValue" type="checkbox"
            :id="$props.id"
            :value="value"
            style="display:none">
-    <svg class="checkbox__icon" width="9" height="7">
+    <svg class="secondary-checkbox__icon" width="9" height="7">
       <use xlink:href="@/assets/sprites.svg#checkbox-galka"></use>
     </svg>
   </label>
@@ -30,7 +30,7 @@ const changeFunction = value => emit('update:modelValue', value);
 </script>
 
 <style lang='scss'>
-.checkbox {
+.secondary-checkbox {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,11 +1,11 @@
 <template>
-  <label :for="`checkbox-${$props.id}`" class="checkbox unselectable"
+  <label :for="$props.id" class="primary-checkbox checkbox unselectable"
          :class="{checked: modelValue, disabled: $attrs.hasOwnProperty('disabled')}">
     <input v-bind="$attrs" @input="changeFunction($event.target.checked)" :checked="modelValue" type="checkbox"
-           :id="`checkbox-${$props.id}`"
+           :id="$props.id"
            :value="value"
            style="display:none">
-    <svg class="checkbox__icon" width="12" height="9">
+    <svg class="secondary-checkbox__icon" width="12" height="9">
       <use xlink:href="@/assets/sprites.svg#checkbox-galka"></use>
     </svg>
   </label>
@@ -17,7 +17,7 @@ const emit = defineEmits(['update:modelValue'])
 defineProps({
   id: {
     required: false,
-    default: () => Math.random()
+    default: () => `checkbox-${Math.random()}`
   },
   modelValue: {
     required: false
@@ -25,14 +25,13 @@ defineProps({
   value: {
     required: false
   }
-})
+});
 const changeFunction = value => emit('update:modelValue', value);
-
 </script>
 
 
 <style lang='scss'>
-.checkbox {
+.primary-checkbox {
   display: flex;
   align-items: center;
   justify-content: center;

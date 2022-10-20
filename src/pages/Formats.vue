@@ -155,10 +155,7 @@
 
 <script setup>
 import CheckboxPrimary from '@/components/Checkbox/Primary.vue';
-import {ref} from "vue";
 import SecondaryButton from "@/components/Buttons/Secondary.vue";
-
-const some_checkbox_value = ref(false);
 </script>
 
 <style lang='scss'>
