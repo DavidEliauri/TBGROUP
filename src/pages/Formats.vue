@@ -1,5 +1,5 @@
 <template>
-  <main class="formats-page page">
+  <main class="formats-page page wrapper-maxwidth wrapper-padding">
     <div class="formats-page__information">
       <h1 class="formats-page__title heading_3">
         Форматы
@@ -20,121 +20,123 @@
         комбинироваться.
       </p>
     </div>
-    <table class="formats-page__table">
-      <tbody>
-      <tr>
-        <th></th>
-        <th>
-          <p class="table__subheader subheader_1">марафон</p>
-          <p class="table__after-text body_3">online</p>
-        </th>
-        <th>
-          <p class="table__subheader subheader_1">тренинг</p>
-          <p class="table__after-text body_3">Online / offline</p>
-        </th>
-        <th>
-          <p class="table__subheader subheader_1">игра</p>
-          <p class="table__after-text body_3">Online / offline</p>
-        </th>
-        <th>
-          <p class="table__subheader subheader_1">сессия</p>
-          <p class="table__after-text body_3">Online / offline</p>
-        </th>
-      </tr>
-      <tr>
-        <td><p class="body_3">Решение кейсов</p></td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-      </tr>
-      <tr>
-        <td><p class="body_3">Знания</p></td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-      </tr>
-      <tr>
-        <td><p class="body_3">Навыки</p></td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-      </tr>
-      <tr>
-        <td><p class="body_3">Расширение кругозора</p></td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-      </tr>
-      <tr>
-        <td><p class="body_3">Глубина применения инструментов</p></td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-        <td>
-          <CheckboxPrimary disabled :value="!some_checkbox_value" v-model="some_checkbox_value"/>
-        </td>
-      </tr>
-      <tr>
-        <td><p class="body_3">Продолжительность</p></td>
-        <td class="body_3">
-          4-21 дней
+    <div class="formats-page__table__wrapper">
+      <table class="formats-page__table">
+        <tbody>
+        <tr>
+          <th></th>
+          <th>
+            <p class="formats-page__table__subheader subheader_1">марафон</p>
+            <p class="formats-page__table__after-text body_3">online</p>
+          </th>
+          <th>
+            <p class="formats-page__table__subheader subheader_1">тренинг</p>
+            <p class="formats-page__table__after-text body_3">Online / offline</p>
+          </th>
+          <th>
+            <p class="formats-page__table__subheader subheader_1">игра</p>
+            <p class="formats-page__table__after-text body_3">Online / offline</p>
+          </th>
+          <th>
+            <p class="formats-page__table__subheader subheader_1">сессия</p>
+            <p class="formats-page__table__after-text body_3">Online / offline</p>
+          </th>
+        </tr>
+        <tr>
+          <td><p class="body_3">Решение кейсов</p></td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="body_3">Знания</p></td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="body_3">Навыки</p></td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="body_3">Расширение кругозора</p></td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="body_3">Глубина применения инструментов</p></td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="false"/>
+          </td>
+          <td>
+            <CheckboxPrimary :modelValue="true"/>
+          </td>
+        </tr>
+        <tr>
+          <td><p class="body_3">Продолжительность</p></td>
+          <td class="body_3">
+            4-21 дней
 
-        </td>
-        <td class="body_3">
-          1-2 дня
+          </td>
+          <td class="body_3">
+            1-2 дня
 
-        </td>
-        <td class="body_3">
-          4 часа
-        </td>
-        <td class="body_3">
-          от 4 часов
-        </td>
-      </tr>
-      </tbody>
-    </table>
+          </td>
+          <td class="body_3">
+            4 часа
+          </td>
+          <td class="body_3">
+            от 4 часов
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="formats-page__additional">
       <div class="formats-page__notes">
         <div class="formats-page__notes__row body_3">
@@ -146,7 +148,7 @@
           — Отлично
         </div>
       </div>
-      <CheckboxPrimary class="formats-page__button">Запросить пример программ</CheckboxPrimary>
+      <SecondaryButton class="formats-page__button">Запросить пример программ</SecondaryButton>
     </div>
   </main>
 </template>
@@ -154,16 +156,16 @@
 <script setup>
 import CheckboxPrimary from '@/components/Checkbox/Primary.vue';
 import {ref} from "vue";
+import SecondaryButton from "@/components/Buttons/Secondary.vue";
 
 const some_checkbox_value = ref(false);
 </script>
 
 <style lang='scss'>
 @import '@/assets/scss/adaptive_fonts.scss';
+
 .formats-page {
-  margin: 0 auto;
-  padding: 5px;
-  max-width: $maxwidth;
+  overflow: visible;
 
   &__information {
     display: flex;
@@ -171,6 +173,14 @@ const some_checkbox_value = ref(false);
     justify-content: space-between;
     align-items: flex-start;
     grid-gap: 103px;
+    width:100%;
+    @media screen and (max-width: $maxwidth) {
+      grid-gap: 20px;
+    }
+    @media screen and (max-width: $notebook) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
 
   &__text {
@@ -178,16 +188,27 @@ const some_checkbox_value = ref(false);
     font-style: normal;
     font-weight: 400;
     @extend .adaptive_20px;
-
     line-height: 135%;
     max-width: 782px;
   }
 
   &__table {
     width: 100%;
-    max-width: 1236px;
     table-layout: fixed;
-    margin: 32px 0 72px;
+    min-width: 650px;
+
+    &__wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-x: auto;
+      width: 100%;
+      margin: 72px 0 32px;
+      @media screen and (max-width: $notebook) {
+        margin: 40px 0 20px;
+      }
+
+    }
 
     &__subheader, &__after-text {
       text-align: left;
@@ -196,6 +217,10 @@ const some_checkbox_value = ref(false);
     th {
       padding: 12px 20px 0;
       text-align: left;
+
+      @media screen and (max-width: $maxwidth) {
+        padding: 10px;
+      }
     }
 
     th:not(:last-child) {
@@ -208,6 +233,9 @@ const some_checkbox_value = ref(false);
 
     th:first-child {
       width: 400px;
+      @media screen and (max-width: $maxwidth) {
+        width: 25%;
+      }
     }
 
     tr:first-child {
@@ -230,11 +258,16 @@ const some_checkbox_value = ref(false);
     }
 
     tr:last-child {
-      color: rgba($BLACK, .60);
+      :not(:first-child) {
+        color: rgba($BLACK, .60);
+      }
     }
 
     td {
-      padding: 26px 22px;
+      padding: 11px 22px;
+      @media screen and (max-width: $maxwidth) {
+        padding: 10px;
+      }
     }
   }
 
@@ -244,6 +277,10 @@ const some_checkbox_value = ref(false);
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    @media screen and (max-width: $tablet) {
+      grid-gap: 20px;
+      flex-direction: column;
+    }
   }
 
   &__notes {
@@ -271,7 +308,14 @@ const some_checkbox_value = ref(false);
   }
 
   &__button {
-    margin-top: 29px;
+    margin-top: 28px;
+    @media screen and (max-width: $tablet) {
+      align-self:flex-end;
+      margin-top: 0;
+    }
+    @media screen and (max-width: $phone) {
+      align-self: center;
+    }
   }
 }
 </style>
