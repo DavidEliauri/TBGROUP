@@ -4,19 +4,19 @@
       <p class="direction-modal__count body"><span class="direction-modal__count__pre">Выбрано:</span> 2 направления</p>
       <CloseButton @click="$emit('close')" class="direction-modal__close green"/>
     </div>
-    <Form class="direction-modal__form" @submit="digestSubmit" :is_with_title="false">
+    <Form class="direction-modal__form" @submit="direction-modalSubmit" :is_with_title="false">
       <template #inputs>
         <div class="direction-modal__form__row form__row">
           <input class="direction-modal__form__input form__input" type="text" placeholder="ФИО" name="name"
-                 id="digest-name">
+                 id="direction-modal-name">
           <input class="direction-modal__form__input form__input" type="text" placeholder="Компания" name="company"
-                 id="digest-company">
+                 id="direction-modal-company">
         </div>
         <div class="direction-modal__form__row form__row">
           <input class="direction-modal__form__input form__input" type="text" placeholder='Номер телефона'
-                 name="phone" id="digest-phone">
+                 name="phone" id="direction-modal-phone">
           <input class="direction-modal__form__input form__input" type="text" placeholder="E-mail" name="email"
-                 id="digest-email">
+                 id="direction-modal-email">
         </div>
       </template>
       <template #button-text>Отправить</template>

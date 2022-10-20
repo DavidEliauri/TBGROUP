@@ -24,5 +24,8 @@
   overflow-y: auto;
   overflow-y: overlay;
   padding: 28px;
+  @media screen and (max-width: $tablet) {
+    padding: 15px;
+  }
 }
 </style>

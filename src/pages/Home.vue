@@ -28,6 +28,7 @@
     <!--      <template #button-text>Отправить</template>-->
     <!--    </Form>-->
     <button @click="openModal('directions')">Directions modal</button>
+    <button @click="openModal('post')">Post modal</button>
   </main>
 </template>
 <script setup>
@@ -39,7 +40,9 @@
 // import Form from '@/components/Form.vue';
 // import SecondaryCheckbox from "@/components/Checkbox/Secondary.vue";
 import {openModal} from "@/logics/modals.js";
+import {onMounted} from "vue";
 
+onMounted(() => openModal('post'))
 const formSubmit = () => console.log("Form submit function");
 </script>
 

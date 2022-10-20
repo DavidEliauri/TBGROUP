@@ -93,8 +93,11 @@
 }
 
 @mixin subheader_2_mixin {
-  @include adaptive_16px_mixin;
+  font-family: 'Stratos LC Bold';
+  font-style: normal;
+  font-weight: 700;
   line-height: 105%;
+  @include adaptive_16px_mixin;
 }
 
 .subheader_1 {
