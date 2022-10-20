@@ -465,26 +465,6 @@ const digestSubmit = () => console.log("Submit digest form");
 
     &__form {
       width: 820px;
-      flex-shrink: 0;
-      flex-grow: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      grid-gap: 20px;
-
-      &__row {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex: 1 0 auto;
-      }
-
-      &__submit {
-        align-self: flex-end;
-        margin-top: 20px;
-      }
     }
   }
 

@@ -81,6 +81,7 @@ const resizeHandler = () => {
 
 .posts-slider {
   width: 100%;
+  height: 259px;
   overflow: visible;
   padding-right: calc(100% - 582px);
 

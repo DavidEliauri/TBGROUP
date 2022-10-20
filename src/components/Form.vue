@@ -1,6 +1,6 @@
 <template>
   <div class="form__container">
-    <slot name="title" class="form__container__title">Форма</slot>
+    <slot name="title" class="form__container__title" v-if="is_with_title">Форма</slot>
     <form @submit.prevent="$emit('submit')" class="form">
       <div class="form__inputs">
         <slot name="inputs" class="form__container__inputs"/>
@@ -25,6 +25,10 @@ defineProps({
     required: false,
     default: false,
     type: Boolean
+  },
+  is_with_title: {
+    required:false,
+    default: true
   }
 });
 </script>
@@ -39,9 +43,6 @@ defineProps({
     grid-gap: auto-calculate($notebook_start, $notebook, 20px, 10px);
   }
   @media screen and (max-width: $notebook) {
-    grid-gap: auto-calculate($notebook, $tablet, 20px, 10px);
-  }
-  @media screen and (max-width: $tablet) {
     grid-gap: 10px;
   }
 }

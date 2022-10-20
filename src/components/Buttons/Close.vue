@@ -1,5 +1,5 @@
 <template>
-  <button type="button" class="close-button" >
+  <button type="button" class="close-button">
     <svg
         class="close-button__icon"
         width="26" height="26">
@@ -38,6 +38,21 @@
   &:disabled {
     cursor: default;
     opacity: .3;
+  }
+
+  &__icon {
+    @media screen and (max-width: $notebook) {
+      width: 23px;
+      height: 23px;
+    }
+    @media screen and (max-width: $tablet) {
+      width: 20px;
+      height: 20px;
+    }
+    @media screen and (max-width: $phone) {
+      width: 17.5px;
+      height: 17.5px;
+    }
   }
 }
 </style>

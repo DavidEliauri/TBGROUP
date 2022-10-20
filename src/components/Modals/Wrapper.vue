@@ -23,5 +23,6 @@
   z-index: $modal_z;
   overflow-y: auto;
   overflow-y: overlay;
+  padding: 28px;
 }
 </style>
