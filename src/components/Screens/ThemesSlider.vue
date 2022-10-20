@@ -10,8 +10,8 @@
       </p>
     </div>
     <div class="theme-slider-screen__swiper__wrapper">
-      <swiper class="theme-slider-screen__swiper" :speed="300" :mousewheel="true"
-              :modules="[Mousewheel]"
+      <swiper class="theme-slider-screen__swiper" :speed="300" :freemode="true"
+              :modules="[FreeMode]"
               slides-per-view="auto" direction='vertical'>
         <swiper-slide @swiper="swiperInitHandler" @slideChange="slideChangeHandler"
                       class="theme-slider-screen__swiper__item"
@@ -30,9 +30,8 @@
             <button class="theme-slider-screen__swiper__item__add-toggle-button">Добавить</button>
           </div>
           <div class="theme-slider-screen__swiper__item__content body">
-            {{
-              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam architecto consectetur cum dignissimos dolor dolore dolores ducimus eligendi eos laudantium modi nemo nisi perspiciatis porro, quaerat quam ratione repellat, saepe sed sit temporibus ullam voluptatibus. At, cumque ex, explicabo hic ipsam iste laudantium molestias non optio qui quos totam unde vel voluptate voluptates? At atque in iusto libero non quas. Accusantium doloremque earum labore maxime sunt! Architecto at nemo optio quo, veniam voluptatem! Aperiam asperiores at blanditiis dolorem ducimus eius est harum id ipsam itaque labore laborum magnam maxime minima modi molestias nam nemo nesciunt nostrum numquam perferendis perspiciatis possimus provident quas qui quia quisquam quo, reprehenderit saepe sequi similique sunt temporibus voluptate! Accusantium dolores eos fugiat provident! A adipisci animi, cupiditate dignissimos doloremque est exercitationem facilis fugit inventore iusto maiores perferendis placeat provident quam quibusdam quod rem repellat sapiente soluta sunt temporibus totam vero vitae. Atque eius expedita explicabo fugiat, iste iure ratione totam. A accusantium ad aut corporis delectus dolor ducimus enim error esse et expedita fugiat illo illum impedit in ipsam iusto libero magni, nihil, numquam officiis possimus quam quis repudiandae sed suscipit, tempora voluptatum? Id laboriosam nisi qui reiciendis unde? Aperiam commodi explicabo fugiat vel. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam architecto consectetur cum dignissimos dolor dolore dolores ducimus eligendi eos laudantium modi nemo nisi perspiciatis porro, quaerat quam ratione repellat, saepe sed sit temporibus ullam voluptatibus. At, cumque ex, explicabo hic ipsam iste laudantium molestias non optio qui quos totam unde vel voluptate voluptates? At atque in iusto libero non quas. Accusantium doloremque earum labore maxime sunt! Architecto at nemo optio quo, veniam voluptatem! Aperiam asperiores at blanditiis dolorem ducimus eius est harum id ipsam itaque labore laborum magnam maxime minima modi molestias nam nemo nesciunt nostrum numquam perferendis perspiciatis possimus provident quas qui quia quisquam quo, reprehenderit saepe sequi similique sunt temporibus voluptate! Accusantium dolores eos fugiat provident! A adipisci animi, cupiditate dignissimos doloremque est exercitationem facilis fugit inventore iusto maiores perferendis placeat provident quam quibusdam quod rem repellat sapiente soluta sunt temporibus totam vero vitae. Atque eius expedita explicabo fugiat, iste iure ratione totam. A accusantium ad aut corporis delectus dolor ducimus enim error esse et expedita fugiat illo illum impedit in ipsam iusto libero magni, nihil, numquam officiis possimus quam quis repudiandae sed suscipit, tempora voluptatum? Id laboriosam nisi qui reiciendis unde? Aperiam commodi explicabo fugiat vel.'.substring(0, Math.floor(Math.random() * 1000 + 1))
-            }}
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam architecto consectetur cum dignissimos
+            dolor dolore dolores ducimus eligendi eos laudantium
           </div>
         </swiper-slide>
       </swiper>
@@ -42,11 +41,11 @@
 
 <script setup>
 import {Swiper, SwiperSlide} from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import {Mousewheel} from 'swiper';
+import {FreeMode} from 'swiper';
 import {reactive, ref} from 'vue';
 import {gsap} from 'gsap';
+import 'swiper/css';
+import 'swiper/css/free-mode';
 
 const slides = reactive([
   {
@@ -94,7 +93,7 @@ const slideChangeHandler = swiper => {
 const toggleSlide = (index) => {
   document.querySelector(`.theme-slider-screen__swiper__item:nth-of-type(${index})`).classList.toggle('open');
   if (!document.querySelector(`.theme-slider-screen__swiper__item:nth-of-type(${index})`).classList.contains('open')) return closeSlide(index);
-  return openSlide(index);
+  openSlide(index);
 }
 
 const openSlide = (index) => {
@@ -105,7 +104,6 @@ const openSlide = (index) => {
   });
   gsap.to(`.theme-slider-screen__swiper__item:nth-of-type(${index}) .theme-slider-screen__swiper__item__content`, {
     height: 'auto', marginTop: 24, ease: 'power3',
-    onComplete: () => console.log(SWIPER_INSTANCE.value)
   });
 }
 const closeSlide = (index) => {
@@ -116,7 +114,6 @@ const closeSlide = (index) => {
   });
   gsap.to(`.theme-slider-screen__swiper__item:nth-of-type(${index}) .theme-slider-screen__swiper__item__content`, {
     height: '0', marginTop: 0, ease: 'power3',
-    onComplete: () => console.log(SWIPER_INSTANCE.value)
   });
 }
 </script>
