@@ -86,6 +86,7 @@
 }
 
 @mixin subheader_1_mixin {
+  font-family: "Stratos LC Regular", sans-serif;
   line-height: 110%;
   text-align: center;
   @include adaptive_32px_mixin;

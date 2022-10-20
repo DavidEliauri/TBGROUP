@@ -47,12 +47,6 @@ const slideChangeHandler = swiper => {
 }
 
 
-const oldAnimation = (index) => {
-
-}
-const newAnimation = (index) => {
-
-}
 
 /////////////////////////////////
 /////////////////////////////////
