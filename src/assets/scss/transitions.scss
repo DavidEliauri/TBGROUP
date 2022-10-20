@@ -1,7 +1,6 @@
 .opacity-transition {
   &-enter-from, &-leave-to {
     opacity: 0;
-
   }
 
   &-enter-active,
@@ -17,6 +16,6 @@
 
   &-enter-active,
   &-leave-active {
-    transition: 1s;
+    transition: 0.2s;
   }
 }

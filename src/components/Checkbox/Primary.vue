@@ -5,7 +5,7 @@
            :id="$props.id"
            :value="value"
            style="display:none">
-    <svg class="secondary-checkbox__icon" width="12" height="9">
+    <svg class="primary-checkbox__icon" width="12" height="9">
       <use xlink:href="@/assets/sprites.svg#checkbox-galka"></use>
     </svg>
   </label>

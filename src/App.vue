@@ -7,25 +7,21 @@
   </router-view>
   <Footer class="footer "/>
   <transition name="modals-transition">
-    <ModalWrapper class="modal__wrapper" v-if="CURRENT_MODAL">
-      <component class="modal__content" :is="CURRENT_MODAL"/>
+    <ModalWrapper class="modal__wrapper" v-if="CURRENT_MODAL" @close="closeAnyModal">
+      <component @close="closeAnyModal" class="modal__content" :is="CURRENT_MODAL"/>
     </ModalWrapper>
   </transition>
 </template>
 <script setup>
 import Navigation from '@/components/Navigation.vue'
 import Footer from '@/components/Footer.vue';
-import Filters from '@/components/Filters.vue';
 import ModalWrapper from '@/components/Modals/Wrapper.vue';
 import {useModalsStore} from "@/stores/modals.js";
-import {useRoute} from "vue-router";
-import {computed, ref, watch, defineAsyncComponent, shallowRef} from "vue";
+import {computed, watch, defineAsyncComponent, shallowRef} from "vue";
 import {uppercaseFirstSymbol} from "@/logics/files.js";
+import {closeAnyModal} from '@/logics/modals.js'
 
 const $MODALS_STORE = useModalsStore();
-const filters_component = ref(null);
-const route = useRoute();
-const is_filters_showed = computed(() => route.meta?.filters)
 const CURRENT_MODAL_NAME = computed(() => $MODALS_STORE.current_modal_object?.name || null);
 const CURRENT_MODAL = shallowRef(null);
 watch(CURRENT_MODAL_NAME, (value) => {

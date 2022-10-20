@@ -262,6 +262,7 @@ import SecondaryButton from "@/components/Buttons/Secondary.vue";
 
     td {
       padding: 11px 22px;
+      vertical-align: middle;
       @media screen and (max-width: $maxwidth) {
         padding: 10px;
       }

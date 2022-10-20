@@ -27,6 +27,7 @@
     <!--      </template>-->
     <!--      <template #button-text>Отправить</template>-->
     <!--    </Form>-->
+    <button @click="openModal('directions')">Directions modal</button>
   </main>
 </template>
 <script setup>
@@ -35,9 +36,9 @@
 // import Filters from '@/components/Filters.vue';
 // import BlogScreen from '@/components/Screens/Blog.vue';
 // import WorkersSlider from '@/components/Screens/WorkersSlider.vue';
-import Form from '@/components/Form.vue';
-import SecondaryCheckbox from "@/components/Checkbox/Secondary.vue";
-
+// import Form from '@/components/Form.vue';
+// import SecondaryCheckbox from "@/components/Checkbox/Secondary.vue";
+import {openModal} from "@/logics/modals.js";
 
 const formSubmit = () => console.log("Form submit function");
 </script>
