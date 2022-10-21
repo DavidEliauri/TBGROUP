@@ -66,6 +66,9 @@ defineProps({
     align-items: stretch;
   }
   max-width: 820px;
+  @media screen and (max-width: $notebook){
+    max-width: 100%;
+  }
   &__title {
     @media screen and (max-width: $notebook) {
       @include form_italic_header_32px_mixin;
