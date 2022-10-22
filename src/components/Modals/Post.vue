@@ -1,6 +1,6 @@
 <template>
   <div class="post-modal modal__content wrapper-maxwidth">
-    <CloseButton @click="$emit('close')" class="post-modal__close-button"/>
+    <CloseButton @click="$emit('close')" class="post-modal__close-button" :class="post_type=='theme'?'green':'white'"/>
     <header class="post-modal__header" :class="{'post-modal__header_large':post_type!=='theme'}">
       <img src="@/assets/images/TwoDogs.png"
            alt="Post modal image" class="post-modal__header__image">
@@ -115,6 +115,7 @@ const post_type = 'event';
     position: absolute;
     top: 40px;
     right: 100px;
+    z-index: 10;
     @media screen and (max-width: $notebook_start) {
       top: auto-calculate($notebook_start, $tablet, 40px, 20px);
       right: auto-calculate($notebook_start, $tablet, 100px, 60px);
@@ -130,7 +131,6 @@ const post_type = 'event';
     position: relative;
     width: 100%;
     max-width: 100%;
-    background-color: red;
     display: flex;
     justify-content: center;
     align-items: center;
