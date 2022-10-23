@@ -26,15 +26,13 @@ const props = defineProps({
 .card {
   width: 462px;
   padding: 32px 24px;
-
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
   grid-gap: 10px;
   border-radius: 2px;
-  background-color: rgba($IVORY, .80);
+  background-color: $IVORY;
 
   &_with-image {
     padding: 24px;

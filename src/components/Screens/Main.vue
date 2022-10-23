@@ -1,11 +1,11 @@
 <template>
-  <main class="screen main-screen ">
+  <main class="screen main-screen">
     <div class="main-screen__logo">
       <div class="main-screen__row">
         <h1 class="heading_1 main-screen__training-text">
           TRAINING
         </h1>
-        <svg class="cross" width="140" height="139">
+        <svg class="main-screen__cross" width="140" height="139">
           <use xlink:href="@/assets/sprites.svg#cross"></use>
         </svg>
       </div>
@@ -19,7 +19,7 @@
         </p>
       </div>
     </div>
-    <!--    <OverlaySections class="overlay-sections"/>-->
+    <OverlaySections class="overlay-sections"/>
   </main>
 </template>
 <script setup>
@@ -30,8 +30,8 @@ import {onMounted} from "vue";
 
 gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
-  gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.3})
-  gsap.to('.cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
+  gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.2})
+  gsap.to('.main-screen__cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
   gsap.to('.main-screen__additional-text', {
     delay: 1.4,
     transform: 'translateX(0)',
@@ -42,19 +42,15 @@ onMounted(() => {
 });
 </script>
 <style lang="scss">
-.cross {
-  margin-left: 40px;
-  opacity: 0;
-  transform: translateY(50%);
-  @media screen and (max-width: $notebook_start) {
-    width: calc(100vw * (140 / 1440));
-    height: calc(100vw * (140 / 1440));
-    margin-left: calc(100vw * (40 / 1440));
-  }
-}
 
 .main-screen {
   width: 100%;
+  height: calc(100vh - 95px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
   &__logo {
     display: flex;
@@ -63,11 +59,22 @@ onMounted(() => {
     align-items: flex-start;
   }
 
+  &__cross {
+    margin-left: 40px;
+    opacity: 0;
+    transform: translateY(50%);
+    @media screen and (max-width: $notebook_start) {
+      width: calc(100vw * (140 / 1440));
+      height: calc(100vw * (140 / 1440));
+      margin-left: calc(100vw * (40 / 1440));
+    }
+  }
+
 
   h1 {
     color: $GREEN;
     opacity: 0;
-
+    transform: translateY(40px);
     @media screen and (max-width: $notebook_start) {
       font-size: calc(100vw * (210 / 1440));
     }
@@ -103,16 +110,15 @@ onMounted(() => {
     @media screen and (max-width: $notebook) {
       font-size: 10px;
       line-height: 110%;
-
     }
   }
-
-
 }
 
 .overlay-sections {
-  left: 50%;
-  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, .8);
+  top: 0;
+  left: 0;
+  position: absolute;
 }
 
 </style>

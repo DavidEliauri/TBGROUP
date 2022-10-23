@@ -16,6 +16,7 @@ body {
   overflow-y: auto;
   overflow-y: overlay;
   min-width: 320px;
+  min-height: 100vh;
 }
 
 #app {
@@ -26,6 +27,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   overflow-y: overlay;
+  min-height: 100vh;
 }
 
 .page {
@@ -33,7 +35,10 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(0, 0, 0, .1);
+  overflow-y: auto;
+  overflow-y: overlay;
+  height:100%;
+  flex-grow: 1;
 }
 
 .uppercase {
