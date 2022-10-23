@@ -1,10 +1,10 @@
 <template>
   <main class="page home-page wrapper-padding">
         <MainScreen class="screen"/>
-    <!--        <TrainingsScreen class="trainings-screen screen"/>-->
+<!--            <TrainingsScreen class="trainings-screen screen"/>-->
     <!--    <Filters class="Filters wrapper-maxwidth"/>-->
     <!--    <BlogScreen class="screen blog-screen"/>-->
-    <!--        <WorkersSlider class="workers-slider screen"/>-->
+<!--            <WorkersSlider class="workers-slider screen"/>-->
     <!--    <Form @submit="formSubmit">-->
     <!--      <template #title>-->
     <!--        <h3 class="form__title">Напишите нам, если вам нужна консультация</h3>-->

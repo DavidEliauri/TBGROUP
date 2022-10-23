@@ -1,23 +1,23 @@
 <template>
   <main class="screen main-screen ">
     <div class="main-screen__logo">
-      <!--      <div class="main-screen__row">-->
-      <!--        <h1 class="heading_1">-->
-      <!--          TRAINING-->
-      <!--        </h1>-->
-      <!--        <svg class="cross" width="140" height="139">-->
-      <!--          <use xlink:href="@/assets/sprites.svg#cross"></use>-->
-      <!--        </svg>-->
-      <!--      </div>-->
-      <h1 class="heading_1 main-screen__row main-screen__development-row">DEVELOPMENT</h1>
-      <!--      <div class="main-screen__row">-->
-      <!--        <h1 class="heading_1 main-screen__row">GROUP</h1>-->
-      <!--        <p class="main-screen__additional-text body_1">Корпоративные <br>-->
-      <!--          образовательные-->
-      <!--          <br>-->
-      <!--          программы-->
-      <!--        </p>-->
-      <!--      </div>-->
+      <div class="main-screen__row">
+        <h1 class="heading_1 main-screen__training-text">
+          TRAINING
+        </h1>
+        <svg class="cross" width="140" height="139">
+          <use xlink:href="@/assets/sprites.svg#cross"></use>
+        </svg>
+      </div>
+      <h1 class="heading_1 main-screen__row main-screen__development-text">DEVELOPMENT</h1>
+      <div class="main-screen__row">
+        <h1 class="heading_1 main-screen__row main-screen__group-text">GROUP</h1>
+        <p class="main-screen__additional-text body_1">Корпоративные <br>
+          образовательные
+          <br>
+          программы
+        </p>
+      </div>
     </div>
     <!--    <OverlaySections class="overlay-sections"/>-->
   </main>
@@ -45,11 +45,17 @@ onMounted(() => {
 .cross {
   margin-left: 40px;
   opacity: 0;
-  transform: translateY(-70px);
+  transform: translateY(50%);
+  @media screen and (max-width: $notebook_start) {
+    width: calc(100vw * (140 / 1440));
+    height: calc(100vw * (140 / 1440));
+    margin-left: calc(100vw * (40 / 1440));
+  }
 }
 
 .main-screen {
-  width:100%;
+  width: 100%;
+
   &__logo {
     display: flex;
     flex-direction: column;
@@ -57,11 +63,14 @@ onMounted(() => {
     align-items: flex-start;
   }
 
+
   h1 {
-    letter-spacing: -7px;
     color: $GREEN;
     opacity: 0;
-    transform: translateY(50px);
+
+    @media screen and (max-width: $notebook_start) {
+      font-size: calc(100vw * (210 / 1440));
+    }
   }
 
   &__row {
@@ -70,6 +79,7 @@ onMounted(() => {
     justify-content: flex-start;
     align-items: center;
   }
+
 
   &__card {
     position: fixed;
@@ -84,19 +94,20 @@ onMounted(() => {
     color: $GREEN;
     margin-top: 21.5px;
     align-self: baseline;
-  }
-
-  &__development-row {
-    @media screen and (max-width: $notebook_start - 5px) {
-      font-size: calc((100vw - auto-calculate($notebook_start, $notebook, 100px, 50px)) / (1340/ 224));
+    line-height: 135%;
+    @media screen and (max-width: $notebook_start) {
+      font-size: calc(100vw * (13 / 1440));
+      margin-left: calc(100vw * (30 / 1440));
+      margin-top: calc(100vw * (21.5 / 1440));
     }
     @media screen and (max-width: $notebook) {
-      font-size: calc((100vw - auto-calculate($notebook, $tablet, 50px, 20px)) / (1340 / 224));
-    }
-    @media screen and (max-width: $tablet) {
-      font-size: calc((100vw - 20px) / (1240 / 224));
+      font-size: 10px;
+      line-height: 110%;
+
     }
   }
+
+
 }
 
 .overlay-sections {
