@@ -1,7 +1,7 @@
 <template>
   <main class="page home-page wrapper-padding">
+        <MainScreen class="screen"/>
     <!--        <TrainingsScreen class="trainings-screen screen"/>-->
-    <!--    <MainScreen class="screen"/>-->
     <!--    <Filters class="Filters wrapper-maxwidth"/>-->
     <!--    <BlogScreen class="screen blog-screen"/>-->
     <!--        <WorkersSlider class="workers-slider screen"/>-->
@@ -27,12 +27,12 @@
     <!--      </template>-->
     <!--      <template #button-text>Отправить</template>-->
     <!--    </Form>-->
-    <button @click="openModal('directions')">Directions modal</button>
-    <button @click="openModal('post')">Post modal</button>
+<!--    <button @click="openModal('directions')">Directions modal</button>-->
+    <!--    <button @click="openModal('post')">Post modal</button>-->
   </main>
 </template>
 <script setup>
-// import MainScreen from '@/components/Screens/Main.vue';
+import MainScreen from '@/components/Screens/Main.vue';
 // import TrainingsScreen from '@/components/Screens/Trainings.vue';
 // import Filters from '@/components/Filters.vue';
 // import BlogScreen from '@/components/Screens/Blog.vue';
@@ -40,9 +40,7 @@
 // import Form from '@/components/Form.vue';
 // import SecondaryCheckbox from "@/components/Checkbox/Secondary.vue";
 import {openModal} from "@/logics/modals.js";
-import {onMounted} from "vue";
 
-onMounted(() => openModal('post'))
 const formSubmit = () => console.log("Form submit function");
 </script>
 
