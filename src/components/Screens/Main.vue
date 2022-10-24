@@ -19,7 +19,7 @@
         </p>
       </div>
     </div>
-    <OverlaySections class="overlay-sections"/>
+<!--    <OverlaySections class="overlay-sections"/>-->
   </main>
 </template>
 <script setup>
@@ -31,7 +31,7 @@ import {onMounted} from "vue";
 gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
   gsap.to('h1', {delay: 0.3, transform: 'translateY(0px)', duration: 2, opacity: 1, ease: 'power3', stagger: 0.2})
-  gsap.to('.main-screen__cross', {delay: 0.3, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
+  gsap.to('.main-screen__cross', {delay: 0.5, transform: 'translateY(0px)', duration: 4, opacity: 1, ease: 'power4'})
   gsap.to('.main-screen__additional-text', {
     delay: 1.4,
     transform: 'translateX(0)',
@@ -62,7 +62,7 @@ onMounted(() => {
   &__cross {
     margin-left: 40px;
     opacity: 0;
-    transform: translateY(50%);
+    transform: translateY(-40px);
     @media screen and (max-width: $notebook_start) {
       width: calc(100vw * (140 / 1440));
       height: calc(100vw * (140 / 1440));
@@ -117,7 +117,8 @@ onMounted(() => {
 .overlay-sections {
   background-color: rgba(0, 0, 0, .8);
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   position: absolute;
 }
 

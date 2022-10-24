@@ -55,10 +55,9 @@ const cards = [
 
 <style lang="scss">
 .swiper {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   z-index: 1;
-  max-width: 1440px;
 }
 
 .section {
