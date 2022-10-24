@@ -129,10 +129,6 @@ const closeSlide = (index) => {
   color: $IVORY;
   background-color: $GREEN;
 
-  * {
-    //border: 1px solid black;
-  }
-
   &__row {
     display: flex;
     justify-content: space-between;
