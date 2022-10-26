@@ -61,18 +61,25 @@ const resizeHandler = () => {
 
 <style lang="scss">
 .workers-screen {
-  //background-color: red;
+
   &__wrapper {
     overflow: hidden;
-    background-color: rgba(red, .3);
     width: 100vw;
     padding-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    padding-left: 100px;
+    @media screen and (max-width: $notebook_start) {
+      padding-left: auto-calculate($notebook_start, $notebook, 100px, 50px)
+    }
+    @media screen and (max-width: $notebook) {
+      padding-left: auto-calculate($notebook, $tablet, 50px, 20px);
+    }
+    @media screen and (max-width: $tablet) {
+      padding-left: 20px;
+    }
   }
 
-  padding-left: 100px;
+margin: 0 auto;
   max-width: 1440px;
 
   * {
@@ -80,8 +87,8 @@ const resizeHandler = () => {
   }
 
   &__slider {
-    background-color: rgba(blue, .3);
     height: 521px;
+    background-color: rgba(0,0,0,.1);
     padding-right: calc(100% - 402px);
     overflow: visible;
     @media screen and (max-width: $notebook) {

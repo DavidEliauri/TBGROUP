@@ -18,9 +18,19 @@ TYPED_POST.value = defineAsyncComponent(() => import(`./${uppercaseFirstSymbol(p
 
 <style lang="scss">
 .post {
-  width:100%;
+  width: 100%;
   padding: 20px;
   border-radius: 2px;
+
+  @media screen and (max-width: $notebook_start) {
+    padding: auto-calculate($notebook_start, $notebook, 20px, 10px);
+  }
+  @media screen and (max-width: $notebook) {
+    padding: auto-calculate($notebook_start, $phone_start, 10px, 5px);
+  }
+  @media screen and (max-width: $tablet) {
+    padding: 15px;
+  }
 
   &__wrapper {
     text-decoration: none;

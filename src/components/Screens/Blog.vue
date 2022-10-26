@@ -77,16 +77,34 @@ const posts = [
     grid-gap: auto-calculate($notebook_start, $notebook, 20px, 10px);
   }
   @media screen and (max-width: $notebook) {
-    grid-gap: 10px;
+    grid-gap: auto-calculate($notebook_start, $notebook, 10px, 5px);
   }
 }
+
 
 .blog-screen {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
-  background-color: rgba($IVORY, .95);
+  background-color: rgba($BLACK, .3);
   max-width: 100%;
+  width: 100%;
+
+  padding: 0 100px;
+  @media screen and (max-width: $notebook_start) {
+    padding: 0 auto-calculate($notebook_start, $notebook, 100px, 50px)
+  }
+  @media screen and (max-width: $notebook) {
+    padding: 0 auto-calculate($notebook, $tablet, 50px, 20px);
+  }
+  @media screen and (max-width: $tablet) {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    grid-gap: 10px;
+  }
   @extend .blog-screen-gap;
 
   &__column {
@@ -96,12 +114,15 @@ const posts = [
     width: 100%;
     max-width: 400px;
     @extend .blog-screen-gap;
-
+    @media screen and (max-width: $tablet_start) {
+      max-width: 100%;
+    }
     flex-shrink: 0;
     flex-grow: 0;
-    &__item{
+
+    &__item {
       flex-grow: 0;
-      max-width:100%;
+      max-width: 100%;
     }
   }
 }
