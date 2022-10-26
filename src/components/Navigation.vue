@@ -131,7 +131,6 @@ const closeButtonAnimation = () => {
   align-items: flex-end;
   height: 100%;
   width: 100%;
-  background-color: rgba(black, .5);
   @media screen and (max-width: $tablet_end) {
     justify-content: flex-start;
   }

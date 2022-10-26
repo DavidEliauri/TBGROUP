@@ -1,31 +1,29 @@
 <template>
-  <div class="screen workers-screen wrapper-padding wrapper-maxwidth">
-    <div class="buttons" style="display:flex;">
-      <button @click="update" class="update-button">Update</button>
-      <button @click="updateSize" class="update-button">Update Size</button>
-      <button @click="updateSlides" class="update-button">Update Slides</button>
+  <div class="workers-screen__wrapper">
+    <div class="screen workers-screen">
+      <swiper
+          slidesPerView="1"
+          @swiper="swiperInitHandler"
+          @slideChange="slideChangeHandler"
+          :mousewheel="true"
+          :modules="[Mousewheel]"
+          :breakpoints="SWIPER_BREAKPOINTS"
+          class="workers-screen__slider"
+          :allow-touch-move="true"
+          v-if="show_swiper"
+      >
+        <swiper-slide v-for="(worker_item, worker_index) in 10" :key="`worker-item-${worker_index}`"
+                      class="workers-screen__slider__item">
+          <h3 class="workers-screen__slider__item__title" :class="active_index===worker_index?'heading_4':'heading_5'">
+            Workers Slider</h3>
+        </swiper-slide>
+      </swiper>
     </div>
-    <swiper
-        slidesPerView="1"
-        :speed="1000"
-        @swiper="swiperInitHandler"
-        @slideChange="slideChangeHandler"
-        :mousewheel="true"
-        :modules="[Mousewheel]"
-        :breakpoints="SWIPER_BREAKPOINTS"
-        class="workers-screen__slider"
-        v-if="show_swiper"
-    >
-      <!--   820, 402 -->
-      <swiper-slide v-for="(worker_item, worker_index) in 10" :key="`worker-item-${worker_index}`"
-                    class="workers-screen__slider__item">
-        <h3 class="workers-screen__slider__item__title" :class="active_index===worker_index?'heading_4':'heading_5'">
-          Руслан
-          Габисов</h3>
-      </swiper-slide>
-    </swiper>
   </div>
 </template>
+
+<!--   820, 402 -->
+
 <script setup>
 import {Swiper, SwiperSlide} from "swiper/vue";
 import {Mousewheel} from 'swiper'
@@ -44,16 +42,8 @@ const active_index = ref(0);
 const swiperInitHandler = swiper => SWIPER_INSTANCE.value = swiper
 const slideChangeHandler = swiper => active_index.value = swiper.activeIndex;
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
-/////////////////////////////////
 let resize_handler_timer = null;
 let show_swiper = ref(true);
 onMounted(() => window.addEventListener('resize', resizeHandler, {passive: true}));
@@ -70,17 +60,30 @@ const resizeHandler = () => {
 </script>
 
 <style lang="scss">
-.reinit-button {
-  margin: 50px 0;
-}
-
 .workers-screen {
+  //background-color: red;
+  &__wrapper {
+    overflow: hidden;
+    background-color: rgba(red, .3);
+    width: 100vw;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  padding-left: 100px;
+  max-width: 1440px;
+
+  * {
+    transition: .3s !important;
+  }
 
   &__slider {
+    background-color: rgba(blue, .3);
     height: 521px;
     padding-right: calc(100% - 402px);
     overflow: visible;
-    background-color: rgba($RED, .1);
     @media screen and (max-width: $notebook) {
       padding-right: calc(100% - 350px);
     }
@@ -92,7 +95,6 @@ const resizeHandler = () => {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgba($BLACK, .1);
       padding: 0 20px;
       height: 100%;
       border-right: 2px solid $GREEN;
@@ -121,9 +123,6 @@ const resizeHandler = () => {
         }
       }
 
-      @media screen and (max-width: $tablet_start) {
-        background-color: red;
-      }
 
       &:first-of-type {
         padding-left: 0;

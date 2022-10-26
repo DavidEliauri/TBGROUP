@@ -1,6 +1,6 @@
 <template>
-  <main class="screen main-screen">
-    <div class="main-screen__logo">
+  <div class="screen main-screen">
+    <div :style='{height: logo_height+"px", top: navigation_height+"px"}' class="main-screen__logo">
       <div class="main-screen__row">
         <h1 class="heading_1 main-screen__training-text">
           TRAINING
@@ -13,20 +13,31 @@
       <div class="main-screen__row">
         <h1 class="heading_1 main-screen__row main-screen__group-text">GROUP</h1>
         <p class="main-screen__additional-text body_1">Корпоративные <br>
-          образовательные
+          образовательные {{ logo_height }}
           <br>
           программы
         </p>
       </div>
     </div>
-<!--    <OverlaySections class="overlay-sections"/>-->
-  </main>
+    <OverlaySections class="main-screen__overlay-sections"/>
+  </div>
 </template>
 <script setup>
 import OverlaySections from '@/components/OverlaySections.vue';
 import {gsap} from 'gsap';
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
+
+const calculateLogoHeight = () => window.innerHeight - document.querySelector('.navigation__wrapper').getBoundingClientRect().height
+const calculateNavigationHeight = () => document.querySelector('.navigation__wrapper').getBoundingClientRect().height;
+const logo_height = ref(calculateLogoHeight());
+const navigation_height = ref(calculateNavigationHeight());
+
+
+window.addEventListener('resize', () => {
+  logo_height.value = calculateLogoHeight();
+  navigation_height.value = calculateNavigationHeight();
+})
 
 gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
@@ -45,18 +56,21 @@ onMounted(() => {
 
 .main-screen {
   width: 100%;
-  height: calc(100vh - 95px);
+  position: relative;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
 
   &__logo {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
+    position: sticky;
+    top: 0;
+    left: 0;
   }
 
   &__cross {
@@ -69,7 +83,6 @@ onMounted(() => {
       margin-left: calc(100vw * (40 / 1440));
     }
   }
-
 
   h1 {
     color: $GREEN;
@@ -86,7 +99,6 @@ onMounted(() => {
     justify-content: flex-start;
     align-items: center;
   }
-
 
   &__card {
     position: fixed;
@@ -112,14 +124,14 @@ onMounted(() => {
       line-height: 110%;
     }
   }
+
+  &__overlay-sections {
+    position: relative;
+    width: 100%;
+    margin-bottom: 100vh;
+    z-index: 2;
+  }
 }
 
-.overlay-sections {
-  background-color: rgba(0, 0, 0, .8);
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-}
 
 </style>

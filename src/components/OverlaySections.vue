@@ -1,31 +1,13 @@
 <template>
-  <swiper
-      :direction="'vertical'"
-      :slidesPerView="1"
-      :speed="1600"
-      :mousewheel="true"
-      :modules="[Mousewheel]"
-      class="mySwiper"
-  >
-    <swiper-slide class="section"></swiper-slide>
-    <swiper-slide class="section">
-      <Card class="card" :key="`card-${0}`" :card="cards[0]"/>
-    </swiper-slide>
-    <swiper-slide class="section">
-      <Card class="card" :key="`card-${1}`" :card="cards[1]"/>
-      <Card class="card" :key="`card-${2}`" :card="cards[2]"/>
-    </swiper-slide>
-    <swiper-slide class="section">
-      <Card class="card" :key="`card-${3}`" :card="cards[3]"/>
-    </swiper-slide>
-  </swiper>
+  <div class="overlay-sections">
+    <Card class="overlay-sections__card" :key="`card-${0}`" :card="cards[0]"/>
+    <Card class="overlay-sections__card" :key="`card-${1}`" :card="cards[1]"/>
+    <Card class="overlay-sections__card" :key="`card-${2}`" :card="cards[2]"/>
+    <Card class="overlay-sections__card" :key="`card-${3}`" :card="cards[3]"/>
+  </div>
 </template>
 <script setup>
 import Card from '@/components/Card.vue';
-import {Swiper, SwiperSlide} from "swiper/vue";
-import {Mousewheel} from 'swiper'
-import "swiper/css";
-import "swiper/css/pagination";
 
 const cards = [
   {
@@ -35,15 +17,15 @@ const cards = [
   },
   {
     image: null,
-    text: 'Коучинг как стиль управления',
-    caption: 'Мероприятие',
-    color: 'green'
-  },
-  {
-    image: null,
     text: 'Как использовать источники для генерации новых решений?',
     caption: 'Бизнес-завтрак',
     color: 'black'
+  },
+  {
+    image: null,
+    text: 'Коучинг как стиль управления',
+    caption: 'Мероприятие',
+    color: 'green'
   },
   {
     image: true,
@@ -54,46 +36,37 @@ const cards = [
 </script>
 
 <style lang="scss">
-.swiper {
-  width: 100vw;
-  height: 100%;
-  z-index: 1;
-}
-
-.section {
+.overlay-sections {
+  height: 195vh;
   width: 100%;
-  height: 100vh;
-  flex-grow: 0;
-  flex-shrink: 0;
-  position: relative;
 
-  &:nth-child(2) {
-    .card {
-      position: absolute;
-      left: 297px;
-      top: 543px;
-    }
-  }
+  &__card {
+    position: absolute;
 
-  &:nth-child(3) {
-    .card:nth-child(1) {
-      position: absolute;
-      left: 56px;
-      top: 490px;
+    &:nth-of-type(1) {
+      top: 0;
+      left: 5%;
     }
 
-    .card:nth-child(2) {
-      position: absolute;
-      right: 100px;
-      top: 208px;
+    &:nth-of-type(2) {
+      top: calc(80vh);
+      right: 0;
     }
-  }
 
-  &:nth-child(4) {
-    .card {
-      position: absolute;
-      right: 233px;
-      top: 468px;
+    &:nth-of-type(3) {
+      top: calc(105vh);
+      left: 0;
+    }
+
+    &:nth-of-type(4) {
+      top: calc(171vh);
+      right: 133px;
+    }
+
+    @media screen and (max-width: $tablet_end) {
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
     }
   }
 }

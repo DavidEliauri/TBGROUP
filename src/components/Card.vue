@@ -33,6 +33,14 @@ const props = defineProps({
   grid-gap: 10px;
   border-radius: 2px;
   background-color: $IVORY;
+  max-width: 80%;
+
+  @media screen and (max-width: $notebook_start) {
+    padding: auto-calculate($notebook_start, $notebook, 32px, 16px) auto-calculate($notebook_start, $notebook, 24px, 12px);
+  }
+  @media screen and (max-width: $notebook) {
+    padding: 16px 12px;
+  }
 
   &_with-image {
     padding: 24px;
@@ -41,7 +49,6 @@ const props = defineProps({
   &_green, &_black {
     color: $IVORY;
   }
-
 
   &_green {
     background-color: $GREEN;
@@ -68,8 +75,6 @@ const props = defineProps({
     height: 100%;
     max-width: 100%;
     overflow: hidden;
-
-
   }
 
   &__image {
@@ -92,7 +97,12 @@ const props = defineProps({
 
     &__text {
       margin: 32px 0 12px;
-
+      @media screen and (max-width: $notebook_start) {
+        margin: auto-calculate($notebook_start, $notebook, 32px, 16px) 0 12px;
+      }
+      @media screen and (max-width: $notebook) {
+        margin: 16px 0 10px;
+      }
       flex-grow: 1;
       text-align: center;
       word-break: break-word;
